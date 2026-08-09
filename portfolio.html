@@ -1,0 +1,2110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Sneha Enterprises — Selected Works</title>
+    <meta name="description" content="Explore selected works, luxury branding, print design, web development, and digital marketing portfolios by Sneha Enterprises. 25+ years of creative excellence.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --gold: #d4af37;
+            --gold-light: #e5c158;
+            --gold-glow: rgba(212,175,55,0.45);
+            --gold-subtle: rgba(212,175,55,0.12);
+            --bg: #0d0900;
+            --bg-alt: #140d02;
+            --surface: rgba(212, 175, 55, 0.04);
+            --surface-hover: rgba(212, 175, 55, 0.09);
+            --border: rgba(212, 175, 55, 0.18);
+            --border-hover: rgba(229, 193, 88, 0.5);
+            --text: #f5eedc;
+            --text-muted: rgba(245, 238, 220, 0.65);
+        }
+
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Outfit', 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ── FIXED HEADER / NAVBAR ── */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 50px;
+            background: linear-gradient(to bottom, rgba(13,9,0,0.95) 0%, rgba(13,9,0,0.7) 70%, rgba(0,0,0,0) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: padding 0.3s ease, background 0.3s ease;
+        }
+        header.scrolled {
+            padding: 14px 50px;
+            background: rgba(13, 9, 0, 0.96);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .header-logo img {
+            height: 42px;
+            width: auto;
+            border-radius: 4px;
+            filter: drop-shadow(0 0 10px rgba(212,175,55,0.4));
+        }
+        .brand-text {
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            padding-left: 20px;
+        }
+        .hc-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .hc-item:hover { color: var(--gold-light); }
+        .hc-item svg { width: 14px; height: 14px; stroke: var(--gold); fill: none; }
+        .hc-divider { color: rgba(255, 255, 255, 0.3); }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            color: var(--gold-light);
+        }
+        .nav-links li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            box-shadow: 0 0 10px var(--gold);
+        }
+
+        /* AI Badge Nav Link */
+        .nav-ai-link {
+            color: #e5c158 !important;
+            font-weight: 600 !important;
+            letter-spacing: 2px !important;
+            padding: 5px 14px !important;
+            border: 1px solid rgba(229, 193, 88, 0.6);
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(229,193,88,0.12), rgba(180,120,40,0.08));
+            box-shadow: 0 0 15px rgba(229, 193, 88, 0.3);
+            transition: all 0.35s ease !important;
+            animation: navAiPulse 2.5s ease-in-out infinite;
+        }
+        .nav-ai-link:hover {
+            color: #fff !important;
+            background: linear-gradient(135deg, rgba(229,193,88,0.35), rgba(180,120,40,0.25)) !important;
+            box-shadow: 0 0 28px rgba(229, 193, 88, 0.7) !important;
+            transform: scale(1.06);
+        }
+        @keyframes navAiPulse {
+            0%, 100% { box-shadow: 0 0 12px rgba(229,193,88,0.3); }
+            50% { box-shadow: 0 0 26px rgba(229,193,88,0.7), 0 0 50px rgba(229,193,88,0.15); }
+        }
+
+        /* FLOATING SOCIAL BAR */
+        .floating-social {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .social-btn {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 48px;
+            padding-right: 14px;
+            padding-left: 14px;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            text-decoration: none;
+            overflow: hidden;
+            transition: padding-left 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        box-shadow 0.4s ease;
+        }
+
+        /* Platform-specific brand gradients */
+        .social-btn.facebook, .social-btn.fb {
+            background: linear-gradient(135deg, #1877f2, #0a58ca);
+            box-shadow: -4px 0 25px rgba(24, 119, 242, 0.35);
+        }
+        .social-btn.instagram, .social-btn.ig {
+            background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
+            box-shadow: -4px 0 25px rgba(221, 42, 123, 0.4);
+        }
+
+        /* Pulsing glow ring on each button */
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: inherit;
+            background: inherit;
+            opacity: 0.3;
+            filter: blur(10px);
+            animation: socialPulse 2.5s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes socialPulse {
+            0%   { opacity: 0.25; transform: scale(1);   }
+            100% { opacity: 0.6;  transform: scale(1.15); }
+        }
+
+        .social-btn .social-icon {
+            width: 22px;
+            height: 22px;
+            fill: #fff;
+            flex-shrink: 0;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Hidden label that slides out on hover */
+        .social-btn .social-label {
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            max-width: 0;
+            overflow: hidden;
+            opacity: 0;
+            margin-left: 0;
+            transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        opacity 0.3s ease,
+                        margin-left 0.4s ease;
+        }
+
+        .social-btn:hover .social-label {
+            max-width: 100px;
+            opacity: 1;
+            margin-left: 10px;
+        }
+
+        .social-btn:hover .social-icon {
+            transform: scale(1.1);
+        }
+
+        .social-btn:hover {
+            padding-left: 18px;
+        }
+
+        /* ── HERO SECTION WITH 3D GEOMETRIC GOLD CANVAS ── */
+        .portfolio-hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 160px 50px 80px;
+            background: radial-gradient(circle at 50% 35%, rgba(212,175,55,0.22) 0%, rgba(20,13,2,0.95) 60%, rgba(13,9,0,1) 90%);
+            overflow: hidden;
+        }
+        #liquid-gold-canvas {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .hero-glow-spotlight {
+            position: absolute;
+            width: 750px; height: 750px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(229,193,88,0.18) 0%, rgba(212,175,55,0.05) 45%, rgba(0,0,0,0) 75%);
+            filter: blur(90px);
+            animation: spotlightPulse 8s ease-in-out infinite alternate;
+            z-index: 1;
+            pointer-events: none;
+        }
+        @keyframes spotlightPulse {
+            0% { transform: scale(0.9) translate(-5%, -5%); opacity: 0.7; }
+            100% { transform: scale(1.2) translate(5%, 5%); opacity: 1; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1100px;
+            text-align: center;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 26px;
+            border-radius: 30px;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(229, 193, 88, 0.5);
+            color: var(--gold-light);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 0 30px rgba(212,175,55,0.25);
+            animation: badgeShimmer 4s ease-in-out infinite;
+        }
+        .hero-badge .badge-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--gold-light);
+            box-shadow: 0 0 10px var(--gold-light);
+            animation: dotPulse 1.5s ease-in-out infinite;
+        }
+        @keyframes dotPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.7); }
+        }
+        @keyframes badgeShimmer {
+            0%, 100% { border-color: rgba(212,175,55,0.3); box-shadow: 0 0 15px rgba(212,175,55,0.15); }
+            50% { border-color: rgba(229,193,88,0.9); box-shadow: 0 0 40px rgba(229,193,88,0.5); }
+        }
+
+        .hero-title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: clamp(3.2rem, 6.5vw, 5.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #e5c158 50%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-style: italic;
+        }
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 850px;
+            margin: 0 auto 45px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* Glass Metrics Row */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1000px;
+            margin: 50px auto 0;
+            padding-top: 10px;
+        }
+        .stat-item {
+            text-align: center;
+            background: rgba(212, 175, 55, 0.04);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 22px 15px;
+            backdrop-filter: blur(8px);
+            transition: all 0.4s ease;
+        }
+        .stat-item:hover {
+            background: rgba(212, 175, 55, 0.09);
+            border-color: var(--border-hover);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(212,175,55,0.2);
+        }
+        .stat-num {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            line-height: 1;
+            margin-bottom: 6px;
+            text-shadow: 0 0 20px rgba(212,175,55,0.3);
+        }
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* ── FILTER & SEARCH BAR ── */
+        .filter-section {
+            position: sticky;
+            top: 75px;
+            z-index: 100;
+            padding: 22px 50px;
+            background: rgba(13, 9, 0, 0.94);
+            backdrop-filter: blur(15px);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+        .filter-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .filter-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: rgba(212, 175, 55, 0.04);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: #0d0900;
+            border-color: var(--gold-light);
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(212,175,55,0.4);
+            transform: translateY(-2px);
+        }
+
+        .search-box {
+            position: relative;
+            min-width: 280px;
+        }
+        .search-box input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            padding: 10px 20px 10px 42px;
+            color: #fff;
+            font-size: 0.88rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .search-box input:focus {
+            border-color: var(--gold-light);
+            box-shadow: 0 0 15px rgba(212,175,55,0.3);
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .search-box svg {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            stroke: var(--gold);
+            fill: none;
+        }
+
+        /* ── PORTFOLIO GRID SECTION ── */
+        .portfolio-section {
+            padding: 80px 50px 120px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-tag {
+            color: var(--gold-light);
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .section-title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 3rem;
+            font-weight: 600;
+        }
+
+        /* ── UNIFORM PORTFOLIO GRID ── */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        @media (max-width: 1100px) {
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .hero-stats { grid-template-columns: 1fr; }
+        }
+
+        /* Portfolio Card — Uniform Frame Size for All Cards */
+        .portfolio-card {
+            position: relative;
+            background: #120b02;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                        border-color 0.4s ease,
+                        box-shadow 0.4s ease,
+                        opacity 0.4s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .portfolio-card.hidden {
+            display: none !important;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        .portfolio-card:hover {
+            border-color: var(--gold-light);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.85), 0 0 35px rgba(212,175,55,0.3);
+            transform: translateY(-8px);
+        }
+
+        /* Crisp Uniform Image Wrapper — 280px Fixed Height for All Project Frames */
+        .card-img-container {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            background: #000;
+            flex-shrink: 0;
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+            filter: brightness(0.96) contrast(1.02);
+        }
+        .card-img-container img[src$=".png"] {
+            object-fit: contain;
+            padding: 32px;
+            background: linear-gradient(145deg, #120d04 0%, #060400 100%);
+        }
+        .portfolio-card:hover .card-img-container img {
+            transform: scale(1.06);
+            filter: brightness(1.02);
+        }
+
+        /* Sleek Uniform Bottom Details Panel */
+        .card-details-panel {
+            padding: 22px 24px;
+            background: linear-gradient(180deg, rgba(18,11,2,0.95) 0%, rgba(13,9,0,0.98) 100%);
+            border-top: 1px solid rgba(212,175,55,0.18);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .card-header-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .card-proj-title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.25;
+            transition: color 0.3s;
+        }
+        .portfolio-card:hover .card-proj-title {
+            color: var(--gold-light);
+        }
+        .card-client-badge {
+            font-size: 0.78rem;
+            color: var(--gold-light);
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            background: rgba(212,175,55,0.1);
+            padding: 4px 12px;
+            border-radius: 12px;
+            white-space: nowrap;
+            border: 1px solid rgba(212,175,55,0.25);
+            flex-shrink: 0;
+        }
+
+        /* Work Done Specific Pills (No generic Brand Development / Print Design dark masks) */
+        .work-done-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 4px;
+        }
+        .work-done-pill {
+            font-size: 0.76rem;
+            color: rgba(245,238,220,0.85);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(212,175,55,0.18);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+        .work-done-pill::before {
+            content: '✦';
+            font-size: 0.65rem;
+            color: var(--gold-light);
+        }
+        .portfolio-card:hover .work-done-pill {
+            background: rgba(212,175,55,0.12);
+            border-color: rgba(229,193,88,0.4);
+            color: #fff;
+        }
+
+        .card-action-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            margin-top: 4px;
+        }
+        .view-case-btn {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.3s ease, color 0.3s;
+        }
+        .portfolio-card:hover .view-case-btn {
+            gap: 12px;
+            color: #fff;
+        }
+
+        /* ── 25 YEARS EXPERIENCE SHOWCASE SECTION ── */
+        .experience-section {
+            position: relative;
+            padding: 110px 50px;
+            background: radial-gradient(circle at 50% 50%, #1c1303 0%, #0d0900 100%);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+        }
+        #exp-gold-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .exp-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .exp-left {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .exp-badge-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: baseline;
+        }
+        .exp-badge-huge {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 9.5rem;
+            font-weight: 900;
+            line-height: 0.85;
+            background: linear-gradient(135deg, #ffd700 0%, #f5eedc 30%, #d4af37 60%, #ffffff 80%, #99751e 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 30px rgba(212,175,55,0.4));
+            animation: goldGleam 4s ease infinite;
+        }
+        .exp-badge-plus {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--gold-light);
+            margin-left: 5px;
+            text-shadow: 0 0 25px rgba(229,193,88,0.6);
+            animation: pulsePlus 2s ease-in-out infinite alternate;
+        }
+        .exp-badge-ring {
+            position: absolute;
+            top: -20px;
+            left: -30px;
+            width: 260px;
+            height: 260px;
+            border: 2px dashed rgba(212, 175, 55, 0.35);
+            border-radius: 50%;
+            animation: spinRing 16s linear infinite;
+            pointer-events: none;
+        }
+        .exp-badge-sub {
+            font-size: 1.55rem;
+            font-weight: 700;
+            letter-spacing: 3.5px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+        .exp-badge-sub::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #e5c158, transparent);
+            border-radius: 2px;
+        }
+
+        @keyframes goldGleam {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes pulsePlus {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.15); opacity: 1; text-shadow: 0 0 35px rgba(255,235,170,0.9); }
+        }
+        @keyframes spinRing {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .exp-right p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        .exp-features {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .exp-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(229, 193, 88, 0.04);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 18px 22px;
+            border-radius: 14px;
+            font-weight: 500;
+            font-size: 0.98rem;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, background 0.3s, box-shadow 0.3s;
+        }
+        .exp-feature-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(229, 193, 88, 0.6);
+            background: rgba(229, 193, 88, 0.09);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
+        }
+        .exp-feature-item svg {
+            width: 22px; height: 22px;
+            stroke: var(--gold-light);
+            fill: none;
+            flex-shrink: 0;
+        }
+
+        /* ── LIGHTBOX MODAL DETAIL VIEWER ── */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(13, 9, 0, 0.94);
+            backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-container {
+            background: #140e03;
+            border: 1px solid var(--border-hover);
+            border-radius: 20px;
+            max-width: 1050px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 40px rgba(212,175,55,0.25);
+            position: relative;
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .modal-overlay.active .modal-container {
+            transform: scale(1) translateY(0);
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+        .modal-close:hover {
+            background: var(--gold);
+            color: #0d0900;
+            transform: rotate(90deg);
+        }
+        .modal-body {
+            padding: 45px;
+        }
+        .modal-header {
+            margin-bottom: 25px;
+        }
+        .modal-title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            margin-bottom: 12px;
+        }
+        .modal-meta {
+            display: flex;
+            gap: 25px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px solid var(--border);
+            padding: 15px 20px;
+            border-radius: 12px;
+        }
+        .modal-meta span { display: flex; align-items: center; gap: 6px; }
+        .modal-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+        .modal-gallery img {
+            width: 100%;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+        
+        /* Similar Projects inside Modal */
+        .modal-similar-section {
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+        .similar-heading {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.8rem;
+            color: var(--gold-light);
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        .similar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .similar-card {
+            background: rgba(212, 175, 55, 0.04);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.35s ease;
+        }
+        .similar-card:hover {
+            border-color: var(--gold-light);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+        }
+        .similar-card-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+        .similar-card-body {
+            padding: 15px;
+        }
+        .similar-card-title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.15rem;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        .similar-card-cat {
+            font-size: 0.75rem;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ── CTA SECTION ── */
+        .cta-section {
+            padding: 100px 50px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(212,175,55,0.08) 0%, rgba(13,9,0,0.95) 100%);
+            border-top: 1px solid var(--border);
+        }
+        .cta-title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+        }
+        .cta-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 35px;
+        }
+        .cta-btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: #0d0900;
+            padding: 14px 38px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            box-shadow: 0 8px 25px rgba(212,175,55,0.4);
+            transition: all 0.35s ease;
+        }
+        .btn-gold:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 35px rgba(229,193,88,0.7);
+        }
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 1px solid var(--gold-light);
+            padding: 14px 38px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.35s ease;
+        }
+        .btn-outline:hover {
+            background: rgba(212,175,55,0.15);
+            border-color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* ── FOOTER ── */
+        /* FOOTER — matches Home page exactly */
+        .footer-sec {
+            position: relative; z-index: 100;
+            background: linear-gradient(180deg, #0b0703 0%, #181006 50%, #070402 100%);
+            border-top: 1px solid rgba(212,175,55,0.3);
+            padding: 48px 0 25px 0; color: #ffffff;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+        }
+        .footer-sec .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+        .footer-sec .row { display: grid; grid-template-columns: 2.2fr 1.5fr 1.5fr; gap: 40px; align-items: start; }
+        .footer-sec .logo { max-width: 110px; height: auto; margin-bottom: 16px; display: block; border-radius: 4px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5)); }
+        .footer-sec p { font-size: 0.86rem; line-height: 1.65; color: rgba(255,225,185,0.7); font-weight: 300; margin: 0; }
+        .footer-sec .quick-links_heading, .footer-sec .footer_address h3 { font-family: 'Bodoni Moda', serif; font-size: 1.2rem; font-weight: 600; font-style: italic; color: #d4af37; margin-top: 0; margin-bottom: 14px; letter-spacing: 0.5px; }
+        .footer-sec ul.quick-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+        .footer-sec ul.quick-links li a { color: rgba(255,225,185,0.75); text-decoration: none; font-size: 0.86rem; font-weight: 300; letter-spacing: 0.4px; position: relative; padding-bottom: 2px; transition: color 0.25s ease; display: inline-block; }
+        .footer-sec ul.quick-links li a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: #d4af37; transition: width 0.25s ease; }
+        .footer-sec ul.quick-links li a:hover { color: #d4af37; }
+        .footer-sec ul.quick-links li a:hover::after { width: 100%; }
+        .footer-sec .footer_address p { margin-bottom: 10px; }
+        .footer-sec .footer_address b { color: #d4af37; font-weight: 600; }
+        .footer-sec .footer_address a { color: rgba(255,225,185,0.8); text-decoration: none; transition: color 0.25s ease; }
+        .footer-sec .footer_address a:hover { color: #d4af37; }
+        .footer-sec .copyright-bar { border-top: 1px solid rgba(212,175,55,0.15); margin-top: 30px; padding-top: 16px; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: rgba(255,225,185,0.45); letter-spacing: 0.4px; }
+
+        /* RESPONSIVE & MOBILE PHONE OPTIMIZATION */
+        /* Mobile Navigation Toggle Button & Full Overlay */
+        .mobile-menu-btn {
+            display: none;
+            background: rgba(229, 193, 88, 0.15);
+            border: 1px solid #d4af37;
+            border-radius: 8px;
+            padding: 8px 14px;
+            cursor: pointer;
+            z-index: 10001;
+            color: #d4af37;
+            font-size: 1.3rem;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        @media (max-width: 992px) {
+            .mobile-menu-btn { display: flex; }
+            .nav-links {
+                position: fixed;
+                inset: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(13, 9, 0, 0.98);
+                backdrop-filter: blur(25px);
+                -webkit-backdrop-filter: blur(25px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                padding: 40px 20px;
+                opacity: 0;
+                pointer-events: none;
+                transform: translateY(-15px);
+                transition: opacity 0.35s ease, transform 0.35s ease;
+                z-index: 10000;
+                overflow-y: auto;
+            }
+            .nav-links.active {
+                opacity: 1;
+                pointer-events: auto;
+                transform: translateY(0);
+            }
+            .nav-links li a {
+                font-size: 1.25rem !important;
+                letter-spacing: 2px !important;
+                font-weight: 500 !important;
+            }
+            header { padding: 15px 25px; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .exp-container { grid-template-columns: 1fr; gap: 40px; }
+            .footer-sec .row { grid-template-columns: 1fr; gap: 25px; }
+            .footer-sec .container { padding: 0 20px; }
+            .footer-sec .copyright-bar { flex-direction: column; gap: 8px; text-align: center; }
+        }
+
+        @media (max-width: 768px) {
+            html, body { overflow-x: hidden !important; width: 100%; }
+            .header-contact { display: none; }
+            .portfolio-hero { padding: 75px 16px 24px; min-height: 420px; }
+            .hero-badge { font-size: 0.72rem; padding: 4px 12px; margin-bottom: 14px; }
+            .hero-title { font-size: 2.1rem; letter-spacing: -0.5px; margin-bottom: 12px; }
+            .hero-subtitle { font-size: 0.9rem; line-height: 1.5; margin-bottom: 20px; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 20px; }
+            .stat-item { padding: 10px 8px; border-radius: 10px; }
+            .stat-num { font-size: 1.6rem; }
+            .stat-label { font-size: 0.68rem; letter-spacing: 0.5px; }
+
+            .filter-section { margin-top: -15px; padding: 0 14px 30px; }
+            .filter-container {
+                display: flex;
+                justify-content: flex-start;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 10px;
+                gap: 8px;
+            }
+            .filter-btn {
+                white-space: nowrap;
+                flex-shrink: 0;
+                padding: 8px 14px;
+                font-size: 0.8rem;
+                min-height: 40px;
+                display: inline-flex;
+                align-items: center;
+            }
+            .search-box { width: 100%; max-width: 100%; }
+            .search-box input { font-size: 0.88rem; padding: 10px 16px 10px 38px; }
+
+            .portfolio-grid { padding: 0 12px; gap: 18px; }
+            .portfolio-card { transform: none !important; }
+            .card-img-container { height: 210px; }
+            .card-details-panel { padding: 14px 16px; }
+
+            .experience-section { padding: 50px 16px; }
+            .exp-left { align-items: center; text-align: center; }
+            .exp-badge-huge { font-size: 5.5rem; }
+            .exp-badge-plus { font-size: 3rem; }
+            .exp-badge-ring { width: 170px; height: 170px; top: -10px; left: -10px; }
+            .exp-badge-sub { font-size: 1.05rem; letter-spacing: 2px; text-align: center; }
+            .exp-right p { font-size: 0.95rem; text-align: center; }
+            .exp-features { grid-template-columns: 1fr; gap: 10px; }
+
+            .cta-section { padding: 50px 16px; }
+            .cta-title { font-size: 1.85rem; }
+            .cta-subtitle { font-size: 0.92rem; }
+            .btn-gold, .btn-outline { width: 100%; text-align: center; padding: 12px 20px; }
+
+            .modal-container { width: 94vw; max-height: 90vh; padding: 18px 14px; }
+            .modal-title { font-size: 1.4rem; }
+            .modal-close { top: 10px; right: 10px; width: 34px; height: 34px; font-size: 1.3rem; }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio-hero { padding-top: 70px; }
+            .hero-title { font-size: 1.8rem; }
+            .hero-subtitle { font-size: 0.85rem; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+            .stat-num { font-size: 1.4rem; }
+            .stat-label { font-size: 0.62rem; }
+            .exp-badge-huge { font-size: 4.8rem; }
+            .exp-badge-plus { font-size: 2.5rem; }
+        }
+
+        /* LANDSCAPE PHONE ORIENTATION (Tilted Down) */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .portfolio-hero { padding: 60px 16px 20px; min-height: 320px; }
+            .hero-title { font-size: 1.7rem; margin-bottom: 6px; }
+            .hero-subtitle { font-size: 0.8rem; margin-bottom: 10px; }
+            .hero-stats { grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 10px; }
+            .stat-item { padding: 6px 4px; }
+            .stat-num { font-size: 1.2rem; }
+            .stat-label { font-size: 0.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation Bar -->
+    <header id="main-header">
+        <div class="header-left">
+            <a href="index.html" class="header-logo">
+                <img src="assets/images/Logo.png" alt="Sneha Enterprises Logo">
+                <span class="brand-text">Sneha Enterprises</span>
+            </a>
+            <div class="header-contact">
+                <a href="tel:9930304621" class="hc-item">
+                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <span>993030 4621</span>
+                </a>
+                <span class="hc-divider">|</span>
+                <a href="mailto:info@snehaenterprises.in" class="hc-item">
+                    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <span>info@snehaenterprises.in</span>
+                </a>
+            </div>
+        </div>
+        <button class="mobile-menu-btn" id="mobileToggle" aria-label="Toggle Menu">&#9776;</button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="portfolio.html" class="active">Portfolio</a></li>
+            <li><a href="ai.html" class="nav-ai-link">✦ AI</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </header>
+
+    <!-- Floating Social Bar -->
+    <div class="floating-social">
+        <a href="https://www.facebook.com/share/15iHXZYsWQ/" target="_blank" rel="noopener" aria-label="Facebook" class="social-btn facebook">
+            <svg class="social-icon" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <span class="social-label">Facebook</span>
+        </a>
+        <a href="https://www.instagram.com/sneha_enterprises.in?utm_source=qr&igsh=cDJpZ2YwMnFkM3A4" target="_blank" rel="noopener" aria-label="Instagram" class="social-btn instagram">
+            <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <span class="social-label">Instagram</span>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="portfolio-hero">
+        <canvas id="liquid-gold-canvas"></canvas>
+        <div class="hero-glow-spotlight"></div>
+        <div class="hero-content">
+            <div class="hero-badge"><span class="badge-dot"></span> 25 Years of Creative Excellence • Portfolio</div>
+            <h1 class="hero-title">Transforming Vision Into<br><span class="gold-gradient">Iconic Legacies</span></h1>
+            <p class="hero-subtitle">A curated archive of 25 years of luxury branding, architectural literature, high-impact digital experiences, and bespoke advertising creations.</p>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-num">25+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">100+</div>
+                    <div class="stat-label">Satisfied Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">500+</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">100%</div>
+                    <div class="stat-label">Custom Strategy</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky Filter & Search Bar -->
+    <div class="filter-section">
+        <div class="filter-container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">All Projects</button>
+                <button class="filter-btn" data-category="real-estate">Real Estate &amp; Living</button>
+                <button class="filter-btn" data-category="luxury">Luxury &amp; Fine Jewelry</button>
+                <button class="filter-btn" data-category="corporate">Corporate &amp; Pharma</button>
+                <button class="filter-btn" data-category="print-digital">Print &amp; Campaigns</button>
+            </div>
+            <div class="search-box">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="project-search" placeholder="Search projects, clients or work done...">
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Portfolio Grid (Optimized Bento Layout) -->
+    <section class="portfolio-section">
+        <div class="section-header">
+            <span class="section-tag">Featured Works</span>
+            <h2 class="section-title">Accelerating Technology &amp; Creativity Together</h2>
+        </div>
+
+        <div class="portfolio-grid" id="portfolio-grid">
+            <!-- Project Cards generated dynamically by JavaScript -->
+        </div>
+    </section>
+
+    <!-- 25 Years Experience Section -->
+    <section class="experience-section" id="exp-section">
+        <canvas id="exp-gold-canvas"></canvas>
+        <div class="exp-container">
+            <div class="exp-left">
+                <div class="exp-badge-wrapper">
+                    <div class="exp-badge-ring"></div>
+                    <div class="exp-badge-huge" id="exp-counter">25</div>
+                    <div class="exp-badge-plus">+</div>
+                </div>
+                <div class="exp-badge-sub">Years of Creative Mastery</div>
+            </div>
+            <div class="exp-right">
+                <p>The 25-year-old advertising firm <strong>Sneha Enterprises</strong> offers 360-degree solutions. We are not restricted to any particular vertical. Like a new era of marketing solutions, we function as a mainline agency and also offer totally digital &amp; AI solutions.</p>
+                <div class="exp-features">
+                    <div class="exp-feature-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>Highest Success Rates</span>
+                    </div>
+                    <div class="exp-feature-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>100+ Satisfied Clients</span>
+                    </div>
+                    <div class="exp-feature-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>A to Z Creative Solutions</span>
+                    </div>
+                    <div class="exp-feature-item">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>End-to-End Execution</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call To Action -->
+    <section class="cta-section">
+        <h2 class="cta-title">Ready To Boost Your Brand?</h2>
+        <p class="cta-subtitle">Let's craft extraordinary experiences and technological innovations together.</p>
+        <div class="cta-btn-group">
+            <a href="contact.html" class="btn-gold">Start A Project &rarr;</a>
+            <a href="ai.html" class="btn-outline">Explore AI Solutions</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- FOOTER (matches Home page exactly) -->
+    <section class="footer-sec mt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <a href="index.html" title="Sneha Enterprises" rel="home">
+                        <img src="assets/images/Logo.png" alt="Sneha Enterprises Logo" class="logo img-fluid">
+                    </a>
+                    <p>We are a creative advertising firm with branding<br>
+                    at its core, and our capabilities include web,<br>
+                    video production, social, digital marketing,<br>
+                    interface design, performance marketing, and<br>
+                    immersive experiences.</p>
+                </div>
+
+                <div class="col-md-4">
+                    <h2 class="quick-links_heading">Quick Links</h2>
+                    <ul class="quick-links">
+                        <li class="line-hover"><a href="index.html">Home</a></li>
+                        <li class="line-hover"><a href="about.html">About Us</a></li>
+                        <li class="line-hover"><a href="portfolio.html">Portfolio</a></li>
+                        <li class="line-hover"><a href="ai.html">✦ AI</a></li>
+                        <li class="line-hover"><a href="services.html">Services</a></li>
+                        <li class="line-hover"><a href="contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 footer_address">
+                    <h3>Sneha Enterprises</h3>
+                    <p>203, Aparna, T. P. S. III,<br>
+                    Near. Veer Savarkar Garden,<br>
+                    Borivali (W), Mumbai-92</p>
+                    <p><b>T:</b> 99303 04621 / 99303 04622<br>
+                    <b>E:</b> <a href="mailto:info@snehaenterprises.in">info@snehaenterprises.in</a></p>
+                </div>
+            </div>
+
+            <div class="copyright-bar">
+                <span>&copy; 2026 Sneha Enterprises. All Rights Reserved.</span>
+                <span>Your Ideas, Our Expertise &mdash; Together We Shine.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Lightbox Modal -->
+    <div class="modal-overlay" id="project-modal">
+        <div class="modal-container">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modal-title">Project Title</h2>
+                    <div class="modal-meta">
+                        <span id="modal-client"><strong>Client:</strong> Client Name</span>
+                        <span id="modal-category"><strong>Category:</strong> Category</span>
+                    </div>
+                </div>
+                <div class="modal-gallery" id="modal-gallery">
+                    <!-- Dynamic local images -->
+                </div>
+                
+                <!-- Similar Projects Section at Bottom of Opened Project -->
+                <div class="modal-similar-section">
+                    <h3 class="similar-heading">Similar Projects</h3>
+                    <div class="similar-grid" id="modal-similar-grid">
+                        <!-- Dynamic Similar Project Cards -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── COMPLETE PROJECT DATASET & INTERACTION ENGINE ── -->
+    <script>
+        // Header Scroll effect
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+
+        // ── 3D GOLDEN SOLAR SYSTEM ORBITS & PLANETARY MATRIX HERO CANVAS ──
+        (function() {
+            const canvas = document.getElementById('liquid-gold-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let W, H;
+            let time = 0;
+            let rotX = 0.4, rotY = 0; // Tilt plane in 3D perspective
+            let targetRotX = 0.4, targetRotY = 0;
+            const clickSparks = [];
+
+            let planets = [];
+
+            // Define 8 Real Solar System Planets from Mercury to Neptune
+            function initPlanets() {
+                const isMobileView = W < 768;
+                const maxR = isMobileView ? Math.min(W * 0.42, H * 0.38, 660) : Math.min(W * 0.45, 660);
+                const scaleFactor = isMobileView ? 0.75 : 1.0;
+                planets = [
+                    { name: 'Mercury', r: maxR * 0.14, speed: 0.026, size: 5 * scaleFactor, color: '#f5eecc', glow: '#f5eecc', angle: 0, hasMoon: false },
+                    { name: 'Venus',   r: maxR * 0.25, speed: 0.020, size: 8 * scaleFactor, color: '#ffe89c', glow: '#e5c158', angle: 1.1, hasMoon: false },
+                    { name: 'Earth',   r: maxR * 0.36, speed: 0.015, size: 9 * scaleFactor, color: '#ffffff', glow: '#e5c158', angle: 2.3, hasMoon: true, moonDist: isMobileView ? 12 : 16, moonSpeed: 0.06 },
+                    { name: 'Mars',    r: maxR * 0.48, speed: 0.012, size: 7 * scaleFactor, color: '#ffb366', glow: '#ffb366', angle: 3.7, hasMoon: false },
+                    { name: 'Jupiter', r: maxR * 0.61, speed: 0.008, size: 14 * scaleFactor, color: '#ffd700', glow: '#ffd700', angle: 4.8, hasMoon: true, moonDist: isMobileView ? 16 : 24, moonSpeed: 0.05 },
+                    { name: 'Saturn',  r: maxR * 0.74, speed: 0.006, size: 12 * scaleFactor, color: '#e5c158', glow: '#e5c158', angle: 0.5, hasMoon: true, moonDist: isMobileView ? 14 : 20, moonSpeed: 0.07, ring: true },
+                    { name: 'Uranus',  r: maxR * 0.87, speed: 0.004, size: 10 * scaleFactor, color: '#d4f5f5', glow: '#d4f5f5', angle: 2.1, hasMoon: false, ring: true },
+                    { name: 'Neptune', r: maxR * 1.00, speed: 0.0028, size: 10 * scaleFactor, color: '#a6dbff', glow: '#a6dbff', angle: 5.2, hasMoon: false }
+                ];
+            }
+
+            function resize() {
+                W = canvas.width = canvas.offsetWidth || window.innerWidth;
+                H = canvas.height = canvas.offsetHeight || 600;
+                initPlanets();
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            const heroSec = document.querySelector('.portfolio-hero');
+            if (heroSec) {
+                const updateTilt = (clientX, clientY) => {
+                    const rect = canvas.getBoundingClientRect();
+                    const mx = clientX - rect.left;
+                    const my = clientY - rect.top;
+                    targetRotY = (mx - W / 2) * 0.0015;
+                    targetRotX = 0.4 - (my - H / 2) * 0.0015;
+                };
+
+                heroSec.addEventListener('mousemove', (e) => updateTilt(e.clientX, e.clientY));
+                heroSec.addEventListener('touchmove', (e) => {
+                    if (e.touches && e.touches[0]) {
+                        updateTilt(e.touches[0].clientX, e.touches[0].clientY);
+                    }
+                }, { passive: true });
+
+                heroSec.addEventListener('mouseleave', () => {
+                    targetRotX = 0.4;
+                    targetRotY = 0;
+                });
+                heroSec.addEventListener('touchend', () => {
+                    targetRotX = 0.4;
+                    targetRotY = 0;
+                });
+
+                heroSec.addEventListener('click', (e) => {
+                    const rect = canvas.getBoundingClientRect();
+                    const cx = e.clientX - rect.left;
+                    const cy = e.clientY - rect.top;
+                    for (let s = 0; s < 25; s++) {
+                        const angle = Math.random() * Math.PI * 2;
+                        const speed = Math.random() * 8 + 2;
+                        clickSparks.push({
+                            x: cx, y: cy,
+                            vx: Math.cos(angle) * speed,
+                            vy: Math.sin(angle) * speed,
+                            alpha: 1.0, r: Math.random() * 3.5 + 1
+                        });
+                    }
+                });
+            }
+
+            // Floating Deep Space Stars (Optimized for Mobile Performance)
+            const isMobile = window.innerWidth < 768;
+            const starCount = isMobile ? 45 : 120;
+            const stars = [];
+            for (let s = 0; s < starCount; s++) {
+                stars.push({
+                    x: (Math.random() - 0.5) * 1600,
+                    y: (Math.random() - 0.5) * 900,
+                    z: (Math.random() - 0.5) * 600,
+                    size: Math.random() * 2 + 0.6,
+                    alpha: Math.random() * 0.7 + 0.3
+                });
+            }
+
+            function project(x, y, z, rX, rY) {
+                const cosX = Math.cos(rX), sinX = Math.sin(rX);
+                const cosY = Math.cos(rY), sinY = Math.sin(rY);
+
+                const x1 = x * cosY - z * sinY;
+                const z1 = z * cosY + x * sinY;
+                const y2 = y * cosX - z1 * sinX;
+                const z2 = z1 * cosX + y * sinX;
+
+                const focal = 450;
+                const scale = focal / (focal + z2 + 350);
+                return {
+                    sx: W / 2 + x1 * scale,
+                    sy: H / 2 + y2 * scale,
+                    z: z2,
+                    scale: scale
+                };
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, W, H);
+                time += 0.015;
+
+                rotX += (targetRotX - rotX) * 0.05;
+                rotY += (targetRotY - rotY) * 0.05;
+
+                const cx = W / 2;
+                const cy = H / 2;
+
+                // 1. Soft Ambient Golden Solar Core (Gentle & Subdued)
+                const sunGrad = ctx.createRadialGradient(cx, cy, 5, cx, cy, 450);
+                sunGrad.addColorStop(0, 'rgba(212, 175, 55, 0.18)');
+                sunGrad.addColorStop(0.3, 'rgba(180, 140, 30, 0.08)');
+                sunGrad.addColorStop(1, 'transparent');
+                ctx.fillStyle = sunGrad;
+                ctx.fillRect(0, 0, W, H);
+
+                // Subdued Subtle Sun Sphere
+                ctx.beginPath();
+                ctx.arc(cx, cy, 14, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(229, 193, 88, 0.75)';
+                ctx.shadowBlur = 12;
+                ctx.shadowColor = '#e5c158';
+                ctx.fill();
+                ctx.shadowBlur = 0;
+
+                // 2. Click Sparks
+                for (let k = clickSparks.length - 1; k >= 0; k--) {
+                    const spark = clickSparks[k];
+                    spark.x += spark.vx;
+                    spark.y += spark.vy;
+                    spark.vx *= 0.94;
+                    spark.vy *= 0.94;
+                    spark.alpha -= 0.022;
+                    if (spark.alpha <= 0) {
+                        clickSparks.splice(k, 1);
+                        continue;
+                    }
+                    ctx.beginPath();
+                    ctx.arc(spark.x, spark.y, spark.r, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(255, 240, 180, ' + spark.alpha + ')';
+                    ctx.shadowBlur = 12;
+                    ctx.shadowColor = '#e5c158';
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                }
+
+                // 3. Render Deep Space Background Stars
+                stars.forEach(st => {
+                    const p = project(st.x, st.y, st.z, rotX * 0.3, rotY * 0.3);
+                    if (p.scale <= 0) return;
+
+                    ctx.beginPath();
+                    ctx.arc(p.sx, p.sy, st.size * p.scale, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(255, 245, 200, ' + st.alpha * p.scale + ')';
+                    ctx.fill();
+                });
+
+                // 4. Render Solar System Concentric Orbital Rings & Planets
+                planets.forEach(pData => {
+                    pData.angle += pData.speed;
+
+                    // Draw 3D Elliptical Orbit Ring
+                    ctx.beginPath();
+                    const steps = 60;
+                    let avgOrbitZ = 0;
+                    for (let i = 0; i <= steps; i++) {
+                        const theta = (Math.PI * 2 / steps) * i;
+                        const ox = Math.cos(theta) * pData.r;
+                        const oz = Math.sin(theta) * pData.r;
+                        const proj = project(ox, 0, oz, rotX, rotY);
+                        avgOrbitZ += proj.z;
+                        if (i === 0) ctx.moveTo(proj.sx, proj.sy);
+                        else ctx.lineTo(proj.sx, proj.sy);
+                    }
+                    avgOrbitZ /= steps;
+
+                    const ringAlpha = Math.max(0.12, Math.min(0.55, (avgOrbitZ + 400) / 800));
+                    ctx.strokeStyle = 'rgba(229, 193, 88, ' + ringAlpha + ')';
+                    ctx.lineWidth = 1.2;
+                    ctx.setLineDash([8, 8]);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+
+                    // Calculate 3D Planet Position
+                    const px = Math.cos(pData.angle) * pData.r;
+                    const pz = Math.sin(pData.angle) * pData.r;
+                    const planetProj = project(px, 0, pz, rotX, rotY);
+
+                    // Render Saturn-like Ring for planet 3
+                    if (pData.ring) {
+                        ctx.beginPath();
+                        ctx.ellipse(planetProj.sx, planetProj.sy, planetProj.scale * (pData.size * 2.2), planetProj.scale * (pData.size * 0.7), Math.PI / 6, 0, Math.PI * 2);
+                        ctx.strokeStyle = 'rgba(255, 235, 170, ' + (ringAlpha * 1.5) + ')';
+                        ctx.lineWidth = 2 * planetProj.scale;
+                        ctx.stroke();
+                    }
+
+                    // Render Planet Sphere
+                    ctx.beginPath();
+                    ctx.arc(planetProj.sx, planetProj.sy, pData.size * planetProj.scale, 0, Math.PI * 2);
+                    ctx.fillStyle = pData.color;
+                    ctx.shadowBlur = 15 * planetProj.scale;
+                    ctx.shadowColor = pData.glow;
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+
+                    // Render Orbiting Moon if present
+                    if (pData.hasMoon) {
+                        const moonAngle = time * 3 + pData.angle * 2;
+                        const mx = px + Math.cos(moonAngle) * pData.moonDist;
+                        const mz = pz + Math.sin(moonAngle) * pData.moonDist;
+                        const moonProj = project(mx, 0, mz, rotX, rotY);
+
+                        ctx.beginPath();
+                        ctx.arc(moonProj.sx, moonProj.sy, 2.5 * moonProj.scale, 0, Math.PI * 2);
+                        ctx.fillStyle = '#ffffff';
+                        ctx.shadowBlur = 8;
+                        ctx.shadowColor = '#ffffff';
+                        ctx.fill();
+                        ctx.shadowBlur = 0;
+                    }
+                });
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+        // ── COMPLETE 14 PROJECTS DATASET WITH SPECIFIC WORK DONE ──
+        const projectsData = {
+            "acufine-life-sciences": {
+                slug: "acufine-life-sciences",
+                title: "Acufine Lifesciences",
+                client: "Acufine Life Sciences",
+                filterCategories: ["corporate", "print-digital"],
+                layoutClass: "bento-wide",
+                workDone: ["Pharma Visual Identity", "3D Packaging Design", "Corporate Brochure", "Exhibition Stall Display"],
+                thumbnail: "assets/images/portfolio/Acufine-Logo-1.jpg",
+                gallery: [
+                    "assets/images/portfolio/Acufine-Logo-2.jpg",
+                    "assets/images/portfolio/Accufine.jpg",
+                    "assets/images/portfolio/brochure.jpg",
+                    "assets/images/portfolio/web.jpg",
+                    "assets/images/portfolio/Stall.jpg"
+                ],
+                similar: ["unicorn", "kings-diamond-jewellry", "wockhardt"]
+            },
+            "ambaram-live-the-high-life": {
+                slug: "ambaram-live-the-high-life",
+                title: "Ambaram – Live the High Life",
+                client: "Shree Varad Homes",
+                filterCategories: ["real-estate", "print-digital"],
+                layoutClass: "bento-tall",
+                workDone: ["Luxury High-Rise Campaign", "Real Estate Brochure", "On-Site Branding", "Digital Launch Experience"],
+                thumbnail: "assets/images/portfolio/Amabram_feature_image-1.jpg",
+                gallery: [
+                    "assets/images/portfolio/Ambaram-Banner-1.jpg",
+                    "assets/images/portfolio/Ambaram_1.jpg",
+                    "assets/images/portfolio/Ambaram_2.jpg",
+                    "assets/images/portfolio/Ambaram_3.jpg"
+                ],
+                similar: ["friends", "prem-nagar-legacy", "seasons-jawhara"]
+            },
+            "arihant-group": {
+                slug: "arihant-group",
+                title: "Arihant Group",
+                client: "Arihant Group",
+                filterCategories: ["corporate", "real-estate"],
+                layoutClass: "bento-standard",
+                workDone: ["Corporate Brand Literature", "Print Strategy", "Property Catalog"],
+                thumbnail: "assets/images/portfolio/Arihant_feature.jpg",
+                gallery: [
+                    "assets/images/portfolio/Arihant_banner.jpg",
+                    "assets/images/portfolio/Arihant-Group.jpg"
+                ],
+                similar: ["unicorn", "dovoy", "ambaram-live-the-high-life"]
+            },
+            "cox-kings": {
+                slug: "cox-kings",
+                title: "Cox & Kings",
+                client: "Cox & Kings",
+                filterCategories: ["print-digital", "luxury"],
+                layoutClass: "bento-standard",
+                workDone: ["Global Travel Literature", "Print Campaign", "Promotional Media"],
+                thumbnail: "assets/images/portfolio/CoXkings_image.jpg",
+                gallery: [
+                    "assets/images/portfolio/Cox_kings_banner.jpg",
+                    "assets/images/portfolio/CoX_kings.jpg",
+                    "assets/images/portfolio/CoX_kings_2.jpg"
+                ],
+                similar: ["dovoy", "alpine_primo", "shreeji"]
+            },
+            "kings-diamond-jewellry": {
+                slug: "kings-diamond-jewellry",
+                title: "KINGS Diamond & Jewellry",
+                client: "KINGS Diamond & Jewellry",
+                filterCategories: ["luxury", "print-digital"],
+                layoutClass: "bento-wide",
+                workDone: ["High-End Diamond Branding", "Luxury Print Catalog", "Social Media Campaigns"],
+                thumbnail: "assets/images/portfolio/Kings_Feature_image.jpg",
+                gallery: [
+                    "assets/images/portfolio/Kingsbanner.jpg",
+                    "assets/images/portfolio/Kings.jpg"
+                ],
+                similar: ["arihant-group", "cox-kings", "dovoy"]
+            },
+            "unicorn": {
+                slug: "unicorn",
+                title: "Unicorn",
+                client: "Avighna Industries LLP",
+                filterCategories: ["corporate", "print-digital"],
+                layoutClass: "bento-standard",
+                workDone: ["Industrial Brand Identity", "Product Catalog", "Corporate Stationery"],
+                thumbnail: "assets/images/portfolio/logo.jpg",
+                gallery: [
+                    "assets/images/portfolio/logo.jpg",
+                    "assets/images/portfolio/unicorn-1.jpg",
+                    "assets/images/portfolio/unicorn-2.jpg",
+                    "assets/images/portfolio/unicorn-4.jpg"
+                ],
+                similar: ["kings-diamond-jewellry", "friends", "arihant-group"]
+            },
+            "alpine_primo": {
+                slug: "alpine_primo",
+                title: "ALPINE PRIMO",
+                client: "ALPINE PRIMO",
+                filterCategories: ["real-estate", "print-digital"],
+                layoutClass: "bento-standard",
+                workDone: ["3D Render Showcase", "Architectural Brochure", "Social Media Creatives"],
+                thumbnail: "assets/images/portfolio/Home_1.jpg",
+                gallery: [
+                    "assets/images/portfolio/LOGO2.jpg",
+                    "assets/images/portfolio/3.jpg",
+                    "assets/images/portfolio/Almimo.jpg",
+                    "assets/images/portfolio/ALPINE-PRIMO_2.jpg"
+                ],
+                similar: ["wockhardt", "shreeji", "cox-kings"]
+            },
+            "star-rays": {
+                slug: "star-rays",
+                title: "Star Rays",
+                client: "Star Rays",
+                filterCategories: ["luxury", "corporate"],
+                layoutClass: "bento-standard",
+                workDone: ["Diamond Brand Identity", "Exhibition Display Design", "Luxury Print Collateral"],
+                thumbnail: "assets/images/portfolio/star_rays_user_cover.png",
+                gallery: [
+                    "assets/images/portfolio/Star_rays_banner.jpg",
+                    "assets/images/portfolio/Star_ray_img1-scaled.jpg",
+                    "assets/images/portfolio/Star_ray_img2.jpg"
+                ],
+                similar: ["dovoy", "acufine-life-sciences", "friends"]
+            },
+            "friends": {
+                slug: "friends",
+                title: "Friends Business Bay",
+                client: "Friends the Realtors",
+                filterCategories: ["real-estate", "corporate"],
+                layoutClass: "bento-tall",
+                workDone: ["Commercial Site Signage", "Sales Brochure", "Outdoor Advertising & Social Ads"],
+                thumbnail: "assets/images/portfolio/Home_2.jpg",
+                gallery: [
+                    "assets/images/portfolio/Logo-2.jpg",
+                    "assets/images/portfolio/Brochure.jpg",
+                    "assets/images/portfolio/social.jpg",
+                    "assets/images/portfolio/ad.jpg",
+                    "assets/images/portfolio/site-branding.jpg",
+                    "assets/images/portfolio/signage.jpg"
+                ],
+                similar: ["cox-kings", "alpine_primo", "arihant-group"]
+            },
+            "prem-nagar-legacy": {
+                slug: "prem-nagar-legacy",
+                title: "Prem Nagar Legacy",
+                client: "Chedda Group",
+                filterCategories: ["real-estate", "print-digital"],
+                layoutClass: "bento-wide",
+                workDone: ["Heritage Builder Profile", "Luxury Sales Brochure", "Print Campaign"],
+                thumbnail: "assets/images/portfolio/chedda_group_user_cover.png",
+                gallery: [
+                    "assets/images/portfolio/Prem-nagar_-banner-1.jpg",
+                    "assets/images/portfolio/Prem-nagar_ime_1-1.jpg",
+                    "assets/images/portfolio/Prem-nagar_ime_2-1.jpg",
+                    "assets/images/portfolio/Prem_nagar_1.jpg",
+                    "assets/images/portfolio/Prem_nagar_2.jpg",
+                    "assets/images/portfolio/Sneha-Enterprises-Builders-Profile_Page_15-1.jpg"
+                ],
+                similar: ["ambaram-live-the-high-life", "friends", "shreeji"]
+            },
+            "shreeji": {
+                slug: "shreeji",
+                title: "SHREEJI",
+                client: "Shreeji Developers",
+                filterCategories: ["real-estate", "corporate"],
+                layoutClass: "bento-standard",
+                workDone: ["Real Estate Branding", "Luxury Property Literature", "Site Collateral"],
+                thumbnail: "assets/images/portfolio/shreeji_user_cover.png",
+                gallery: [
+                    "assets/images/portfolio/Shreeji.jpg",
+                    "assets/images/portfolio/Shriji.jpg"
+                ],
+                similar: ["prem-nagar-legacy", "alpine_primo", "arihant-group"]
+            },
+            "wockhardt": {
+                slug: "wockhardt",
+                title: "Wockhardt",
+                client: "Wockhardt Hospitals",
+                filterCategories: ["corporate", "print-digital"],
+                layoutClass: "bento-standard",
+                workDone: ["Healthcare Brand Literature", "Patient Awareness Campaign", "Hospital Print Media"],
+                thumbnail: "assets/images/Wockhard.png",
+                gallery: [
+                    "assets/images/portfolio/wockhardt_banner.jpg",
+                    "assets/images/portfolio/Wockhardt_1.jpg",
+                    "assets/images/portfolio/Wockhardt_2.jpg"
+                ],
+                similar: ["acufine-life-sciences", "alpine_primo", "cox-kings"]
+            },
+            "dovoy": {
+                slug: "dovoy",
+                title: "Dovoy",
+                client: "Dovoy Global",
+                filterCategories: ["corporate", "print-digital"],
+                layoutClass: "bento-standard",
+                workDone: ["E-Commerce Web Design", "Digital Marketing Creatives", "Custom Product Packaging"],
+                thumbnail: "assets/images/portfolio/Logo-1.jpg",
+                gallery: [
+                    "assets/images/portfolio/Dovoy_banner.jpg",
+                    "assets/images/portfolio/Ad.jpg",
+                    "assets/images/portfolio/Bag.jpg"
+                ],
+                similar: ["star-rays", "cox-kings", "unicorn"]
+            },
+            "seasons-jawhara": {
+                slug: "seasons-jawhara",
+                title: "Seasons Jawhara",
+                client: "Seasons Jawhara",
+                filterCategories: ["luxury", "print-digital"],
+                layoutClass: "bento-standard",
+                workDone: ["Fine Jewelry Catalog", "Luxury Brand Identity", "Print Campaign"],
+                thumbnail: "assets/images/portfolio/seasons_user_cover.jpg",
+                gallery: [
+                    "assets/images/portfolio/Seasons_banner.jpg",
+                    "assets/images/portfolio/SEASON-BY-JAWHARA.jpg"
+                ],
+                similar: ["ambaram-live-the-high-life", "alpine_primo", "shreeji"]
+            }
+        };
+
+        // Render Cards into Uniform Grid
+        const grid = document.getElementById('portfolio-grid');
+        function renderCards() {
+            grid.innerHTML = Object.values(projectsData).map(p => `
+                <div class="portfolio-card" data-slug="${p.slug}" data-categories="${p.filterCategories.join(' ')}" data-title="${p.title}" data-client="${p.client}">
+                    <div class="card-img-container">
+                        <img src="${p.thumbnail}" alt="${p.title}">
+                    </div>
+                    <div class="card-details-panel">
+                        <div class="work-done-container">
+                            ${p.workDone.map(item => `<span class="work-done-pill">${item}</span>`).join('')}
+                        </div>
+                        <div class="card-action-bar">
+                            <span class="view-case-btn">Explore Work Showcase &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            attachCardEvents();
+        }
+        renderCards();
+
+        // Attach Card Lightbox triggers
+        function attachCardEvents() {
+            document.querySelectorAll('.portfolio-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    openProjectModal(card.dataset.slug);
+                });
+            });
+        }
+
+        // Filter & Search Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const searchInput = document.getElementById('project-search');
+
+        function filterProjects() {
+            const activeCategory = document.querySelector('.filter-btn.active').dataset.category;
+            const query = searchInput.value.toLowerCase().trim();
+
+            document.querySelectorAll('.portfolio-card').forEach(card => {
+                const categories = card.dataset.categories.split(' ');
+                const title = card.dataset.title.toLowerCase();
+                const client = card.dataset.client.toLowerCase();
+                const slug = card.dataset.slug;
+                const projData = projectsData[slug];
+                const workDoneStr = projData ? projData.workDone.join(' ').toLowerCase() : '';
+
+                const matchesCategory = (activeCategory === 'all' || categories.includes(activeCategory));
+                const matchesSearch = (!query || title.includes(query) || client.includes(query) || workDoneStr.includes(query));
+
+                if (matchesCategory && matchesSearch) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                filterProjects();
+            });
+        });
+
+        searchInput.addEventListener('input', filterProjects);
+
+        // ── LIGHTBOX MODAL & SIMILAR PROJECTS ENGINE ──
+        const modal = document.getElementById('project-modal');
+        const modalClose = document.getElementById('modal-close');
+        const modalTitle = document.getElementById('modal-title');
+        const modalClient = document.getElementById('modal-client');
+        const modalCategory = document.getElementById('modal-category');
+        const modalGallery = document.getElementById('modal-gallery');
+        const modalSimilarGrid = document.getElementById('modal-similar-grid');
+
+        function openProjectModal(slug) {
+            const p = projectsData[slug];
+            if (!p) return;
+
+            modalTitle.textContent = p.title;
+            modalClient.innerHTML = `<strong>Client:</strong> ${p.client}`;
+            modalCategory.innerHTML = `<strong>Work Delivered:</strong> ${p.workDone.map(w => `<span class="work-done-pill">${w}</span>`).join(' ')}`;
+
+            // Render all local gallery images
+            modalGallery.innerHTML = p.gallery.map(img => `<img src="${img}" alt="${p.title}">`).join('');
+
+            // Render Similar Projects at bottom of opened project
+            const simCardsHtml = p.similar.map(simSlug => {
+                const simProj = projectsData[simSlug];
+                if (!simProj) return '';
+                return `
+                    <div class="similar-card" onclick="openProjectModal('${simProj.slug}')">
+                        <img src="${simProj.thumbnail}" alt="${simProj.title}" class="similar-card-img">
+                        <div class="similar-card-body">
+                            <h4 class="similar-card-title">${simProj.title}</h4>
+                            <div class="similar-card-cat">${simProj.workDone[0]}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            modalSimilarGrid.innerHTML = simCardsHtml;
+
+            modal.classList.add('active');
+            modal.querySelector('.modal-container').scrollTop = 0;
+        }
+
+        modalClose.addEventListener('click', () => modal.classList.remove('active'));
+        modal.addEventListener('click', e => {
+            if (e.target === modal) modal.classList.remove('active');
+        });
+
+        // ── 25 YEARS CREATIVE MASTERY CANVAS & SCROLL COUNTER ANIMATION ──
+        (function() {
+            const expSec = document.getElementById('exp-section');
+            const expCanvas = document.getElementById('exp-gold-canvas');
+            if (!expSec || !expCanvas) return;
+
+            const ctx = expCanvas.getContext('2d');
+            let W, H;
+
+            function resizeExp() {
+                W = expCanvas.width = expSec.offsetWidth;
+                H = expCanvas.height = expSec.offsetHeight;
+            }
+            resizeExp();
+            window.addEventListener('resize', resizeExp);
+
+            // Floating Ambient Gold Particles
+            const expParticles = [];
+            for (let i = 0; i < 55; i++) {
+                expParticles.push({
+                    x: Math.random() * W,
+                    y: Math.random() * H,
+                    r: Math.random() * 2.2 + 0.6,
+                    vx: (Math.random() - 0.5) * 0.4,
+                    vy: -(Math.random() * 0.45 + 0.2),
+                    alpha: Math.random() * 0.65 + 0.2,
+                    phase: Math.random() * Math.PI * 2
+                });
+            }
+
+            function drawExp() {
+                ctx.clearRect(0, 0, W, H);
+
+                // Background Radial Spotlight Glow behind 25
+                const expGrad = ctx.createRadialGradient(W * 0.25, H * 0.5, 10, W * 0.25, H * 0.5, 320);
+                expGrad.addColorStop(0, 'rgba(229, 193, 88, 0.20)');
+                expGrad.addColorStop(0.5, 'rgba(212, 175, 55, 0.07)');
+                expGrad.addColorStop(1, 'transparent');
+                ctx.fillStyle = expGrad;
+                ctx.fillRect(0, 0, W, H);
+
+                expParticles.forEach(p => {
+                    p.phase += 0.025;
+                    p.x += p.vx + Math.sin(p.phase) * 0.35;
+                    p.y += p.vy;
+
+                    if (p.y < -10) p.y = H + 10;
+                    if (p.x < -10) p.x = W + 10;
+                    if (p.x > W + 10) p.x = -10;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(255, 235, 170, ' + p.alpha * (0.6 + 0.4 * Math.sin(p.phase)) + ')';
+                    ctx.shadowBlur = 8;
+                    ctx.shadowColor = '#e5c158';
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                });
+
+                requestAnimationFrame(drawExp);
+            }
+            drawExp();
+
+            // Smooth Scroll Counter Animation for 25
+            const counterEl = document.getElementById('exp-counter');
+            let counted = false;
+
+            function checkCounterScroll() {
+                if (counted || !counterEl) return;
+                const rect = expSec.getBoundingClientRect();
+                if (rect.top <= window.innerHeight * 0.85) {
+                    counted = true;
+                    let current = 0;
+                    const target = 25;
+                    const duration = 1600;
+                    const stepTime = Math.abs(Math.floor(duration / target));
+
+                    const timer = setInterval(() => {
+                        current += 1;
+                        counterEl.textContent = current;
+                        if (current >= target) {
+                            counterEl.textContent = target;
+                            clearInterval(timer);
+                        }
+                    }, stepTime);
+                }
+            }
+
+            window.addEventListener('scroll', checkCounterScroll);
+            checkCounterScroll();
+        })();
+
+        // Mobile Menu Drawer Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (mobileToggle && navLinks) {
+            mobileToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+            });
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => navLinks.classList.remove('active'));
+            });
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

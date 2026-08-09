@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneha Enterprises</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
+    <link rel="preload" href="assets/images/Sneha enterprises home page.mp4" as="video" type="video/mp4">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            background-color: #0d0900;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .video-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: #0d0900;
+        }
+
+        .video-section video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            will-change: transform;
+            background: #0d0900;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            color: #ffffff;
+            text-align: center;
+            pointer-events: none;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            opacity: 1;
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: opacity;
+        }
+
+        .hero-text.hidden {
+            opacity: 0;
+        }
+
+        .hero-text h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin: 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-text h1 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 5rem;
+            font-weight: 600;
+            font-style: italic;
+            margin: 0;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-sizing: border-box;
+            background: linear-gradient(to bottom, rgba(13,9,0,0.92) 0%, rgba(13,9,0,0.6) 70%, rgba(0,0,0,0) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-15px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease, background 0.3s ease;
+        }
+
+        header.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .header-logo .brand-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header-logo img {
+            height: 40px;
+            width: auto;
+            border-radius: 4px;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+            border-left: 1px solid rgba(255, 255, 255, 0.25);
+            padding-left: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #fff;
+        }
+
+        .contact-item svg {
+            width: 14px;
+            height: 14px;
+            stroke: #d4af37;
+        }
+
+        .contact-divider {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ── Innovative Floating Social Bar ── */
+        .floating-social {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: opacity;
+        }
+
+        .floating-social.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .social-btn {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 48px;
+            padding-right: 14px;
+            padding-left: 14px;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            text-decoration: none;
+            overflow: hidden;
+            transition: padding-left 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        box-shadow 0.4s ease;
+        }
+
+        /* Platform-specific brand gradients */
+        .social-btn.facebook {
+            background: linear-gradient(135deg, #1877f2, #0a58ca);
+            box-shadow: -4px 0 25px rgba(24, 119, 242, 0.35);
+        }
+        .social-btn.instagram {
+            background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
+            box-shadow: -4px 0 25px rgba(221, 42, 123, 0.4);
+        }
+
+        /* Pulsing glow ring on each button */
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: inherit;
+            background: inherit;
+            opacity: 0.3;
+            filter: blur(10px);
+            animation: socialPulse 2.5s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes socialPulse {
+            0%   { opacity: 0.25; transform: scale(1);   }
+            100% { opacity: 0.6;  transform: scale(1.15); }
+        }
+
+        .social-btn .social-icon {
+            width: 22px;
+            height: 22px;
+            fill: #fff;
+            flex-shrink: 0;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Hidden label that slides out on hover */
+        .social-btn .social-label {
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            max-width: 0;
+            overflow: hidden;
+            opacity: 0;
+            margin-left: 0;
+            transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        opacity 0.3s ease,
+                        margin-left 0.4s ease;
+        }
+
+        .social-btn:hover .social-label {
+            max-width: 100px;
+            opacity: 1;
+            margin-left: 10px;
+        }
+
+        .social-btn:hover .social-icon {
+            transform: rotate(-10deg) scale(1.1);
+        }
+
+        .social-btn:hover {
+            padding-left: 18px;
+        }
+
+        .social-btn.facebook:hover {
+            box-shadow: -6px 0 30px rgba(24, 119, 242, 0.7);
+        }
+        .social-btn.instagram:hover {
+            box-shadow: -6px 0 30px rgba(221, 42, 123, 0.7);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: #d4af37;
+        }
+
+        /* AI Nav Badge */
+        .nav-ai-link {
+            position: relative;
+            color: #e5c158 !important;
+            font-weight: 600 !important;
+            letter-spacing: 2px !important;
+            padding: 5px 14px !important;
+            border: 1px solid rgba(229, 193, 88, 0.6);
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(229,193,88,0.12), rgba(180,120,40,0.08));
+            box-shadow: 0 0 15px rgba(229, 193, 88, 0.3);
+            transition: all 0.35s ease !important;
+            animation: navAiPulse 2.5s ease-in-out infinite;
+        }
+        .nav-ai-link:hover {
+            color: #fff !important;
+            background: linear-gradient(135deg, rgba(229,193,88,0.35), rgba(180,120,40,0.25)) !important;
+            box-shadow: 0 0 28px rgba(229, 193, 88, 0.7), 0 0 8px rgba(255,255,255,0.2) !important;
+            transform: scale(1.06);
+        }
+        @keyframes navAiPulse {
+            0%, 100% { box-shadow: 0 0 12px rgba(229,193,88,0.3); }
+            50% { box-shadow: 0 0 26px rgba(229,193,88,0.7), 0 0 50px rgba(229,193,88,0.15); }
+        }
+
+        .final-content {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(calc(-50% + 25px));
+            z-index: 10;
+            color: #ffffff;
+            opacity: 0;
+            max-width: 45%;
+            pointer-events: none;
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .final-content.visible {
+            opacity: 1;
+            transform: translateY(-50%);
+            pointer-events: auto;
+        }
+
+        .final-content h3 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.15;
+            letter-spacing: -0.5px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .final-content p {
+            font-size: 1.15rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 35px;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .final-content .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            background: linear-gradient(135deg, #d4af37, #a07820);
+            color: #0d0900;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            pointer-events: auto;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(212,175,55,0.4);
+        }
+
+        .final-content .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 40px rgba(212,175,55,0.6);
+            background: linear-gradient(135deg, #f0cc50, #c8960a);
+        }
+
+        /* ── GOLD SECTION: Clients ── */
+        .clients-section {
+            background: linear-gradient(180deg, #0d0900 0%, #1c1400 50%, #0d0900 100%);
+            padding: 20px 0 80px 0;
+            margin-top: -1px;
+            overflow: hidden;
+            position: relative;
+            z-index: 50;
+        }
+
+        /* Gold top-border accent line */
+        .clients-section::before {
+            content: '';
+            display: block;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, #f0cc50, #d4af37, transparent);
+            margin-bottom: 40px;
+        }
+        
+        .clients-section h2 {
+            text-align: center;
+            font-family: 'Bodoni Moda', serif;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #f0cc50, #d4af37, #a07820);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            font-weight: 600;
+            filter: drop-shadow(0 2px 12px rgba(212,175,55,0.4));
+        }
+
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+        }
+
+        .marquee-content {
+            display: flex;
+            gap: 50px;
+            padding: 0 25px;
+            animation: marquee 25s linear infinite;
+            align-items: center;
+        }
+
+        .marquee-content img {
+            height: 60px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 245, 200, 0.9);
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(212,175,55,0.3), 0 0 0 1px rgba(212,175,55,0.15);
+        }
+
+        .marquee-content img:hover {
+            transform: scale(1.05);
+            background-color: #fffaed;
+            box-shadow: 0 8px 30px rgba(212,175,55,0.5);
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* ── BROWN SECTION: Why Choose Us ── */
+        .why-choose-us {
+            background: linear-gradient(180deg, #130800 0%, #2a1508 50%, #1a0d05 100%);
+            padding: 80px 50px;
+            color: #fff;
+            position: relative;
+            z-index: 50;
+            overflow: hidden;
+        }
+
+        /* Brown top-border accent line */
+        .why-choose-us::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #8b5e3c, #c8813a, #8b5e3c, transparent);
+        }
+
+        .wcu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .wcu-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .wcu-left {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .experience-typography {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+        }
+
+        .number-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Ambient Orbs & New Aura */
+        .starburst-aura {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            margin-top: -300px;
+            margin-left: -300px;
+            background: repeating-conic-gradient(
+                from 0deg,
+                rgba(255, 215, 0, 0.15) 0deg 10deg,
+                transparent 10deg 20deg
+            );
+            border-radius: 50%;
+            mask-image: radial-gradient(circle, black 30%, transparent 70%);
+            -webkit-mask-image: radial-gradient(circle, black 30%, transparent 70%);
+            animation: rotateAura 40s linear infinite;
+            animation-play-state: paused;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .wcu-container.visible .starburst-aura {
+            animation-play-state: running;
+        }
+
+        @keyframes rotateAura {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        .ambient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.8;
+            z-index: 0;
+            animation: floatOrb 8s ease-in-out infinite alternate;
+            animation-play-state: paused;
+        }
+
+        .wcu-container.visible .ambient-orb {
+            animation-play-state: running;
+        }
+
+        .orb-1 {
+            width: 250px;
+            height: 250px;
+            background: rgba(212, 175, 55, 0.35);
+            top: -30px;
+            left: -20px;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: rgba(160, 80, 20, 0.3);
+            bottom: -20px;
+            right: 0px;
+            animation-duration: 12s;
+            animation-delay: -5s;
+        }
+
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 50px) scale(1.2); }
+        }
+
+        /* Gold Particles Animation */
+        .gold-particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #ffd700;
+            border-radius: 50%;
+            box-shadow: 0 0 12px #ffd700, 0 0 20px #ff8c00;
+            animation: floatParticle linear infinite;
+            z-index: 0;
+            opacity: 0;
+        }
+        
+        .p1 { top: 15%; left: 5%; animation-duration: 12s; }
+        .p2 { top: 85%; left: 85%; animation-duration: 18s; animation-delay: -5s; }
+        .p3 { top: 35%; left: 90%; animation-duration: 10s; animation-delay: -2s; }
+        .p4 { top: 90%; left: 15%; animation-duration: 15s; animation-delay: -8s; }
+        .p5 { top: -5%; left: 60%; animation-duration: 14s; animation-delay: -3s; }
+        
+        @keyframes floatParticle {
+            0% { transform: translateY(0) scale(0.5); opacity: 0; }
+            25% { opacity: 1; }
+            75% { opacity: 1; }
+            100% { transform: translateY(-150px) scale(1.5); opacity: 0; }
+        }
+
+        /* Shooting Stars */
+        .sparkle-trail {
+            position: absolute;
+            width: 150px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+            box-shadow: 0 0 10px rgba(255,255,255,0.5);
+            animation: shootStar 6s infinite;
+            transform: rotate(-45deg);
+            opacity: 0;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .s1 { top: 20%; left: -10%; animation-delay: 0s; }
+        .s2 { top: 60%; left: 40%; animation-delay: 2.5s; }
+        .s3 { top: 80%; left: 0%; animation-delay: 5s; }
+
+        @keyframes shootStar {
+            0% { transform: rotate(-45deg) translateX(-150px); opacity: 0; }
+            10% { opacity: 1; }
+            20% { transform: rotate(-45deg) translateX(400px); opacity: 0; }
+            100% { transform: rotate(-45deg) translateX(400px); opacity: 0; }
+        }
+
+        .big-number {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 20rem;
+            font-weight: 700;
+            line-height: 0.8;
+            /* Added a bright white metallic shine sweep to the gradient */
+            background: linear-gradient(60deg, #f6d365 0%, #fda085 35%, #ffffff 50%, #fda085 65%, #ff1493 100%);
+            background-size: 400% 400%;
+            animation: intenseGradient 6s ease-in-out infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-left: -15px; 
+            filter: drop-shadow(0 10px 40px rgba(255, 140, 0, 0.5));
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes intenseGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; } /* Metallic shine sweeps across */
+            100% { background-position: 0% 50%; }
+        }
+
+        .text-stack {
+            display: flex;
+            flex-direction: column;
+            margin-top: 15px;
+            position: relative;
+            z-index: 2;
+            animation: floatText 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatText {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-12px); }
+        }
+
+        .word-years {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 15px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: -5px;
+            padding-left: 5px;
+        }
+
+        .word-exp {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 4.5rem;
+            font-weight: 600;
+            font-style: italic;
+            color: #fff;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .wcu-right {
+            flex: 1;
+            padding-left: 40px;
+        }
+
+        .wcu-desc {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 225, 185, 0.82);
+            margin-bottom: 40px;
+        }
+
+        .wcu-subtitle {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .wcu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .wcu-list li {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.6s ease;
+        }
+
+        .wcu-container.visible .wcu-list li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .wcu-container.visible .wcu-list li:nth-child(1) { transition-delay: 0.3s; }
+        .wcu-container.visible .wcu-list li:nth-child(2) { transition-delay: 0.5s; }
+        .wcu-container.visible .wcu-list li:nth-child(3) { transition-delay: 0.7s; }
+
+        .check-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d4af37, #a07820);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #130800;
+            box-shadow: 0 4px 20px rgba(212,175,55,0.45);
+            flex-shrink: 0;
+        }
+        
+        .check-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: #130800;
+        }
+
+        @media (max-width: 900px) {
+            .wcu-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .wcu-right {
+                padding-left: 0;
+            }
+            .wcu-list {
+                align-items: center;
+            }
+        }
+
+        /* ─── FEATURED PROJECTS SHOWCASE (Home Page) ─── */
+        .home-projects-sec {
+            position: relative;
+            padding: 100px 50px;
+            background: linear-gradient(180deg, #0d0900 0%, #140d02 50%, #0b0703 100%);
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            overflow: hidden;
+        }
+        .hp-header {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 60px;
+        }
+        .hp-tag {
+            color: #e5c158;
+            font-size: 0.85rem;
+            letter-spacing: 3.5px;
+            text-transform: uppercase;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 15px;
+            padding: 6px 18px;
+            border-radius: 30px;
+            background: rgba(212,175,55,0.08);
+            border: 1px solid rgba(212,175,55,0.25);
+        }
+        .hp-title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .hp-subtitle {
+            font-size: 1.15rem;
+            color: rgba(245, 238, 220, 0.7);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .hp-grid {
+            max-width: 1350px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        @media (max-width: 1050px) {
+            .hp-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 700px) {
+            .hp-grid { grid-template-columns: 1fr; }
+        }
+
+        .hp-card {
+            position: relative;
+            background: #120b02;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 18px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+        }
+        .hp-card:hover {
+            border-color: #e5c158;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.85), 0 0 35px rgba(212,175,55,0.3);
+        }
+
+        .hp-card-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .hp-card:hover .hp-card-img {
+            transform: scale(1.06);
+        }
+
+        .hp-card-body {
+            padding: 22px 24px;
+            background: linear-gradient(180deg, rgba(18,11,2,0.95) 0%, rgba(13,9,0,0.98) 100%);
+            border-top: 1px solid rgba(212,175,55,0.18);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+        .hp-work-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .hp-pill {
+            font-size: 0.76rem;
+            color: rgba(245,238,220,0.85);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(212,175,55,0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        .hp-pill::before {
+            content: '✦ ';
+            color: #e5c158;
+        }
+        .hp-btn {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #e5c158;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s ease, color 0.3s;
+        }
+        .hp-card:hover .hp-btn {
+            gap: 14px;
+            color: #ffffff;
+        }
+
+        .hp-cta-bar {
+            text-align: center;
+            margin-top: 55px;
+        }
+        .hp-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #d4af37 0%, #e5c158 100%);
+            color: #0d0900;
+            padding: 16px 42px;
+            border-radius: 35px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(212,175,55,0.4);
+            transition: all 0.35s ease;
+        }
+        .hp-cta-btn:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(229,193,88,0.7);
+        }
+
+        /* Minimalist Gold Checkpoint Navigation Overlay */
+        .checkpoint-nav {
+            position: absolute;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: rgba(10, 7, 3, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 12px 8px;
+            border-radius: 24px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .cp-dot {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            outline: none;
+            padding: 4px;
+        }
+        .cp-dot .cp-circle {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.35);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .cp-dot:hover .cp-circle {
+            background: rgba(229, 193, 88, 0.7);
+            transform: scale(1.25);
+        }
+        .cp-dot.active .cp-circle {
+            background: #e5c158;
+            transform: scale(1.6);
+            box-shadow: 0 0 14px rgba(229, 193, 88, 0.95);
+            border-color: #ffffff;
+        }
+        @media (max-width: 768px) {
+            .checkpoint-nav {
+                right: 10px;
+                padding: 10px 6px;
+                gap: 8px;
+            }
+            .cp-dot .cp-circle {
+                width: 7px;
+                height: 7px;
+            }
+        }
+        /* ─── MID SECTION VIDEO SHOWCASE (Crisp HD GPU Render) ─── */
+        .video-showcase-sec {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: #0b0703;
+            overflow: hidden;
+            border-top: 1px solid rgba(212, 175, 55, 0.35);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8);
+        }
+        .video-showcase-sec video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            filter: contrast(1.04) saturate(1.05) brightness(1.02);
+            -webkit-filter: contrast(1.04) saturate(1.05) brightness(1.02);
+        }
+
+        /* ─── LUXURY OBSIDIAN GOLD FOOTER ─── */
+        .footer-sec {
+            position: relative; z-index: 100;
+            background: linear-gradient(180deg, #0b0703 0%, #181006 50%, #070402 100%);
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 48px 0 25px 0; color: #ffffff;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+        }
+        .footer-sec .container {
+            max-width: 1200px; margin: 0 auto; padding: 0 30px;
+        }
+        .footer-sec .row {
+            display: grid; grid-template-columns: 2.2fr 1.5fr 1.5fr; gap: 40px;
+            align-items: start;
+        }
+        .footer-sec .logo {
+            max-width: 110px; height: auto; margin-bottom: 16px; display: block;
+            border-radius: 4px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+        }
+        .footer-sec p {
+            font-size: 0.86rem; line-height: 1.65; color: rgba(255, 225, 185, 0.7);
+            font-weight: 300; margin: 0;
+        }
+        .footer-sec .quick-links_heading,
+        .footer-sec .footer_address h3 {
+            font-family: 'Bodoni Moda', serif; font-size: 1.2rem; font-weight: 600;
+            font-style: italic; color: #d4af37; margin-top: 0; margin-bottom: 14px;
+            letter-spacing: 0.5px;
+        }
+        .footer-sec ul.quick-links {
+            list-style: none; padding: 0; margin: 0; display: flex;
+            flex-direction: column; gap: 8px;
+        }
+        .footer-sec ul.quick-links li a {
+            color: rgba(255, 225, 185, 0.75); text-decoration: none; font-size: 0.86rem;
+            font-weight: 300; letter-spacing: 0.4px; position: relative;
+            padding-bottom: 2px; transition: color 0.25s ease; display: inline-block;
+        }
+        .footer-sec ul.quick-links li a::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px;
+            background: #d4af37; transition: width 0.25s ease;
+        }
+        .footer-sec ul.quick-links li a:hover { color: #d4af37; }
+        .footer-sec ul.quick-links li a:hover::after { width: 100%; }
+        .footer-sec .footer_address p { margin-bottom: 10px; }
+        .footer-sec .footer_address b { color: #d4af37; font-weight: 600; }
+        .footer-sec .footer_address a { color: rgba(255, 225, 185, 0.8); text-decoration: none; transition: color 0.25s ease; }
+        .footer-sec .footer_address a:hover { color: #d4af37; }
+        .footer-sec .copyright-bar {
+            border-top: 1px solid rgba(212, 175, 55, 0.15); margin-top: 30px;
+            padding-top: 16px; display: flex; justify-content: space-between;
+            align-items: center; font-size: 0.78rem; color: rgba(255, 225, 185, 0.45);
+            letter-spacing: 0.4px;
+        }
+
+        /* Mobile Navigation Toggle Button & Full Overlay */
+        .mobile-menu-btn {
+            display: none;
+            background: rgba(229, 193, 88, 0.15);
+            border: 1px solid #d4af37;
+            border-radius: 8px;
+            padding: 8px 14px;
+            cursor: pointer;
+            z-index: 10001;
+            color: #d4af37;
+            font-size: 1.3rem;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        @media (max-width: 992px) {
+            .mobile-menu-btn { display: flex; }
+            .nav-links {
+                position: fixed;
+                inset: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(13, 9, 0, 0.98);
+                backdrop-filter: blur(25px);
+                -webkit-backdrop-filter: blur(25px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                padding: 40px 20px;
+                opacity: 0;
+                pointer-events: none;
+                transform: translateY(-15px);
+                transition: opacity 0.35s ease, transform 0.35s ease;
+                z-index: 10000;
+                overflow-y: auto;
+            }
+            .nav-links.active {
+                opacity: 1;
+                pointer-events: auto;
+                transform: translateY(0);
+            }
+            .nav-links li a {
+                font-size: 1.25rem !important;
+                letter-spacing: 2px !important;
+                font-weight: 500 !important;
+            }
+            .footer-sec .row { grid-template-columns: 1fr; gap: 25px; }
+            .footer-sec .container { padding: 0 20px; }
+            .footer-sec .copyright-bar { flex-direction: column; gap: 8px; text-align: center; }
+        }
+
+        @media (max-width: 768px) {
+            html, body { overflow-x: hidden !important; width: 100%; }
+            header { padding: 12px 18px; }
+            .header-contact { display: none; }
+            .brand-text { font-size: 1.1rem; }
+
+            /* MP4 Mid Section Video - 100% full video visible without cropping */
+            .video-showcase-sec {
+                height: auto !important;
+                min-height: 220px;
+                max-height: 70vh;
+                background: #0b0703;
+                padding: 10px 0;
+            }
+            .video-showcase-sec video {
+                height: auto !important;
+                max-height: 70vh;
+                object-fit: contain !important;
+            }
+
+            /* Intro Video & Final Content (Work Showcase) */
+            .final-content {
+                left: 5% !important;
+                right: 5% !important;
+                max-width: 90% !important;
+                text-align: center;
+                top: 55% !important;
+                transform: translateY(-50%) !important;
+                z-index: 10 !important;
+            }
+            .final-content h3 { font-size: 1.75rem !important; line-height: 1.25 !important; margin-bottom: 10px !important; }
+            .final-content p { font-size: 0.88rem !important; line-height: 1.5 !important; margin-bottom: 16px !important; }
+            .final-content .btn { padding: 12px 30px !important; font-size: 0.85rem !important; display: inline-block !important; }
+            .floating-social { display: flex; bottom: 16px; right: 16px; }
+        }
+
+        /* Ambient Golden Overlay Mask for Upright Mobile Portrait (hides video logo when text appears) */
+        .video-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 45%, rgba(35, 20, 5, 0.94) 0%, rgba(13, 9, 0, 0.98) 85%);
+            z-index: 4;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @media (max-width: 768px) and (orientation: portrait) {
+            .video-section.end-stage::after {
+                opacity: 1;
+            }
+        }
+
+        /* Landscape Mobile Mode (Tilted Down) */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .video-showcase-sec { max-height: 85vh !important; }
+            .video-showcase-sec video { max-height: 85vh !important; object-fit: contain !important; }
+            .final-content h3 { font-size: 1.4rem !important; margin-bottom: 6px !important; }
+            .final-content p { font-size: 0.78rem !important; margin-bottom: 10px !important; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Innovative Floating Social Bar (visible on whole website) -->
+    <div class="floating-social">
+        <a href="https://www.facebook.com/share/15iHXZYsWQ/" target="_blank" rel="noopener" aria-label="Facebook" class="social-btn facebook">
+            <svg class="social-icon" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <span class="social-label">Facebook</span>
+        </a>
+        <a href="https://www.instagram.com/sneha_enterprises.in?utm_source=qr&igsh=cDJpZ2YwMnFkM3A4" target="_blank" rel="noopener" aria-label="Instagram" class="social-btn instagram">
+            <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <span class="social-label">Instagram</span>
+        </a>
+    </div>
+
+    <header id="main-header">
+        <div class="header-left">
+            <a href="#" class="header-logo">
+                <img src="assets/images/Logo.png" alt="Logo">
+                <span class="brand-text">Sneha Enterprises</span>
+            </a>
+            <div class="header-contact">
+                <a href="tel:9930304621" class="contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <span>993030 4621</span>
+                </a>
+                <span class="contact-divider">|</span>
+                <a href="mailto:info@snehaenterprises.in" class="contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <span>info@snehaenterprises.in</span>
+                </a>
+            </div>
+        </div>
+        <button class="mobile-menu-btn" id="mobileToggle" aria-label="Toggle Menu">&#9776;</button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="ai.html" class="nav-ai-link">✦ AI</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </header>
+    
+    <div class="video-section">
+        <video id="intro-video" autoplay muted playsinline preload="auto">
+            <source src="assets/images/Sneha enterprises home page.mp4" type="video/mp4">
+        </video>
+
+        <div class="hero-text" id="hero-text">
+            <h2>Welcome To</h2>
+            <h1>Sneha Enterprises</h1>
+        </div>
+
+        <div class="final-content" id="final-content">
+            <h3>Accelerating Brands<br>With Impactful Creativity</h3>
+            <p>For over 25 years, Sneha Enterprises has been the driving force behind industry-leading brands. We blend visionary design, cutting-edge technology, and 360-degree strategies to craft unforgettable brand experiences.</p>
+            <a href="portfolio.html" class="btn">Work Showcase</a>
+        </div>
+    </div>
+
+    <section class="clients-section">
+        <h2>Trusted By</h2>
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <!-- First Set -->
+                <img src="assets/images/Acufine.png" alt="Acufine">
+                <img src="assets/images/Wockhard.png" alt="Wockhardt">
+                <img src="assets/images/Tanishq_Logo.svg_.png" alt="Tanishq">
+                <img src="assets/images/titan-eye-plus-e1753623185759.jpg" alt="Titan Eye+">
+                <img src="assets/images/Tata_Sky_Logo-scaled.jpg" alt="Tata Sky">
+                <img src="assets/images/RNA.png" alt="RNA">
+                <img src="assets/images/sheth-creators.png" alt="Sheth Creators">
+                <img src="assets/images/logo.jpg" alt="Client">
+                <img src="assets/images/Sky_screen.png" alt="Sky Screen">
+                <img src="assets/images/uni-new-logo.png" alt="UNI">
+                <img src="assets/images/Yamuna.png" alt="Yamuna">
+                <img src="assets/images/IPSIT-Logo-01.png" alt="Ipsit">
+                <img src="assets/images/dovay_logo.png" alt="Dovay">
+                <img src="assets/images/Prima.jpg" alt="Prima">
+                <img src="assets/images/Screen-tex_logo.png" alt="Screentex">
+                <img src="assets/images/Sanskruti.jpg" alt="Sanskruti">
+                <img src="assets/images/Star_rays-e1753624153785.png" alt="Starrays">
+                <img src="assets/images/big-bazaa.png" alt="big bazaar">
+                <img src="assets/images/Sony.webp" alt="Sony">
+                <img src="assets/images/Croma.png" alt="Croma">
+                <!-- Duplicate Set for infinite scroll illusion -->
+                <img src="assets/images/Acufine.png" alt="Acufine">
+                <img src="assets/images/Wockhard.png" alt="Wockhardt">
+                <img src="assets/images/Tanishq_Logo.svg_.png" alt="Tanishq">
+                <img src="assets/images/titan-eye-plus-e1753623185759.jpg" alt="Titan Eye+">
+                <img src="assets/images/Tata_Sky_Logo-scaled.jpg" alt="Tata Sky">
+                <img src="assets/images/RNA.png" alt="RNA">
+                <img src="assets/images/sheth-creators.png" alt="Sheth Creators">
+                <img src="assets/images/logo.jpg" alt="Client">
+                <img src="assets/images/Sky_screen.png" alt="Sky Screen">
+                <img src="assets/images/uni-new-logo.png" alt="UNI">
+                <img src="assets/images/Yamuna.png" alt="Yamuna">
+                <img src="assets/images/IPSIT-Logo-01.png" alt="Ipsit">
+                <img src="assets/images/dovay_logo.png" alt="Dovay">
+                <img src="assets/images/Prima.jpg" alt="Prima">
+                <img src="assets/images/Screen-tex_logo.png" alt="Screentex">
+                <img src="assets/images/Sanskruti.jpg" alt="Sanskruti">
+                <img src="assets/images/Star_rays-e1753624153785.png" alt="Starrays">
+                <img src="assets/images/big-bazaa.png" alt="big bazaar">
+                <img src="assets/images/Sony.webp" alt="Sony">
+                <img src="assets/images/Croma.png" alt="Croma">
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose-us">
+        <div class="wcu-container">
+            <div class="wcu-left">
+                <div class="experience-typography">
+                    <!-- Number and its centered animations -->
+                    <div class="number-container">
+                        <div class="starburst-aura"></div>
+                        <div class="ambient-orb orb-1"></div>
+                        <div class="ambient-orb orb-2"></div>
+                        <div class="big-number">25</div>
+                    </div>
+                    
+                    <!-- Particles & Sparkles around the whole section -->
+                    <div class="gold-particle p1"></div>
+                    <div class="gold-particle p2"></div>
+                    <div class="gold-particle p3"></div>
+                    <div class="gold-particle p4"></div>
+                    <div class="gold-particle p5"></div>
+                    
+                    <!-- Shooting Stars -->
+                    <div class="sparkle-trail s1"></div>
+                    <div class="sparkle-trail s2"></div>
+                    <div class="sparkle-trail s3"></div>
+                    
+                    <!-- Typography -->
+                    <div class="text-stack">
+                        <span class="word-years">Years of</span>
+                        <span class="word-exp">Experience</span>
+                    </div>
+                </div>
+            </div>
+            <div class="wcu-right">
+                <p class="wcu-desc">
+                    The 25-year-old advertising firm Sneha Enterprises offers 360-degree solutions. We are not restricted to any particular vertical. Like a new era of marketing solutions, we function as a mainline agency and also offer totally digital solutions.
+                </p>
+                <h3 class="wcu-subtitle">More reason to choose us.</h3>
+                <ul class="wcu-list">
+                    <li>
+                        <div class="check-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                        <span>Highest Success Rates</span>
+                    </li>
+                    <li>
+                        <div class="check-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                        <span>100+ Satisfied Client</span>
+                    </li>
+                    <li>
+                        <div class="check-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                        <span>A to Z creative solutions</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ MID SECTION VIDEO SHOWCASE ══════════ -->
+    <section class="video-showcase-sec" id="frame-scroll">
+        <video id="midSectionVideo" src="assets/images/sneha_website_mid_section.mp4" autoplay loop muted playsinline webkit-playsinline></video>
+    </section>
+
+    <!-- ══════════ FEATURED WORKS SHOWCASE ══════════ -->
+    <section class="home-projects-sec" id="projects-showcase">
+        <div class="hp-header">
+            <span class="hp-tag">✦ Selected Creative Works</span>
+            <h2 class="hp-title">25 Years Of Impactful Brand Architecture</h2>
+            <p class="hp-subtitle">Explore featured projects engineered for pharma pioneers, high-rise real estate, global travel brands, and luxury jewellers.</p>
+        </div>
+
+        <div class="hp-grid">
+            <a href="portfolio.html" class="hp-card">
+                <img src="assets/images/portfolio/Amabram_feature_image-1.jpg" alt="Ambaram High-Rise Real Estate" class="hp-card-img">
+                <div class="hp-card-body">
+                    <div class="hp-work-pills">
+                        <span class="hp-pill">Luxury Real Estate Campaign</span>
+                        <span class="hp-pill">Architectural Brochure</span>
+                        <span class="hp-pill">On-Site Branding</span>
+                    </div>
+                    <div class="hp-btn">Explore Portfolio Project &rarr;</div>
+                </div>
+            </a>
+
+            <a href="portfolio.html" class="hp-card">
+                <img src="assets/images/portfolio/Acufine-Logo-1.jpg" alt="Acufine Lifesciences" class="hp-card-img">
+                <div class="hp-card-body">
+                    <div class="hp-work-pills">
+                        <span class="hp-pill">Pharma Visual Identity</span>
+                        <span class="hp-pill">3D Packaging Design</span>
+                        <span class="hp-pill">Exhibition Stall Display</span>
+                    </div>
+                    <div class="hp-btn">Explore Portfolio Project &rarr;</div>
+                </div>
+            </a>
+
+            <a href="portfolio.html" class="hp-card">
+                <img src="assets/images/portfolio/Kings_Feature_image.jpg" alt="KINGS Diamond Jewelry" class="hp-card-img">
+                <div class="hp-card-body">
+                    <div class="hp-work-pills">
+                        <span class="hp-pill">High-End Diamond Branding</span>
+                        <span class="hp-pill">Luxury Print Catalog</span>
+                        <span class="hp-pill">Social Media Campaigns</span>
+                    </div>
+                    <div class="hp-btn">Explore Portfolio Project &rarr;</div>
+                </div>
+            </a>
+
+            <a href="portfolio.html" class="hp-card">
+                <img src="assets/images/portfolio/Home_2.jpg" alt="Friends Business Bay" class="hp-card-img">
+                <div class="hp-card-body">
+                    <div class="hp-work-pills">
+                        <span class="hp-pill">Commercial Site Signage</span>
+                        <span class="hp-pill">Sales Brochure</span>
+                        <span class="hp-pill">Outdoor Advertising</span>
+                    </div>
+                    <div class="hp-btn">Explore Portfolio Project &rarr;</div>
+                </div>
+            </a>
+
+            <a href="portfolio.html#alpine_primo" class="hp-card">
+                <img src="assets/images/portfolio/Home_1.jpg" alt="Alpine Primo" class="hp-card-img">
+                <div class="hp-card-body">
+                    <div class="hp-work-pills">
+                        <span class="hp-pill">Real Estate Branding</span>
+                        <span class="hp-pill">Luxury Print Collateral</span>
+                        <span class="hp-pill">Sales Literature</span>
+                    </div>
+                    <div class="hp-btn">Explore Portfolio Project &rarr;</div>
+                </div>
+            </a>
+
+            <a href="portfolio.html" class="hp-card">
+                <img src="assets/images/portfolio/CoXkings_image.jpg" alt="Cox & Kings Global Travel" class="hp-card-img">
+                <div class="hp-card-body">
+                    <div class="hp-work-pills">
+                        <span class="hp-pill">Global Travel Literature</span>
+                        <span class="hp-pill">Print Media Campaign</span>
+                        <span class="hp-pill">Promotional Collateral</span>
+                    </div>
+                    <div class="hp-btn">Explore Portfolio Project &rarr;</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="hp-cta-bar">
+            <a href="portfolio.html" class="hp-cta-btn">View All 14+ Portfolio Works &rarr;</a>
+        </div>
+    </section>
+
+    <!-- ══════════ FOOTER SECTION (Reference Site Layout) ══════════ -->
+    <section class="footer-sec mt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <a href="index.html" title="Sneha Enterprises" rel="home">
+                        <img src="assets/images/Logo.png" alt="Sneha Enterprises Logo" class="logo img-fluid">
+                    </a>
+                    <p>We are a creative advertising firm with branding<br>
+                    at its core, and our capabilities include web,<br>
+                    video production, social, digital marketing,<br>
+                    interface design, performance marketing, and<br>
+                    immersive experiences.</p>
+                </div>
+
+                <div class="col-md-4">
+                    <h2 class="quick-links_heading">Quick Links</h2>
+                    <ul class="quick-links">
+                        <li class="line-hover"><a href="index.html">Home</a></li>
+                        <li class="line-hover"><a href="about.html">About Us</a></li>
+                        <li class="line-hover"><a href="portfolio.html">Portfolio</a></li>
+                        <li class="line-hover"><a href="ai.html" class="nav-ai-link">✦ AI</a></li>
+                        <li class="line-hover"><a href="services.html">Services</a></li>
+                        <li class="line-hover"><a href="contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 footer_address">
+                    <h3>Sneha Enterprises</h3>
+                    <p>203, Aparna, T. P. S. III,<br>
+                    Near. Veer Savarkar Garden,<br>
+                    Borivali (W), Mumbai-92</p>
+                    <p><b>T:</b> 99303 04621 / 99303 04622<br>
+                    <b>E:</b> <a href="mailto:info@snehaenterprises.in">info@snehaenterprises.in</a></p>
+                </div>
+            </div>
+
+            <div class="copyright-bar">
+                <span>&copy; 2026 Sneha Enterprises. All Rights Reserved.</span>
+                <span>Your Ideas, Our Expertise — Together We Shine.</span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const video = document.getElementById('intro-video');
+        const heroText = document.getElementById('hero-text');
+        const header = document.getElementById('main-header');
+        const finalContent = document.getElementById('final-content');
+        const floatingSocial = document.querySelector('.floating-social');
+
+        // Mobile Menu Drawer Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (mobileToggle && navLinks) {
+            mobileToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+            });
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => navLinks.classList.remove('active'));
+            });
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+
+        // Ensure video starts playing immediately without startup delay
+        if (video.paused) {
+            video.play().catch(() => {});
+        }
+
+        // Clean, lightweight handler triggered only when video time updates
+        video.addEventListener('timeupdate', () => {
+            if (!video.duration) return;
+            const progress = video.currentTime / video.duration;
+
+            // Hide Welcome text after initial 25% progress
+            if (progress >= 0.25) {
+                heroText.classList.add('hidden');
+            } else {
+                heroText.classList.remove('hidden');
+            }
+
+            // Reveal header navigation bar, final text and floating social together when MP4 stops / finishes (at 75% or last 1.5s)
+            if (progress >= 0.75 || (video.duration - video.currentTime) <= 1.5) {
+                finalContent.classList.add('visible');
+                header.classList.add('visible');
+                if (floatingSocial) floatingSocial.classList.add('visible');
+                document.querySelector('.video-section')?.classList.add('end-stage');
+            }
+        });
+
+        // Ensure everything settles into place when video ends
+        video.addEventListener('ended', () => {
+            heroText.classList.add('hidden');
+            finalContent.classList.add('visible');
+            header.classList.add('visible');
+            if (floatingSocial) floatingSocial.classList.add('visible');
+            document.querySelector('.video-section')?.classList.add('end-stage');
+        });
+        
+        // Intersection Observer for Why Choose Us animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const wcuContainer = document.querySelector('.wcu-container');
+        if (wcuContainer) {
+            observer.observe(wcuContainer);
+        }
+
+        // ── Featured Projects Staggered Reveal Animation ──
+        (function() {
+            var cards = document.querySelectorAll('.hp-card');
+            if (cards.length === 0) return;
+            
+            // Set initial state
+            cards.forEach(function(card) {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.45s';
+            });
+
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        // Add a staggered delay based on element index in the NodeList
+                        var index = Array.from(cards).indexOf(entry.target);
+                        var delay = (index % 3) * 150; // Stagger across rows of 3
+                        
+                        setTimeout(function() {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, delay);
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(function(card) {
+                observer.observe(card);
+            });
+        })();
+        // ── Mid Section Video Showcase Controller (Crisp HD 0.70x Speed) ──
+        (function() {
+            var midVideo = document.getElementById('midSectionVideo');
+            if (!midVideo) return;
+
+            function applyVideoSettings() {
+                // 0.70x speed as requested
+                midVideo.playbackRate = 0.70;
+                midVideo.preservesPitch = false;
+            }
+
+            applyVideoSettings();
+
+            midVideo.addEventListener('play', function() {
+                applyVideoSettings();
+            });
+
+            if (midVideo.paused) {
+                midVideo.play().catch(function() {});
+            }
+
+            // Intersection Observer for viewport auto play/pause
+            var videoObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        applyVideoSettings();
+                        midVideo.play().catch(function() {});
+                    } else {
+                        midVideo.pause();
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            videoObserver.observe(midVideo);
+        })();
+    </script>
+</body>
+</html>

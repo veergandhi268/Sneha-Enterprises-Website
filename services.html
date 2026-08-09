@@ -1,0 +1,2267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Outfit:wght@300;400;600;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap"
+        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Sneha Enterprises — Creative & Digital Solutions</title>
+    <meta name="description"
+        content="Explore 360-degree advertising, brand strategy, design & print solutions, audio visual production, and UI/UX web development services by Sneha Enterprises.">
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #d4af37;
+            --gold-l: #e5c158;
+            --gold-glow: rgba(212, 175, 55, 0.45);
+            --gold-dim: rgba(212, 175, 55, 0.12);
+            --bg: #0d0900;
+            --surface: rgba(212, 175, 55, 0.04);
+            --border: rgba(212, 175, 55, 0.18);
+            --border-h: rgba(229, 193, 88, 0.5);
+            --text: #f5eedc;
+            --muted: rgba(245, 238, 220, 0.6);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+
+        #starfield {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* ─── HEADER ─── */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 18px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2000;
+            background: linear-gradient(to bottom, rgba(13, 9, 0, 0.92) 0%, rgba(13, 9, 0, 0.6) 70%, rgba(0, 0, 0, 0) 100%);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: padding 0.3s ease, background 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 50px;
+            background: rgba(8, 5, 0, 0.95);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .header-logo img {
+            height: 38px;
+            border-radius: 4px;
+        }
+
+        .brand-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 0.82rem;
+            border-left: 1px solid rgba(212, 175, 55, 0.25);
+            padding-left: 18px;
+        }
+
+        .hc-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: rgba(255, 235, 180, 0.85);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .hc-item:hover {
+            color: var(--gold);
+        }
+
+        .hc-item svg {
+            width: 13px;
+            height: 13px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .hc-div {
+            color: rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 235, 180, 0.8);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold);
+        }
+
+        .nav-ai-link {
+            color: #e5c158 !important;
+            font-weight: 600 !important;
+            padding: 4px 13px !important;
+            border: 1px solid rgba(229, 193, 88, 0.6);
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(229, 193, 88, 0.12), rgba(180, 120, 40, 0.08));
+            box-shadow: 0 0 14px rgba(229, 193, 88, 0.3);
+        }
+
+        .nav-ai-link:hover {
+            color: #fff !important;
+            background: linear-gradient(135deg, rgba(229, 193, 88, 0.35), rgba(180, 120, 40, 0.25)) !important;
+            box-shadow: 0 0 28px rgba(229, 193, 88, 0.7) !important;
+            transform: scale(1.05);
+            display: inline-block;
+        }
+
+        /* ─── FLOATING SOCIAL ─── */
+        .floating-social {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .social-btn {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 48px;
+            padding-right: 14px;
+            padding-left: 14px;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            text-decoration: none;
+            overflow: hidden;
+            transition: padding-left 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        box-shadow 0.4s ease;
+        }
+
+        /* Platform-specific brand gradients */
+        .social-btn.facebook, .social-btn.fb {
+            background: linear-gradient(135deg, #1877f2, #0a58ca);
+            box-shadow: -4px 0 25px rgba(24, 119, 242, 0.35);
+        }
+        .social-btn.instagram, .social-btn.ig {
+            background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
+            box-shadow: -4px 0 25px rgba(221, 42, 123, 0.4);
+        }
+
+        /* Pulsing glow ring on each button */
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: inherit;
+            background: inherit;
+            opacity: 0.3;
+            filter: blur(10px);
+            animation: socialPulse 2.5s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes socialPulse {
+            0%   { opacity: 0.25; transform: scale(1);   }
+            100% { opacity: 0.6;  transform: scale(1.15); }
+        }
+
+        .social-btn .social-icon {
+            width: 22px;
+            height: 22px;
+            fill: #fff;
+            flex-shrink: 0;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Hidden label that slides out on hover */
+        .social-btn .social-label {
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            max-width: 0;
+            overflow: hidden;
+            opacity: 0;
+            margin-left: 0;
+            transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        opacity 0.3s ease,
+                        margin-left 0.4s ease;
+        }
+
+        .social-btn:hover .social-label {
+            max-width: 100px;
+            opacity: 1;
+            margin-left: 10px;
+        }
+
+        .social-btn:hover .social-icon {
+            transform: scale(1.1);
+        }
+
+        .social-btn:hover {
+            padding-left: 18px;
+        }
+
+
+        /* ═══════════════════════════════════════════
+           SECTION 1: CINEMATIC HERO
+        ═══════════════════════════════════════════ */
+        /* ── HERO: ANIMATED PARTICLE + CANVAS ── */
+        /* ─── SECTION 1: CINEMATIC HERO ─── */
+        .hero {
+            position: relative;
+            min-height: auto;
+            padding: 100px 20px 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            overflow: hidden;
+            background: radial-gradient(ellipse 80% 70% at 50% 50%, #201304 0%, #0d0900 85%);
+        }
+
+        #hero-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Glowing ring pulse behind title */
+        .hero-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            pointer-events: none;
+            width: 0;
+            height: 0;
+        }
+
+        .hero-ring-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: ringPulse 3.5s ease-in-out infinite;
+        }
+
+        .hero-ring-circle:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            animation-delay: 0s;
+        }
+
+        .hero-ring-circle:nth-child(2) {
+            width: 500px;
+            height: 500px;
+            animation-delay: 0.8s;
+        }
+
+        .hero-ring-circle:nth-child(3) {
+            width: 720px;
+            height: 720px;
+            animation-delay: 1.6s;
+        }
+
+        .hero-ring-circle:nth-child(4) {
+            width: 950px;
+            height: 950px;
+            animation-delay: 2.4s;
+        }
+
+        @keyframes ringPulse {
+            0% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0;
+            }
+
+            40% {
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1.1);
+                opacity: 0;
+            }
+        }
+
+        /* Luxury Golden Aurora Light Halo behind hero title */
+        .hero-gold-aurora {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            height: 350px;
+            background: radial-gradient(ellipse at center, rgba(229, 193, 88, 0.18) 0%, rgba(212, 175, 55, 0.08) 45%, transparent 75%);
+            filter: blur(50px);
+            z-index: 2;
+            pointer-events: none;
+            animation: auroraBreathe 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes auroraBreathe {
+            0% {
+                transform: translate(-50%, -50%) scale(0.9);
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1.15);
+                opacity: 1;
+            }
+        }
+
+        /* Hero badge */
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 20px;
+            border-radius: 40px;
+            border: 1px solid rgba(229, 193, 88, 0.5);
+            background: rgba(212, 175, 55, 0.07);
+            color: var(--gold-l);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            opacity: 1;
+            transform: none;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold-l);
+            box-shadow: 0 0 12px var(--gold);
+            animation: dotBlink 1.5s ease-in-out infinite;
+        }
+
+        @keyframes dotBlink {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: 0.4;
+                transform: scale(0.7)
+            }
+        }
+
+        .hero-h1 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 18px;
+            color: #fff;
+            opacity: 1;
+            transform: none;
+        }
+
+        .italic-gold {
+            font-style: italic;
+            background: linear-gradient(135deg, #fff 0%, #e5c158 45%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--muted);
+            max-width: 780px;
+            margin: 0 auto 25px;
+            line-height: 1.7;
+            font-weight: 300;
+            opacity: 1;
+            transform: none;
+        }
+
+        .hero-scroll {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            color: var(--muted);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 1;
+            transform: none;
+            margin-bottom: 10px;
+        }
+
+        .hero-scroll .arrow {
+            width: 24px;
+            height: 24px;
+            border-right: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+            transform: rotate(45deg);
+            animation: scrollArrow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes scrollArrow {
+
+            0%,
+            100% {
+                transform: rotate(45deg) translateY(0);
+                opacity: 1
+            }
+
+            50% {
+                transform: rotate(45deg) translateY(6px);
+                opacity: 0.3
+            }
+        }
+
+        /* ─── SECTION 2: INTRO TEXT ─── */
+        .intro-section {
+            position: relative;
+            z-index: 10;
+            padding: 30px 50px 35px;
+            text-align: center;
+            background: linear-gradient(to bottom, #0d0900, #110b01, #0d0900);
+        }
+
+        .intro-section p {
+            font-size: 1.25rem;
+            color: var(--muted);
+            max-width: 950px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .intro-section strong {
+            color: var(--gold-l);
+            font-weight: 600;
+        }
+
+        /* ═══════════════════════════════════════════
+           SECTION 3: HORIZONTAL SLIDE CAROUSEL
+        ═══════════════════════════════════════════ */
+        .services-section {
+            position: relative;
+            z-index: 10;
+            padding: 0 0 60px;
+        }
+
+        .services-label {
+            text-align: center;
+            padding: 20px 50px 30px;
+        }
+
+        .section-tag {
+            color: var(--gold-l);
+            font-size: 0.82rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .section-h2 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 600;
+        }
+
+        /* Vertical Luxury Service Cards Rail */
+        .slide-rail {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 25px;
+            position: relative;
+        }
+
+        .service-slide {
+            position: relative;
+            width: 100%;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            min-height: 440px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0f0b01 0%, #1a1103 100%);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 175, 55, 0.06);
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .service-slide:hover {
+            border-color: var(--gold-l);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Alternating image/text layout */
+        .slide-img-panel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-img-panel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: brightness(0.85) saturate(1.2);
+        }
+
+        .service-slide:hover .slide-img-panel img {
+            transform: scale(1.07);
+        }
+
+        /* Image Overlay Gradient */
+        .slide-img-panel::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(13, 9, 0, 0.0) 60%, rgba(13, 9, 0, 0.7) 100%);
+            pointer-events: none;
+        }
+
+        .service-slide.reverse .slide-img-panel::after {
+            background: linear-gradient(270deg, rgba(13, 9, 0, 0.0) 60%, rgba(13, 9, 0, 0.7) 100%);
+        }
+
+        .slide-text-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 70px 70px 70px 60px;
+            background: linear-gradient(135deg, #0f0b01 0%, #1a1103 100%);
+            border-left: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-slide.reverse .slide-text-panel {
+            order: -1;
+            border-left: none;
+            border-right: 1px solid var(--border);
+            padding: 70px 60px 70px 70px;
+        }
+
+        /* Gold corner accent */
+        .slide-text-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+        }
+
+        .service-slide.reverse .slide-text-panel::before {
+            left: auto;
+            right: 0;
+            background: linear-gradient(270deg, var(--gold), transparent);
+        }
+
+        /* Slide number highlight badge - Rich Vibrant Gold */
+        .slide-num {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            bottom: auto;
+            left: auto;
+            font-family: 'Bodoni Moda', serif;
+            font-size: 5.5rem;
+            font-weight: 800;
+            font-style: italic;
+            background: linear-gradient(135deg, #fff0aa 0%, #f0cc50 40%, #d4af37 75%, #aa7c11 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.9;
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+            filter: drop-shadow(0 4px 15px rgba(212, 175, 55, 0.45));
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1;
+        }
+
+        .service-slide.reverse .slide-num {
+            right: 35px;
+            left: auto;
+            top: 25px;
+            bottom: auto;
+        }
+
+        .service-slide:hover .slide-num {
+            opacity: 1;
+            transform: scale(1.08);
+            filter: drop-shadow(0 0 28px rgba(229, 193, 88, 0.85));
+        }
+
+        .slide-category {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-h);
+            color: var(--gold-l);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 7px 18px;
+            border-radius: 30px;
+            width: fit-content;
+            margin-bottom: 22px;
+        }
+
+        .slide-h3 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: #fff;
+            margin-bottom: 28px;
+        }
+
+        .slide-list {
+            list-style: none;
+            margin-bottom: 35px;
+        }
+
+        .slide-list li {
+            padding: 11px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            font-size: 1rem;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: color 0.3s, padding-left 0.3s;
+        }
+
+        .slide-list li:last-child {
+            border-bottom: none;
+        }
+
+        .slide-list li:hover {
+            color: var(--text);
+            padding-left: 5px;
+        }
+
+        .slide-list li .li-icon {
+            width: 30px;
+            height: 30px;
+            flex-shrink: 0;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .slide-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 13px 32px;
+            border-radius: 35px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-l));
+            color: #0d0900;
+            font-weight: 700;
+            font-size: 0.88rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            width: fit-content;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .slide-cta:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 14px 35px rgba(229, 193, 88, 0.6);
+        }
+
+        .slide-cta-arrow {
+            transition: transform 0.3s;
+        }
+
+        .slide-cta:hover .slide-cta-arrow {
+            transform: translateX(5px);
+        }
+
+        /* ═══════════════════════════════════════════
+           SECTION 4: ANIMATED STATS TICKER
+        ═══════════════════════════════════════════ */
+        .stats-section {
+            position: relative;
+            z-index: 10;
+            padding: 70px 0;
+            background: linear-gradient(135deg, #100c02, #0d0900);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .stats-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 200px;
+            background: radial-gradient(ellipse, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 50px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(212, 175, 55, 0.04);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .stat-card:hover {
+            background: rgba(212, 175, 55, 0.09);
+            border-color: var(--gold-l);
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+        }
+
+        .stat-num {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, var(--gold-l) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.88rem;
+            color: var(--muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ═══════════════════════════════════════════
+           SECTION 5: ANIMATED PROCESS TIMELINE
+        ═══════════════════════════════════════════ */
+        .process-section {
+            position: relative;
+            z-index: 10;
+            padding: 120px 50px;
+        }
+
+        .process-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .process-header p {
+            font-size: 1.15rem;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 15px auto 0;
+        }
+
+        .timeline {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+
+        /* Horizontal connector line */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 38px;
+            left: calc(12.5%);
+            right: calc(12.5%);
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            z-index: 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tl-icon {
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1a1103, #0d0900);
+            border: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+            box-shadow: 0 0 0 6px rgba(212, 175, 55, 0.07), 0 8px 25px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-item:hover .tl-icon {
+            background: linear-gradient(135deg, var(--gold), var(--gold-l));
+            box-shadow: 0 0 0 8px rgba(212, 175, 55, 0.15), 0 12px 30px rgba(212, 175, 55, 0.4);
+            transform: scale(1.1) translateY(-5px);
+        }
+
+        .tl-num {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: #0d0900;
+            font-size: 0.72rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tl-title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .tl-desc {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* ═══════════════════════════════════════════
+           SECTION 6: OUR APPROACH (Reference replica)
+        ═══════════════════════════════════════════ */
+        .approach-section {
+            position: relative;
+            z-index: 10;
+            padding: 120px 50px;
+            background: linear-gradient(160deg, #100c02 0%, #0d0900 50%, #110b01 100%);
+            border-top: 1px solid var(--border);
+        }
+
+        .approach-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .approach-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .approach-header p {
+            font-size: 1.2rem;
+            color: var(--muted);
+            max-width: 700px;
+            margin: 15px auto 0;
+        }
+
+        .approach-header span.hl {
+            color: var(--gold-l);
+            font-style: italic;
+        }
+
+        .approach-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .approach-item {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+            background: rgba(212, 175, 55, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px 32px;
+            transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .approach-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .approach-item:hover::before {
+            opacity: 1;
+        }
+
+        .approach-item:hover {
+            border-color: var(--border-h);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(212, 175, 55, 0.18);
+        }
+
+        .approach-num {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 3rem;
+            font-weight: 800;
+            font-style: italic;
+            color: var(--gold-l);
+            opacity: 0.6;
+            line-height: 1;
+            flex-shrink: 0;
+            transition: opacity 0.3s;
+        }
+
+        .approach-item:hover .approach-num {
+            opacity: 1;
+        }
+
+        .approach-content {}
+
+        .approach-title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .approach-desc {
+            font-size: 0.95rem;
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        /* ═══════════════════════════════════════════
+           SECTION 7: ANIMATED MARQUEE TICKER
+        ═══════════════════════════════════════════ */
+        .marquee-section {
+            position: relative;
+            z-index: 10;
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: #080500;
+            overflow: hidden;
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 50px;
+            white-space: nowrap;
+            animation: marqueeScroll 28s linear infinite;
+        }
+
+        .marquee-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--muted);
+            flex-shrink: 0;
+        }
+
+        .marquee-sep {
+            color: var(--gold);
+            font-size: 1rem;
+        }
+
+        @keyframes marqueeScroll {
+            0% {
+                transform: translateX(-50%)
+            }
+
+            100% {
+                transform: translateX(0)
+            }
+        }
+
+        /* ═══════════════════════════════════════════
+           SECTION 8: CTA SECTION
+        ═══════════════════════════════════════════ */
+        .cta-section {
+            position: relative;
+            z-index: 10;
+            padding: 120px 50px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .cta-orb {
+            position: absolute;
+            width: 700px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse, rgba(212, 175, 55, 0.18) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            animation: ctaOrb 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes ctaOrb {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+        }
+
+        .cta-h2 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 22px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-sub {
+            font-size: 1.15rem;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), var(--gold-l));
+            color: #0d0900;
+            padding: 15px 42px;
+            border-radius: 35px;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
+            transition: all 0.35s;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 14px 40px rgba(229, 193, 88, 0.65);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 1px solid var(--border-h);
+            padding: 15px 42px;
+            border-radius: 35px;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.35s;
+        }
+
+        .btn-outline:hover {
+            background: rgba(212, 175, 55, 0.12);
+            border-color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* ── FOOTER (matches Home page) ── */
+        .footer-sec {
+            position: relative;
+            z-index: 100;
+            background: linear-gradient(180deg, #0b0703 0%, #181006 50%, #070402 100%);
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 48px 0 25px 0;
+            color: #ffffff;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .footer-sec .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .footer-sec .row {
+            display: grid;
+            grid-template-columns: 2.2fr 1.5fr 1.5fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .footer-sec .logo {
+            max-width: 110px;
+            height: auto;
+            margin-bottom: 16px;
+            display: block;
+            border-radius: 4px;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+        }
+
+        .footer-sec p {
+            font-size: 0.86rem;
+            line-height: 1.65;
+            color: rgba(255, 225, 185, 0.7);
+            font-weight: 300;
+            margin: 0;
+        }
+
+        .footer-sec .quick-links_heading,
+        .footer-sec .footer_address h3 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-style: italic;
+            color: #d4af37;
+            margin-top: 0;
+            margin-bottom: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-sec ul.quick-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-sec ul.quick-links li a {
+            color: rgba(255, 225, 185, 0.75);
+            text-decoration: none;
+            font-size: 0.86rem;
+            font-weight: 300;
+            letter-spacing: 0.4px;
+            position: relative;
+            padding-bottom: 2px;
+            transition: color 0.25s ease;
+            display: inline-block;
+        }
+
+        .footer-sec ul.quick-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #d4af37;
+            transition: width 0.25s ease;
+        }
+
+        .footer-sec ul.quick-links li a:hover {
+            color: #d4af37;
+        }
+
+        .footer-sec ul.quick-links li a:hover::after {
+            width: 100%;
+        }
+
+        .footer-sec .footer_address p {
+            margin-bottom: 10px;
+        }
+
+        .footer-sec .footer_address b {
+            color: #d4af37;
+            font-weight: 600;
+        }
+
+        .footer-sec .footer_address a {
+            color: rgba(255, 225, 185, 0.8);
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
+
+        .footer-sec .footer_address a:hover {
+            color: #d4af37;
+        }
+
+        .footer-sec .copyright-bar {
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            margin-top: 30px;
+            padding-top: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.78rem;
+            color: rgba(255, 225, 185, 0.45);
+            letter-spacing: 0.4px;
+        }
+
+        /* ── INTERSECTION REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.from-left {
+            transform: translateX(-50px);
+        }
+
+        .reveal.from-right {
+            transform: translateX(50px);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translate(0);
+        }
+
+        .reveal-d1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-d2 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-d3 {
+            transition-delay: 0.3s;
+        }
+
+        .reveal-d4 {
+            transition-delay: 0.4s;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 992px) {
+            header {
+                padding: 14px 20px;
+            }
+
+            .header-contact {
+                display: none;
+            }
+
+            .hero-h1 {
+                font-size: 3rem;
+            }
+
+            .service-slide {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                flex: 0 0 100%;
+            }
+
+            .slide-img-panel {
+                height: 280px;
+            }
+
+            .slide-text-panel {
+                padding: 40px 30px;
+            }
+
+            .service-slide.reverse .slide-text-panel {
+                order: 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .timeline {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+
+            .timeline::before {
+                display: none;
+            }
+
+            .approach-list {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-sec .row {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .footer-sec .container {
+                padding: 0 20px;
+            }
+
+            .footer-sec .copyright-bar {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            html, body { overflow-x: hidden !important; width: 100%; }
+            .slide-rail { padding: 0 15px; }
+            .slide-text-panel { padding: 32px 22px 28px; position: relative; }
+            .slide-img-panel { height: 220px; }
+            .slide-num { font-size: 3.5rem; top: 16px; right: 18px; opacity: 0.6; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+            .timeline { grid-template-columns: 1fr; gap: 30px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-h1 { font-size: 2.1rem; }
+            .intro-section p { font-size: 1rem; padding: 0 10px; }
+            .slide-num { font-size: 3.2rem; top: 14px; right: 16px; opacity: 0.55; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .cta-h2 { font-size: 1.8rem; }
+            .btn-gold, .btn-outline { width: 100%; text-align: center; }
+        }
+
+        /* Landscape Mobile Mode (Tilted Down) */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .slide-num { font-size: 3rem; top: 12px; right: 16px; opacity: 0.5; }
+            .slide-text-panel { padding: 24px 20px; }
+        }
+        /* Mobile Navigation Toggle Button & Full Overlay */
+        .mobile-menu-btn {
+            display: none;
+            background: rgba(229, 193, 88, 0.15);
+            border: 1px solid #d4af37;
+            border-radius: 8px;
+            padding: 8px 14px;
+            cursor: pointer;
+            z-index: 10001;
+            color: #d4af37;
+            font-size: 1.3rem;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        @media (max-width: 992px) {
+            .mobile-menu-btn { display: flex; }
+            .nav-links {
+                position: fixed;
+                inset: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(13, 9, 0, 0.98);
+                backdrop-filter: blur(25px);
+                -webkit-backdrop-filter: blur(25px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                padding: 40px 20px;
+                opacity: 0;
+                pointer-events: none;
+                transform: translateY(-15px);
+                transition: opacity 0.35s ease, transform 0.35s ease;
+                z-index: 10000;
+                overflow-y: auto;
+            }
+            .nav-links.active {
+                display: flex !important;
+                opacity: 1 !important;
+                pointer-events: auto !important;
+                transform: translateY(0) !important;
+            }
+            .nav-links li a {
+                font-size: 1.25rem !important;
+                letter-spacing: 2px !important;
+                font-weight: 500 !important;
+            }
+        }
+    </style>
+    <style id="perf-layer">
+        /* === GLOBAL SCROLL PERFORMANCE === */
+        * {
+            -webkit-overflow-scrolling: touch;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Promote header to its own GPU layer - avoids re-compositing page on scroll */
+        header,
+        nav {
+            will-change: transform;
+            isolation: isolate;
+        }
+
+        /* All sections: paint isolation so one section repainting doesn't ripple */
+        section {
+            isolation: isolate;
+        }
+
+        /* Marquee uses translateX — promote to GPU */
+        .marquee-content {
+            will-change: transform;
+        }
+
+        /* Prevent paint cost of large box-shadows during scroll */
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- STARFIELD CANVAS -->
+    <canvas id="starfield"></canvas>
+
+    <!-- HEADER -->
+    <header id="main-header">
+        <div class="header-left">
+            <a href="index.html" class="header-logo">
+                <img src="assets/images/Logo.png" alt="Sneha Enterprises Logo">
+                <span class="brand-text">Sneha Enterprises</span>
+            </a>
+            <div class="header-contact">
+                <a href="tel:9930304621" class="hc-item">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.22 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.11 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    <span>993030 4621</span>
+                </a>
+                <span class="hc-div">|</span>
+                <a href="mailto:info@snehaenterprises.in" class="hc-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    <span>info@snehaenterprises.in</span>
+                </a>
+            </div>
+        </div>
+        <button class="mobile-menu-btn" id="mobileToggle" aria-label="Toggle Menu">&#9776;</button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="ai.html" class="nav-ai-link">✦ AI</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </header>
+
+    <!-- FLOATING SOCIAL -->
+    <div class="floating-social">
+        <a href="https://www.facebook.com/share/15iHXZYsWQ/" target="_blank" rel="noopener" aria-label="Facebook" class="social-btn facebook">
+            <svg class="social-icon" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <span class="social-label">Facebook</span>
+        </a>
+        <a href="https://www.instagram.com/sneha_enterprises.in?utm_source=qr&igsh=cDJpZ2YwMnFkM3A4" target="_blank" rel="noopener" aria-label="Instagram" class="social-btn instagram">
+            <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <span class="social-label">Instagram</span>
+        </a>
+    </div>
+
+    <!-- ═══════════════════════════════ -->
+    <!-- SECTION 1: CINEMATIC HERO       -->
+    <!-- ═══════════════════════════════ -->
+    <section class="hero">
+        <canvas id="hero-canvas"></canvas>
+        <!-- Pulsing concentric rings -->
+        <div class="hero-ring">
+            <div class="hero-ring-circle"></div>
+            <div class="hero-ring-circle"></div>
+            <div class="hero-ring-circle"></div>
+            <div class="hero-ring-circle"></div>
+        </div>
+        <!-- Luxury Golden Ambient Aurora -->
+        <div class="hero-gold-aurora"></div>
+        <div class="hero-inner">
+            <div class="hero-badge"><span class="dot"></span> Our Core Services &amp; Capabilities</div>
+            <h1 class="hero-h1">Building Powerful Brands<br><span class="italic-gold">That Dominate</span></h1>
+            <p class="hero-subtitle">Our team specializes in a variety of services that assist, elevate, and empower
+                your business. We collaborate with you to develop comprehensive, meaningful, and purpose-driven
+                identities and experiences.</p>
+            <div class="hero-scroll">
+                <span>Scroll to Discover</span>
+                <div class="arrow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════ -->
+    <!-- SECTION 2: INTRO                -->
+    <!-- ═══════════════════════════════ -->
+    <section class="intro-section">
+        <p class="reveal">Let's speak about how our services can <strong>benefit your organization</strong>. For
+            <strong>25+ years</strong>, we have partnered with industry leaders across pharma, real estate, hospitality,
+            jewellery, and beyond — crafting <strong>iconic brand experiences</strong> that stand the test of time.</p>
+    </section>
+
+    <!-- MARQUEE STRIP -->
+    <div class="marquee-section">
+        <div class="marquee-track" id="marquee-track">
+            <span class="marquee-item">Brand Strategy <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">Print & Packaging <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">Business Cards <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">Catalogs & Brochures <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">Audio Visual Production <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">UI/UX Design <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">Websites <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">Mobile Apps <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">Digital Marketing <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">Stall & Exhibition Design <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">Social Media Reels <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">Go-to-Market Strategy <span class="marquee-sep">✦</span></span>
+            <!-- Duplicate set for seamless loop -->
+            <span class="marquee-item">Brand Strategy <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">Print & Packaging <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">Business Cards <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">Catalogs & Brochures <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">Audio Visual Production <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">UI/UX Design <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">Websites <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">Mobile Apps <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">Digital Marketing <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">Stall & Exhibition Design <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">Social Media Reels <span class="marquee-sep">✦</span></span>
+            <span class="marquee-item">Go-to-Market Strategy <span class="marquee-sep">✦</span></span>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════ -->
+    <!-- SECTION 3: ANIMATED SLIDE DECK  -->
+    <!-- ═══════════════════════════════ -->
+    <section class="services-section">
+        <div class="services-label">
+            <span class="section-tag reveal">Capabilities & Expertise</span>
+            <h2 class="section-h2 reveal">Our Service Pillars</h2>
+        </div>
+
+        <!-- SLIDE 1: Creative Concept & Brand Strategy (image left) -->
+        <div class="service-slide" id="svc-brand">
+            <div class="slide-img-panel reveal from-left">
+                <img src="assets/images/services/S_01.png" alt="Creative Concept & Brand Strategy — Sneha Enterprises">
+            </div>
+            <div class="slide-text-panel reveal from-right">
+                <span class="slide-num">01</span>
+                <div class="slide-category">✦ Brand Strategy</div>
+                <h3 class="slide-h3">Creative Concept<br>&amp; Brand Strategy</h3>
+                <ul class="slide-list">
+                    <li><span class="li-icon">🚀</span> Brand Launch / Go-to-Market Strategy</li>
+                    <li><span class="li-icon">💬</span> Brand Communication & Positioning</li>
+                    <li><span class="li-icon">📝</span> Content Strategy & Storytelling</li>
+                    <li><span class="li-icon">📡</span> ATL &amp; BTL Campaign Strategy</li>
+                </ul>
+                <a href="contact.html" class="slide-cta">Discuss Strategy <span class="slide-cta-arrow">→</span></a>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: Design & Print Solutions (image right) -->
+        <div class="service-slide reverse" id="svc-print">
+            <div class="slide-img-panel reveal from-right">
+                <img src="assets/images/services/S_02.png" alt="Design & Print Solutions — Sneha Enterprises">
+            </div>
+            <div class="slide-text-panel reveal from-left">
+                <span class="slide-num">02</span>
+                <div class="slide-category">✦ Design & Print</div>
+                <h3 class="slide-h3">Design &amp;<br>Print Solutions</h3>
+                <ul class="slide-list">
+                    <li><span class="li-icon">🎨</span> Graphic & Visual Identity Design</li>
+                    <li><span class="li-icon">📦</span> Luxury Product Packaging Design</li>
+                    <li><span class="li-icon">🖨️</span> Offset, Digital & 3D Printing</li>
+                    <li><span class="li-icon">🏛️</span> Exhibition & Stall Design</li>
+                </ul>
+                <a href="contact.html" class="slide-cta">Get Print Solutions <span class="slide-cta-arrow">→</span></a>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Audio & Visual Solutions (image left) -->
+        <div class="service-slide" id="svc-av">
+            <div class="slide-img-panel reveal from-left">
+                <img src="assets/images/services/S_03.png" alt="Audio & Visual Solutions — Sneha Enterprises">
+            </div>
+            <div class="slide-text-panel reveal from-right">
+                <span class="slide-num">03</span>
+                <div class="slide-category">✦ Audio Visual</div>
+                <h3 class="slide-h3">Audio &amp; Visual<br>Solutions</h3>
+                <ul class="slide-list">
+                    <li><span class="li-icon">🎬</span> Corporate AV & Brand Films</li>
+                    <li><span class="li-icon">📊</span> High-Impact Media Presentations</li>
+                    <li><span class="li-icon">🎞️</span> 2D & 3D Animated Video Production</li>
+                    <li><span class="li-icon">📱</span> Social Media Reel & Short Creation</li>
+                </ul>
+                <a href="contact.html" class="slide-cta">Start AV Project <span class="slide-cta-arrow">→</span></a>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: UI & UX Solutions (image right) -->
+        <div class="service-slide reverse" id="svc-uiux">
+            <div class="slide-img-panel reveal from-right">
+                <img src="assets/images/services/S_04.png" alt="UI & UX Solutions — Sneha Enterprises">
+            </div>
+            <div class="slide-text-panel reveal from-left">
+                <span class="slide-num">04</span>
+                <div class="slide-category">✦ UI/UX & Web</div>
+                <h3 class="slide-h3">UI &amp; UX<br>Solutions</h3>
+                <ul class="slide-list">
+                    <li><span class="li-icon">🖥️</span> UI/UX Interface & App Design</li>
+                    <li><span class="li-icon">🌐</span> Custom Web & E-Commerce Development</li>
+                    <li><span class="li-icon">🔍</span> Search Engine Optimization (SEO)</li>
+                    <li><span class="li-icon">⚡</span> Performance Digital Solutions</li>
+                </ul>
+                <a href="contact.html" class="slide-cta">Build Digital Platform <span
+                        class="slide-cta-arrow">→</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════ -->
+    <!-- SECTION 4: STATS TICKER         -->
+    <!-- ═══════════════════════════════ -->
+    <section class="stats-section">
+        <div class="stats-glow"></div>
+        <div class="stats-grid">
+            <div class="stat-card reveal reveal-d1">
+                <div class="stat-num" data-count="25">0</div>
+                <div class="stat-label">Years of Excellence</div>
+            </div>
+            <div class="stat-card reveal reveal-d2">
+                <div class="stat-num" data-count="500">0</div>
+                <div class="stat-label">Projects Delivered</div>
+            </div>
+            <div class="stat-card reveal reveal-d3">
+                <div class="stat-num" data-count="120">0</div>
+                <div class="stat-label">Clients Served</div>
+            </div>
+            <div class="stat-card reveal reveal-d4">
+                <div class="stat-num" data-count="4">0</div>
+                <div class="stat-label">Core Service Pillars</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════ -->
+    <!-- SECTION 5: PROCESS TIMELINE     -->
+    <!-- ═══════════════════════════════ -->
+    <section class="process-section">
+        <div class="process-inner">
+            <div class="process-header">
+                <span class="section-tag reveal">How We Work</span>
+                <h2 class="section-h2 reveal">Our Creative Process</h2>
+                <p class="reveal">Every great campaign begins with a clear, purpose-driven strategy.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item reveal reveal-d1">
+                    <div class="tl-icon">
+                        <span class="tl-num">1</span>
+                        🎯
+                    </div>
+                    <h3 class="tl-title">Discover</h3>
+                    <p class="tl-desc">Deep-dive into your brand, market, and audience to uncover core truths and
+                        opportunities.</p>
+                </div>
+                <div class="timeline-item reveal reveal-d2">
+                    <div class="tl-icon">
+                        <span class="tl-num">2</span>
+                        💡
+                    </div>
+                    <h3 class="tl-title">Strategize</h3>
+                    <p class="tl-desc">We build a bespoke creative strategy and communication roadmap tailored to your
+                        goals.</p>
+                </div>
+                <div class="timeline-item reveal reveal-d3">
+                    <div class="tl-icon">
+                        <span class="tl-num">3</span>
+                        ✏️
+                    </div>
+                    <h3 class="tl-title">Create</h3>
+                    <p class="tl-desc">Our award-winning creative team brings ideas to life across print, digital, film,
+                        and web.</p>
+                </div>
+                <div class="timeline-item reveal reveal-d4">
+                    <div class="tl-icon">
+                        <span class="tl-num">4</span>
+                        🚀
+                    </div>
+                    <h3 class="tl-title">Launch & Grow</h3>
+                    <p class="tl-desc">Execute campaigns with precision, measure performance, and continuously optimize
+                        for growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════ -->
+    <!-- SECTION 6: OUR APPROACH         -->
+    <!-- ═══════════════════════════════ -->
+    <section class="approach-section">
+        <div class="approach-inner">
+            <div class="approach-header">
+                <span class="section-tag reveal">Our Methodology</span>
+                <h2 class="section-h2 reveal">Our Approach</h2>
+                <p class="reveal">We love to work side by side with <span class="hl">ambitious perfectionist and
+                        challenges-loving clients.</span></p>
+            </div>
+            <div class="approach-list">
+                <div class="approach-item reveal reveal-d1">
+                    <div class="approach-num">01.</div>
+                    <div class="approach-content">
+                        <h3 class="approach-title">Partnership</h3>
+                        <p class="approach-desc">We believe in design partnership and co-creation. We like to discuss,
+                            plan and be a part of your team. Only sharing the same vision can achieve great results.</p>
+                    </div>
+                </div>
+                <div class="approach-item reveal reveal-d2">
+                    <div class="approach-num">02.</div>
+                    <div class="approach-content">
+                        <h3 class="approach-title">Closeness</h3>
+                        <p class="approach-desc">We work closely and listen to our clients. We carefully research them
+                            to understand their story, their history, and their aspirations.</p>
+                    </div>
+                </div>
+                <div class="approach-item reveal reveal-d3">
+                    <div class="approach-num">03.</div>
+                    <div class="approach-content">
+                        <h3 class="approach-title">Future</h3>
+                        <p class="approach-desc">We believe in strong and continuous relationships. We aim to become a
+                            trusted partner of our clients, not just a service provider.</p>
+                    </div>
+                </div>
+                <div class="approach-item reveal reveal-d4">
+                    <div class="approach-num">04.</div>
+                    <div class="approach-content">
+                        <h3 class="approach-title">Commitment</h3>
+                        <p class="approach-desc">We commit to clients with international standards, time efficiency,
+                            production excellence, and flexible brand framework development that connects with users in
+                            all environments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════ -->
+    <!-- SECTION 7: CTA                  -->
+    <!-- ═══════════════════════════════ -->
+    <section class="cta-section">
+        <div class="cta-orb"></div>
+        <h2 class="cta-h2 reveal">Ready To Elevate<br><span class="italic-gold">Your Brand?</span></h2>
+        <p class="cta-sub reveal">Let's craft extraordinary creative experiences together. From concept to completion —
+            we are your strategic creative partner.</p>
+        <div class="cta-btns reveal">
+            <a href="contact.html" class="btn-gold">Start A Project →</a>
+            <a href="portfolio.html" class="btn-outline">View Our Work</a>
+        </div>
+    </section>
+
+    <!-- FOOTER (matches Home page exactly) -->
+    <section class="footer-sec mt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <a href="index.html" title="Sneha Enterprises" rel="home">
+                        <img src="assets/images/Logo.png" alt="Sneha Enterprises Logo" class="logo img-fluid">
+                    </a>
+                    <p>We are a creative advertising firm with branding<br>
+                        at its core, and our capabilities include web,<br>
+                        video production, social, digital marketing,<br>
+                        interface design, performance marketing, and<br>
+                        immersive experiences.</p>
+                </div>
+
+                <div class="col-md-4">
+                    <h2 class="quick-links_heading">Quick Links</h2>
+                    <ul class="quick-links">
+                        <li class="line-hover"><a href="index.html">Home</a></li>
+                        <li class="line-hover"><a href="about.html">About Us</a></li>
+                        <li class="line-hover"><a href="portfolio.html">Portfolio</a></li>
+                        <li class="line-hover"><a href="ai.html">✦ AI</a></li>
+                        <li class="line-hover"><a href="services.html">Services</a></li>
+                        <li class="line-hover"><a href="contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 footer_address">
+                    <h3>Sneha Enterprises</h3>
+                    <p>203, Aparna, T. P. S. III,<br>
+                        Near. Veer Savarkar Garden,<br>
+                        Borivali (W), Mumbai-92</p>
+                    <p><b>T:</b> 99303 04621 / 99303 04622<br>
+                        <b>E:</b> <a href="mailto:info@snehaenterprises.in">info@snehaenterprises.in</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="copyright-bar">
+                <span>&copy; 2026 Sneha Enterprises. All Rights Reserved.</span>
+                <span>Your Ideas, Our Expertise — Together We Shine.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════ -->
+    <!-- JAVASCRIPT ENGINE               -->
+    <!-- ═══════════════════════════════ -->
+    <script>
+        /* ── 0. HERO CANVAS — golden particle nebula ── */
+        (function () {
+            const canvas = document.getElementById('hero-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let W, H;
+
+            function resize() {
+                W = canvas.width = window.innerWidth;
+                H = canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            // Particle types: floating nodes + connecting lines + burst sparks
+            const particles = [];
+            const NODE_COUNT = 90;
+            const SPARK_COUNT = 40;
+
+            function rand(a, b) { return a + Math.random() * (b - a); }
+
+            // Create floating nodes
+            for (let i = 0; i < NODE_COUNT; i++) {
+                particles.push({
+                    type: 'node',
+                    x: rand(0, 1) * window.innerWidth,
+                    y: rand(0, 1) * window.innerHeight,
+                    r: rand(1.2, 3),
+                    vx: rand(-0.18, 0.18),
+                    vy: rand(-0.15, 0.15),
+                    alpha: rand(0.3, 1),
+                    baseAlpha: rand(0.3, 1),
+                    pulseSpeed: rand(0.01, 0.025),
+                    pulsePhase: rand(0, Math.PI * 2),
+                    gold: Math.random() > 0.35  // mix of gold and white
+                });
+            }
+
+            // Create tiny fast sparks
+            for (let i = 0; i < SPARK_COUNT; i++) {
+                particles.push({
+                    type: 'spark',
+                    x: rand(0.1, 0.9) * window.innerWidth,
+                    y: rand(0, 1) * window.innerHeight,
+                    r: rand(0.4, 1),
+                    vx: rand(-0.5, 0.5),
+                    vy: rand(-0.8, -0.2),
+                    alpha: rand(0.2, 0.7),
+                    life: rand(0.3, 1),
+                    maxLife: rand(0.3, 1)
+                });
+            }
+
+            function resetSpark(p) {
+                p.x = rand(0.05, 0.95) * W;
+                p.y = H + 10;
+                p.vy = rand(-1.2, -0.3);
+                p.vx = rand(-0.3, 0.3);
+                p.life = 1;
+                p.alpha = rand(0.3, 0.9);
+                p.r = rand(0.4, 1.2);
+            }
+
+            const t0 = Date.now();
+
+            function draw() {
+                const t = (Date.now() - t0) * 0.001;
+                ctx.clearRect(0, 0, W, H);
+
+                // Subtle center radial glow
+                const cx = W / 2, cy = H * 0.48;
+                const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.min(W, H) * 0.55);
+                grd.addColorStop(0, 'rgba(212,175,55,0.08)');
+                grd.addColorStop(0.5, 'rgba(180,130,30,0.04)');
+                grd.addColorStop(1, 'transparent');
+                ctx.fillStyle = grd;
+                ctx.fillRect(0, 0, W, H);
+
+                // Draw connection lines between close nodes
+                const nodes = particles.filter(p => p.type === 'node');
+                for (let i = 0; i < nodes.length; i++) {
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const dx = nodes[i].x - nodes[j].x;
+                        const dy = nodes[i].y - nodes[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 130) {
+                            const lineAlpha = (1 - dist / 130) * 0.22;
+                            ctx.beginPath();
+                            ctx.moveTo(nodes[i].x, nodes[i].y);
+                            ctx.lineTo(nodes[j].x, nodes[j].y);
+                            ctx.strokeStyle = `rgba(212,175,55,${lineAlpha})`;
+                            ctx.lineWidth = 0.6;
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                // Draw particles
+                particles.forEach(p => {
+                    if (p.type === 'node') {
+                        // Update
+                        p.x += p.vx;
+                        p.y += p.vy;
+                        p.pulsePhase += p.pulseSpeed;
+                        p.alpha = p.baseAlpha * (0.6 + 0.4 * Math.sin(p.pulsePhase));
+                        // Wrap
+                        if (p.x < -10) p.x = W + 10;
+                        if (p.x > W + 10) p.x = -10;
+                        if (p.y < -10) p.y = H + 10;
+                        if (p.y > H + 10) p.y = -10;
+                        // Draw glowing dot
+                        const color = p.gold ? `212,175,55` : `245,238,220`;
+                        const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 4);
+                        glow.addColorStop(0, `rgba(${color},${p.alpha})`);
+                        glow.addColorStop(0.4, `rgba(${color},${p.alpha * 0.5})`);
+                        glow.addColorStop(1, `rgba(${color},0)`);
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.r * 4, 0, Math.PI * 2);
+                        ctx.fillStyle = glow;
+                        ctx.fill();
+                        // Solid core
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(${color},${Math.min(1, p.alpha * 1.4)})`;
+                        ctx.fill();
+                    } else {
+                        // Spark
+                        p.x += p.vx;
+                        p.y += p.vy;
+                        p.life -= 0.008;
+                        if (p.life <= 0) { resetSpark(p); return; }
+                        const sa = p.alpha * p.life;
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(229,193,88,${sa})`;
+                        ctx.fill();
+                    }
+                });
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+        /* ── 1. Starfield Canvas Animation ── */
+        (function () {
+            const canvas = document.getElementById('starfield');
+            const ctx = canvas.getContext('2d');
+            let W, H, stars = [];
+
+            function resize() {
+                W = canvas.width = window.innerWidth;
+                H = canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            function initStars(n) {
+                stars = [];
+                for (let i = 0; i < n; i++) {
+                    stars.push({
+                        x: Math.random() * W,
+                        y: Math.random() * H,
+                        r: Math.random() * 1.4 + 0.2,
+                        alpha: Math.random(),
+                        speed: Math.random() * 0.3 + 0.05,
+                        twinkle: Math.random() * Math.PI * 2,
+                        twinkleSpeed: (Math.random() * 0.02 + 0.008)
+                    });
+                }
+            }
+            initStars(260);
+
+            let mouseX = W / 2, mouseY = H / 2;
+            document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+
+            function draw() {
+                ctx.clearRect(0, 0, W, H);
+                const t = Date.now() * 0.001;
+
+                stars.forEach(s => {
+                    s.twinkle += s.twinkleSpeed;
+                    const alpha = 0.3 + 0.7 * (0.5 + 0.5 * Math.sin(s.twinkle));
+                    const dx = (s.x - mouseX) * 0.00005;
+                    const dy = (s.y - mouseY) * 0.00005;
+
+                    ctx.beginPath();
+                    ctx.arc(s.x + dx, s.y + dy, s.r, 0, Math.PI * 2);
+                    // Gold-white star glow
+                    const grad = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 3);
+                    grad.addColorStop(0, `rgba(229,193,88,${alpha})`);
+                    grad.addColorStop(0.5, `rgba(212,175,55,${alpha * 0.4})`);
+                    grad.addColorStop(1, 'rgba(212,175,55,0)');
+                    ctx.fillStyle = grad;
+                    ctx.fill();
+                });
+
+                // Subtle floating gold orbs
+                for (let i = 0; i < 3; i++) {
+                    const px = W * (0.2 + i * 0.3) + Math.sin(t * 0.3 + i * 1.2) * 80;
+                    const py = H * (0.3 + Math.sin(t * 0.25 + i * 2.0) * 0.2);
+                    const rr = 120 + i * 30;
+                    const grad = ctx.createRadialGradient(px, py, 0, px, py, rr);
+                    grad.addColorStop(0, `rgba(212,175,55,0.05)`);
+                    grad.addColorStop(1, 'transparent');
+                    ctx.beginPath();
+                    ctx.arc(px, py, rr, 0, Math.PI * 2);
+                    ctx.fillStyle = grad;
+                    ctx.fill();
+                }
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+        /* ── 2. Header Scroll Effect ── */
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        /* ── 3. Intersection Observer Reveals ── */
+        const revealEls = document.querySelectorAll('.reveal');
+        const revealObs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    revealObs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+        revealEls.forEach(el => revealObs.observe(el));
+
+        /* ── 4. Animated Counter for Stats ── */
+        const statNums = document.querySelectorAll('.stat-num[data-count]');
+        const counterObs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    const el = e.target;
+                    const target = parseInt(el.dataset.count);
+                    const suffix = target >= 500 ? '+' : (target === 25 ? '+' : (target === 120 ? '+' : ''));
+                    const duration = 1800;
+                    const start = performance.now();
+                    function tick(now) {
+                        const elapsed = now - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        // Easing: ease-out-expo
+                        const eased = 1 - Math.pow(2, -10 * progress);
+                        el.textContent = Math.floor(eased * target) + (progress === 1 ? suffix : '');
+                        if (progress < 1) requestAnimationFrame(tick);
+                    }
+                    requestAnimationFrame(tick);
+                    counterObs.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        statNums.forEach(el => counterObs.observe(el));
+
+        /* ── 5. Slide hover parallax micro-effect ── */
+        document.querySelectorAll('.service-slide').forEach(slide => {
+            slide.addEventListener('mousemove', (e) => {
+                const rect = slide.getBoundingClientRect();
+                const px = (e.clientX - rect.left) / rect.width - 0.5;
+                const py = (e.clientY - rect.top) / rect.height - 0.5;
+                const img = slide.querySelector('.slide-img-panel img');
+                if (img) {
+                    img.style.transform = `scale(1.06) translate(${px * 12}px, ${py * 8}px)`;
+                }
+            });
+            slide.addEventListener('mouseleave', () => {
+                const img = slide.querySelector('.slide-img-panel img');
+                if (img) img.style.transform = '';
+            });
+        });
+
+        // Mobile Menu Drawer Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (mobileToggle && navLinks) {
+            mobileToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+            });
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => navLinks.classList.remove('active'));
+            });
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

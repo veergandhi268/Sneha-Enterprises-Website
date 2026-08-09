@@ -1,0 +1,160 @@
+[
+  {
+    "url": "portfolio.html#acufine-life-sciences",
+    "slug": "acufine-life-sciences",
+    "title": "Acufine Lifesciences",
+    "category": "Brand Development, Print &amp; Design, Social Media, Web Design",
+    "client": "Acufine Life Sciences",
+    "gallery": [
+      "assets/images/portfolio/Acufine-Logo-2.jpg",
+      "assets/images/portfolio/Accufine.jpg",
+      "assets/images/portfolio/brochure.jpg",
+      "assets/images/portfolio/web.jpg",
+      "assets/images/portfolio/Stall.jpg"
+    ],
+    "similar_projects": [
+      {
+        "title": "Cox & Kings",
+        "url": "portfolio.html#cox-kings"
+      },
+      {
+        "title": "KINGS Diamond & Jewellry",
+        "url": "portfolio.html#kings-diamond-jewellry"
+      },
+      {
+        "title": "ALPINE PRIMO",
+        "url": "portfolio.html#alpine_primo"
+      }
+    ]
+  },
+  {
+    "url": "portfolio.html#ambaram-live-the-high-life",
+    "slug": "ambaram-live-the-high-life",
+    "title": "Ambaram \u2013 Live the High Life",
+    "category": "Brand Development, Print &amp; Design, Social Media, Web Design",
+    "client": "Shree Varad Homes",
+    "gallery": [
+      "assets/images/portfolio/Ambaram-Banner-1.jpg",
+      "assets/images/portfolio/Ambaram_1.jpg",
+      "assets/images/portfolio/Ambaram_2.jpg",
+      "assets/images/portfolio/Ambaram_3.jpg"
+    ],
+    "similar_projects": [
+      {
+        "title": "ALPINE PRIMO",
+        "url": "portfolio.html#alpine_primo"
+      },
+      {
+        "title": "Star Rays",
+        "url": "portfolio.html#star-rays"
+      },
+      {
+        "title": "Wockhardt",
+        "url": "portfolio.html#wockhardt"
+      }
+    ]
+  },
+  {
+    "url": "portfolio.html#arihant-group",
+    "slug": "arihant-group",
+    "title": "Arihant Group",
+    "category": "Brand Development, Print &amp; Design, Web Design",
+    "client": "Arihant Group",
+    "gallery": [
+      "assets/images/portfolio/Arihant_banner.jpg",
+      "assets/images/portfolio/Arihant-Group.jpg"
+    ],
+    "similar_projects": [
+      {
+        "title": "Friends Business Bay",
+        "url": "portfolio.html#friends"
+      },
+      {
+        "title": "Prem Nagar Legacy",
+        "url": "portfolio.html#prem-nagar-legacy"
+      },
+      {
+        "title": "SHREEJI",
+        "url": "portfolio.html#shreeji"
+      }
+    ]
+  },
+  {
+    "url": "portfolio.html#cox-kings",
+    "slug": "cox-kings",
+    "title": "Cox & Kings",
+    "category": "Print &amp; Design",
+    "client": "Cox &amp; Kings",
+    "gallery": [
+      "assets/images/portfolio/Cox_kings_banner.jpg",
+      "assets/images/portfolio/CoX_kings.jpg",
+      "assets/images/portfolio/CoX_kings_2.jpg"
+    ],
+    "similar_projects": [
+      {
+        "title": "Friends Business Bay",
+        "url": "portfolio.html#friends"
+      },
+      {
+        "title": "ALPINE PRIMO",
+        "url": "portfolio.html#alpine_primo"
+      },
+      {
+        "title": "Wockhardt",
+        "url": "portfolio.html#wockhardt"
+      }
+    ]
+  },
+  {
+    "url": "portfolio.html#kings-diamond-jewellry",
+    "slug": "kings-diamond-jewellry",
+    "title": "KINGS Diamond & Jewellry",
+    "category": "Brand Development, Print &amp; Design, Web Design",
+    "client": "KINGS Diamond &amp; Jewellry",
+    "gallery": [
+      "assets/images/portfolio/Kingsbanner.jpg",
+      "assets/images/portfolio/Kings.jpg"
+    ],
+    "similar_projects": [
+      {
+        "title": "SHREEJI",
+        "url": "portfolio.html#shreeji"
+      },
+      {
+        "title": "Star Rays",
+        "url": "portfolio.html#star-rays"
+      },
+      {
+        "title": "Arihant Group",
+        "url": "portfolio.html#arihant-group"
+      }
+    ]
+  },
+  {
+    "url": "portfolio.html#unicorn",
+    "slug": "unicorn",
+    "title": "Unicorn",
+    "category": "Brand Development, Print &amp; Design, Web Design",
+    "client": "Avighna Industries LLP",
+    "gallery": [
+      "assets/images/portfolio/logo-2.jpg",
+      "assets/images/portfolio/unicorn-1.jpg",
+      "assets/images/portfolio/unicorn-2.jpg",
+      "assets/images/portfolio/unicorn-4.jpg"
+    ],
+    "similar_projects": [
+      {
+        "title": "ALPINE PRIMO",
+        "url": "portfolio.html#alpine_primo"
+      },
+      {
+        "title": "Dovoy",
+        "url": "portfolio.html#dovoy"
+      },
+      {
+        "title": "Seasons Jawhara",
+        "url": "portfolio.html#seasons-jawhara"
+      }
+    ]
+  }
+]

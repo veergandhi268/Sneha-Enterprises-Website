@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Sneha Enterprises</title>
+    <meta name="description" content="Learn about Sneha Enterprises — 25+ years of 360-degree advertising, branding, and digital marketing excellence in Mumbai.">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f0cc50;
+            --gold-dark: #a07820;
+            --brown: #2a1508;
+            --brown-light: #4a2c14;
+            --bg: #0d0900;
+        }
+        body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: #fff; overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
+
+        /* ─── PARTICLES ─── */
+        #particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+
+        /* ─── HEADER ─── */
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; padding: 18px 50px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 200;
+            background: linear-gradient(to bottom, rgba(13,9,0,0.92) 0%, rgba(13,9,0,0.6) 70%, rgba(0,0,0,0) 100%);
+            
+            -webkit-
+        }
+        .header-left { display: flex; align-items: center; gap: 25px; }
+        .header-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
+        .header-logo img { height: 38px; border-radius: 4px; }
+        .brand-text { font-size: 1.3rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+        .header-contact { display: flex; align-items: center; gap: 14px; font-size: 0.82rem; border-left: 1px solid rgba(212,175,55,0.25); padding-left: 18px; }
+        .hc-item { display: flex; align-items: center; gap: 5px; color: rgba(255,235,180,0.85); text-decoration: none; transition: color 0.3s; }
+        .hc-item:hover { color: var(--gold); }
+        .hc-item svg { width: 13px; height: 13px; stroke: var(--gold); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .hc-divider { color: rgba(212,175,55,0.3); }
+        .nav-links { display: flex; gap: 28px; list-style: none; }
+        .nav-links a { color: rgba(255,235,180,0.8); text-decoration: none; font-size: 0.85rem; font-weight: 300; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s; position: relative; }
+        .nav-links a::after { content:''; position: absolute; bottom:-4px; left:0; width:0; height:1px; background: var(--gold); transition: width 0.3s; }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+        .nav-ai-link { color: #e5c158 !important; font-weight:600 !important; padding: 4px 13px !important; border: 1px solid rgba(229,193,88,0.6); border-radius:20px; background: linear-gradient(135deg,rgba(229,193,88,0.12),rgba(180,120,40,0.08)); box-shadow:0 0 14px rgba(229,193,88,0.3);  }
+        .nav-ai-link:hover { color:#fff !important; background:linear-gradient(135deg,rgba(229,193,88,0.35),rgba(180,120,40,0.25)) !important; box-shadow:0 0 28px rgba(229,193,88,0.7) !important; }
+         50%{box-shadow:0 0 26px rgba(229,193,88,0.7)} }
+
+        
+        /* ─── FLOATING SOCIAL ─── */
+        .floating-social {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .social-btn {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 48px;
+            padding-right: 14px;
+            padding-left: 14px;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            text-decoration: none;
+            overflow: hidden;
+            transition: padding-left 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        box-shadow 0.4s ease;
+        }
+
+        /* Platform-specific brand gradients */
+        .social-btn.facebook, .social-btn.fb {
+            background: linear-gradient(135deg, #1877f2, #0a58ca);
+            box-shadow: -4px 0 25px rgba(24, 119, 242, 0.35);
+        }
+        .social-btn.instagram, .social-btn.ig {
+            background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
+            box-shadow: -4px 0 25px rgba(221, 42, 123, 0.4);
+        }
+
+        /* Pulsing glow ring on each button */
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: inherit;
+            background: inherit;
+            opacity: 0.3;
+            filter: blur(10px);
+            animation: socialPulse 2.5s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes socialPulse {
+            0%   { opacity: 0.25; transform: scale(1);   }
+            100% { opacity: 0.6;  transform: scale(1.15); }
+        }
+
+        .social-btn .social-icon {
+            width: 22px;
+            height: 22px;
+            fill: #fff;
+            flex-shrink: 0;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Hidden label that slides out on hover */
+        .social-btn .social-label {
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            max-width: 0;
+            overflow: hidden;
+            opacity: 0;
+            margin-left: 0;
+            transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        opacity 0.3s ease,
+                        margin-left 0.4s ease;
+        }
+
+        .social-btn:hover .social-label {
+            max-width: 100px;
+            opacity: 1;
+            margin-left: 10px;
+        }
+
+        .social-btn:hover .social-icon {
+            transform: scale(1.1);
+        }
+
+        .social-btn:hover {
+            padding-left: 18px;
+        }
+        /* ─── HERO SECTION (Dynamic Dark Luxury Video Background) ─── */
+        .hero {
+            position: relative; min-height: 65vh;
+            padding-top: 140px; padding-bottom: 60px;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden; background: #0b0700;
+        }
+        .hero-video-bg {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: cover; z-index: 0; opacity: 0.5;
+            filter: contrast(1.15) brightness(0.85);
+        }
+        #about-waves-canvas {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            z-index: 1; pointer-events: none;
+        }
+        .hero-overlay {
+            position: absolute; inset: 0; z-index: 2;
+            background: radial-gradient(ellipse 90% 80% at 50% 50%, rgba(13,9,0,0.3) 0%, rgba(13,9,0,0.85) 100%),
+                        linear-gradient(180deg, rgba(13,9,0,0.5) 0%, transparent 50%, rgba(13,9,0,0.95) 100%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative; z-index: 10; text-align: center;
+            padding: 0 30px; max-width: 950px;
+        }
+        .hero-eyebrow {
+            display: flex; align-items: center; justify-content: center; gap: 20px;
+            margin-bottom: 20px;
+        }
+        .eyebrow-line { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+        .eyebrow-text {
+            font-size: 0.85rem; font-weight: 600; letter-spacing: 5px;
+            text-transform: uppercase; color: var(--gold);
+        }
+        .hero-title {
+            font-family: 'Bodoni Moda', serif; font-size: clamp(3rem, 5vw, 4.8rem);
+            font-weight: 700; font-style: italic; line-height: 1.1;
+            margin-bottom: 20px; color: #fff;
+        }
+        .hero-title .gold {
+            background: linear-gradient(120deg, #d4af37 0%, #ffffff 40%, #e5c158 70%, #d4af37 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: goldShimmer 4s linear infinite;
+            filter: drop-shadow(0 0 25px rgba(229, 193, 88, 0.4));
+        }
+
+        @keyframes goldShimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+        .hero-subtitle {
+            font-size: 1.15rem; font-weight: 300; line-height: 1.75;
+            color: rgba(255,225,185,0.8); max-width: 680px; margin: 0 auto;
+        }
+
+        /* ─── SECTION COMMON ─── */
+        .section-wrapper { position: relative; z-index: 10; }
+        .section-pad { padding: 90px 60px; }
+        .section-eyebrow {
+            display: flex; align-items: center; gap: 16px; margin-bottom: 20px;
+        }
+        .section-eyebrow .line { width: 50px; height: 1px; background: var(--gold); }
+        .section-eyebrow .label {
+            font-size: 0.78rem; font-weight: 600; letter-spacing: 4px;
+            text-transform: uppercase; color: var(--gold);
+        }
+        .section-heading {
+            font-family: 'Bodoni Moda', serif; font-size: 3.5rem;
+            font-weight: 600; font-style: italic; line-height: 1.15;
+            margin-bottom: 30px; color: #fff;
+        }
+
+        /* ─── ABOUT STORY (split layout - Reduced Top Gap) ─── */
+        .story-section {
+            padding-top: 40px; padding-bottom: 80px;
+            background: linear-gradient(180deg, var(--bg) 0%, rgba(42,21,8,0.25) 50%, var(--bg) 100%);
+        }
+        .story-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+            align-items: center; max-width: 1300px; margin: 0 auto;
+        }
+        .story-video-wrap {
+            position: relative; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 60px rgba(212,175,55,0.08);
+        }
+        .story-video-wrap::before {
+            content: ''; position: absolute; inset: -2px; border-radius: 22px; z-index: -1;
+            background: linear-gradient(135deg, var(--gold), transparent 60%);
+            opacity: 0.4;
+        }
+        .story-video {
+            width: 100%; display: block; border-radius: 20px;
+            aspect-ratio: 16/9; object-fit: cover;
+        }
+        .story-play-btn {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+            width: 80px; height: 80px; border-radius: 50%;
+            background: rgba(212,175,55,0.2); 
+            border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: all 0.4s ease; z-index: 5;
+        }
+        .story-play-btn:hover { background: rgba(212,175,55,0.4); transform: translate(-50%,-50%) scale(1.1); }
+        .story-play-btn svg { width: 30px; height: 30px; fill: var(--gold); margin-left: 4px; }
+        .story-play-btn.hidden { opacity: 0; pointer-events: none; }
+
+        .story-text p {
+            font-size: 1.1rem; line-height: 1.9; color: rgba(255,225,185,0.75);
+            margin-bottom: 25px;
+        }
+        .story-text p:first-of-type::first-letter {
+            font-family: 'Bodoni Moda', serif; font-size: 3.5rem; float: left;
+            line-height: 1; margin-right: 10px; color: var(--gold); font-weight: 600;
+        }
+
+        /* ─── STATS BAR ─── */
+        .stats-bar {
+            background: linear-gradient(135deg, rgba(42,21,8,0.6), rgba(13,9,0,0.9));
+            border-top: 1px solid rgba(212,175,55,0.12);
+            border-bottom: 1px solid rgba(212,175,55,0.12);
+        }
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            max-width: 1200px; margin: 0 auto; text-align: center;
+        }
+        .stat-item {
+            padding: 50px 20px;
+            border-right: 1px solid rgba(212,175,55,0.1);
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .stat-item:last-child { border-right: none; }
+        .stat-item.visible { opacity: 1; transform: translateY(0); }
+        .stat-number {
+            font-family: 'Bodoni Moda', serif; font-size: 4rem;
+            font-weight: 700; color: var(--gold); line-height: 1;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            font-size: 0.85rem; font-weight: 400; letter-spacing: 2px;
+            text-transform: uppercase; color: rgba(255,225,185,0.6);
+        }
+
+        /* ─── VALUES / PILLARS ─── */
+        .values-section {
+            background: linear-gradient(180deg, var(--bg) 0%, rgba(42,21,8,0.15) 100%);
+        }
+        .values-header {
+            text-align: center; max-width: 700px; margin: 0 auto 70px;
+        }
+        .values-header .section-eyebrow { justify-content: center; }
+        .values-header p {
+            font-size: 1.05rem; color: rgba(255,225,185,0.65); line-height: 1.7;
+        }
+        .values-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 40px; max-width: 1200px; margin: 0 auto;
+        }
+        .value-card {
+            position: relative; padding: 50px 35px; border-radius: 20px;
+            background: linear-gradient(135deg, rgba(42,21,8,0.4), rgba(13,9,0,0.6));
+            border: 1px solid rgba(212,175,55,0.08);
+            overflow: hidden; transition: transform 0.5s ease, box-shadow 0.5s ease;
+            opacity: 0; transform: translateY(40px);
+        }
+        .value-card.visible { opacity: 1; transform: translateY(0); }
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(212,175,55,0.08);
+            border-color: rgba(212,175,55,0.2);
+        }
+        .value-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0; transition: opacity 0.5s ease;
+        }
+        .value-card:hover::before { opacity: 1; }
+        .value-icon {
+            width: 60px; height: 60px; border-radius: 16px; margin-bottom: 25px;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 8px 25px rgba(212,175,55,0.2);
+        }
+        .value-icon svg { width: 28px; height: 28px; stroke: #0d0900; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .value-title {
+            font-family: 'Bodoni Moda', serif; font-size: 1.6rem;
+            font-weight: 600; margin-bottom: 15px; color: #fff;
+        }
+        .value-desc {
+            font-size: 0.95rem; line-height: 1.7; color: rgba(255,225,185,0.6);
+        }
+
+        /* ─── TIMELINE ─── */
+        .timeline-section {
+            background: linear-gradient(180deg, rgba(42,21,8,0.15) 0%, var(--bg) 100%);
+        }
+        .timeline-header { text-align: center; max-width: 700px; margin: 0 auto 80px; }
+        .timeline-header .section-eyebrow { justify-content: center; }
+
+        .timeline {
+            position: relative; max-width: 900px; margin: 0 auto;
+            padding-left: 60px;
+        }
+        .timeline::before {
+            content: ''; position: absolute; left: 20px; top: 0; bottom: 0;
+            width: 2px; background: linear-gradient(180deg, var(--gold), rgba(212,175,55,0.1));
+        }
+        .tl-item {
+            position: relative; margin-bottom: 60px;
+            opacity: 0; transform: translateX(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .tl-item.visible { opacity: 1; transform: translateX(0); }
+        .tl-dot {
+            position: absolute; left: -49px; top: 5px;
+            width: 18px; height: 18px; border-radius: 50%;
+            background: var(--gold); border: 3px solid var(--bg);
+            box-shadow: 0 0 20px rgba(212,175,55,0.4);
+        }
+        .tl-year {
+            font-family: 'Bodoni Moda', serif; font-size: 1.6rem;
+            font-weight: 700; color: var(--gold); margin-bottom: 8px;
+        }
+        .tl-title {
+            font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; color: #fff;
+        }
+        .tl-desc {
+            font-size: 0.95rem; line-height: 1.7; color: rgba(255,225,185,0.6);
+        }
+
+        /* ─── CTA SECTION ─── */
+        .cta-section {
+            text-align: center;
+            background: radial-gradient(ellipse at 50% 50%, rgba(42,21,8,0.5) 0%, var(--bg) 70%);
+        }
+        .cta-section .section-eyebrow { justify-content: center; }
+        .cta-title {
+            font-family: 'Bodoni Moda', serif; font-size: 3.5rem;
+            font-weight: 600; font-style: italic; margin-bottom: 20px;
+        }
+        .cta-title .gold { color: var(--gold); }
+        .cta-desc {
+            font-size: 1.1rem; color: rgba(255,225,185,0.7); line-height: 1.7;
+            max-width: 600px; margin: 0 auto 40px;
+        }
+        .cta-btn {
+            display: inline-flex; align-items: center; gap: 12px;
+            padding: 16px 45px; border-radius: 50px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #0d0900; font-weight: 700; font-size: 0.95rem;
+            text-decoration: none; letter-spacing: 1px; text-transform: uppercase;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 30px rgba(212,175,55,0.3);
+        }
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 45px rgba(212,175,55,0.4);
+        }
+        .cta-btn svg { width: 18px; height: 18px; stroke: #0d0900; fill: none; stroke-width: 2.5; }
+
+        /* ─── REVEAL ANIMATIONS ─── */
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-50px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(50px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+        /* ─── HERO ENTRANCE ANIMATION ─── */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes expandLine { from { width: 0; } to { width: 60px; } }
+        .hero-content .hero-eyebrow { animation: fadeUp 0.8s 0.3s both; }
+        .hero-content .hero-title { animation: fadeUp 0.8s 0.6s both; }
+        .hero-content .hero-subtitle { animation: fadeUp 0.8s 0.9s both; }
+        .hero-content .eyebrow-line { animation: expandLine 0.8s 0.5s both; }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 1024px) {
+            .story-grid { grid-template-columns: 1fr; gap: 50px; }
+            .values-grid { grid-template-columns: 1fr 1fr; }
+            .hero-title { font-size: 3.5rem; }
+            .section-heading { font-size: 2.8rem; }
+        }
+        @media (max-width: 768px) {
+            header { padding: 14px 20px; }
+            .header-contact { display: none; }
+            .nav-links { gap: 16px; }
+            .nav-links a { font-size: 0.75rem; }
+            .section-pad { padding: 80px 25px; }
+            .values-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .stat-item { padding: 35px 15px; }
+            .hero-title { font-size: 2.5rem; }
+            .section-heading { font-size: 2.2rem; }
+            .cta-title { font-size: 2.5rem; }
+        }
+        /* ─── LUXURY OBSIDIAN GOLD FOOTER ─── */
+        .footer-sec {
+            position: relative; z-index: 100;
+            background: linear-gradient(180deg, #0b0703 0%, #181006 50%, #070402 100%);
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 48px 0 25px 0; color: #ffffff;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+        }
+        .footer-sec .container {
+            max-width: 1200px; margin: 0 auto; padding: 0 30px;
+        }
+        .footer-sec .row {
+            display: grid; grid-template-columns: 2.2fr 1.5fr 1.5fr; gap: 40px;
+            align-items: start;
+        }
+        .footer-sec .logo {
+            max-width: 110px; height: auto; margin-bottom: 16px; display: block;
+            border-radius: 4px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+        }
+        .footer-sec p {
+            font-size: 0.86rem; line-height: 1.65; color: rgba(255, 225, 185, 0.7);
+            font-weight: 300; margin: 0;
+        }
+        .footer-sec .quick-links_heading,
+        .footer-sec .footer_address h3 {
+            font-family: 'Bodoni Moda', serif; font-size: 1.2rem; font-weight: 600;
+            font-style: italic; color: #d4af37; margin-top: 0; margin-bottom: 14px;
+            letter-spacing: 0.5px;
+        }
+        .footer-sec ul.quick-links {
+            list-style: none; padding: 0; margin: 0; display: flex;
+            flex-direction: column; gap: 8px;
+        }
+        .footer-sec ul.quick-links li a {
+            color: rgba(255, 225, 185, 0.75); text-decoration: none; font-size: 0.86rem;
+            font-weight: 300; letter-spacing: 0.4px; position: relative;
+            padding-bottom: 2px; transition: color 0.25s ease; display: inline-block;
+        }
+        .footer-sec ul.quick-links li a::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px;
+            background: #d4af37; transition: width 0.25s ease;
+        }
+        .footer-sec ul.quick-links li a:hover { color: #d4af37; }
+        .footer-sec ul.quick-links li a:hover::after { width: 100%; }
+        .footer-sec .footer_address p { margin-bottom: 10px; }
+        .footer-sec .footer_address b { color: #d4af37; font-weight: 600; }
+        .footer-sec .footer_address a { color: rgba(255, 225, 185, 0.8); text-decoration: none; transition: color 0.25s ease; }
+        .footer-sec .footer_address a:hover { color: #d4af37; }
+        .footer-sec .copyright-bar {
+            border-top: 1px solid rgba(212, 175, 55, 0.15); margin-top: 30px;
+            padding-top: 16px; display: flex; justify-content: space-between;
+            align-items: center; font-size: 0.78rem; color: rgba(255, 225, 185, 0.45);
+            letter-spacing: 0.4px;
+        }
+
+        @media (max-width: 992px) {
+            .footer-sec .row { grid-template-columns: 1fr; gap: 25px; }
+            .footer-sec .container { padding: 0 20px; }
+            .footer-sec .copyright-bar { flex-direction: column; gap: 8px; text-align: center; }
+        }
+    </style>
+    <style id="perf-layer">
+        /* === GLOBAL SCROLL PERFORMANCE === */
+        * { -webkit-overflow-scrolling: touch; }
+        html { scroll-behavior: smooth; }
+        /* Promote header to its own GPU layer - avoids re-compositing page on scroll */
+        header, nav { will-change: transform; isolation: isolate; }
+        /* All sections: paint isolation so one section repainting doesn't ripple */
+        section { isolation: isolate; }
+        /* Marquee uses translateX — promote to GPU */
+        .marquee-content { will-change: transform; }
+        /* Prevent paint cost of large box-shadows during scroll */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+        /* ── Innovative Floating Social Bar ── */
+        .floating-social {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: opacity;
+        }
+
+        .floating-social.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .social-btn {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 48px;
+            padding-right: 14px;
+            padding-left: 14px;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            text-decoration: none;
+            overflow: hidden;
+            transition: padding-left 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        box-shadow 0.4s ease;
+        }
+
+        /* Platform-specific brand gradients */
+        .social-btn.facebook {
+            background: linear-gradient(135deg, #1877f2, #0a58ca);
+            box-shadow: -4px 0 25px rgba(24, 119, 242, 0.35);
+        }
+        .social-btn.instagram {
+            background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
+            box-shadow: -4px 0 25px rgba(221, 42, 123, 0.4);
+        }
+
+        /* Pulsing glow ring on each button */
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: inherit;
+            background: inherit;
+            opacity: 0.3;
+            filter: blur(10px);
+            animation: socialPulse 2.5s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes socialPulse {
+            0%   { opacity: 0.25; transform: scale(1);   }
+            100% { opacity: 0.6;  transform: scale(1.15); }
+        }
+
+        .social-btn .social-icon {
+            width: 22px;
+            height: 22px;
+            fill: #fff;
+            flex-shrink: 0;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Hidden label that slides out on hover */
+        .social-btn .social-label {
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            max-width: 0;
+            overflow: hidden;
+            opacity: 0;
+            margin-left: 0;
+            transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        opacity 0.3s ease,
+                        margin-left 0.4s ease;
+        }
+
+        .social-btn:hover .social-label {
+            max-width: 100px;
+            opacity: 1;
+            margin-left: 10px;
+        }
+
+        .social-btn:hover .social-icon {
+            transform: rotate(-10deg) scale(1.1);
+        }
+
+        /* Mobile Navigation Toggle Button & Full Overlay */
+        .mobile-menu-btn {
+            display: none;
+            background: rgba(229, 193, 88, 0.15);
+            border: 1px solid #d4af37;
+            border-radius: 8px;
+            padding: 8px 14px;
+            cursor: pointer;
+            z-index: 10001;
+            color: #d4af37;
+            font-size: 1.3rem;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        @media (max-width: 992px) {
+            .mobile-menu-btn { display: flex; }
+            .nav-links {
+                position: fixed;
+                inset: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(13, 9, 0, 0.98);
+                backdrop-filter: blur(25px);
+                -webkit-backdrop-filter: blur(25px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                padding: 40px 20px;
+                opacity: 0;
+                pointer-events: none;
+                transform: translateY(-15px);
+                transition: opacity 0.35s ease, transform 0.35s ease;
+                z-index: 10000;
+                overflow-y: auto;
+            }
+            .nav-links.active {
+                opacity: 1;
+                pointer-events: auto;
+                transform: translateY(0);
+            }
+            .nav-links li a {
+                font-size: 1.25rem !important;
+                letter-spacing: 2px !important;
+                font-weight: 500 !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            html, body { overflow-x: hidden !important; width: 100%; }
+            .header-contact { display: none; }
+            .hero-h1 { font-size: 2.2rem; }
+            .hero-sub { font-size: 1rem; }
+            .footer-sec .row { grid-template-columns: 1fr; gap: 25px; }
+            .footer-sec .copyright-bar { flex-direction: column; gap: 8px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Particles Canvas -->
+    <canvas id="particles"></canvas>
+
+    <!-- Floating Social Bar -->
+    <div class="floating-social">
+        <a href="https://www.facebook.com/share/15iHXZYsWQ/" target="_blank" rel="noopener" aria-label="Facebook" class="social-btn facebook">
+            <svg class="social-icon" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <span class="social-label">Facebook</span>
+        </a>
+        <a href="https://www.instagram.com/sneha_enterprises.in?utm_source=qr&igsh=cDJpZ2YwMnFkM3A4" target="_blank" rel="noopener" aria-label="Instagram" class="social-btn instagram">
+            <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <span class="social-label">Instagram</span>
+        </a>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="header-logo">
+                <img src="assets/images/Logo.png" alt="Sneha Enterprises Logo">
+                <span class="brand-text">Sneha Enterprises</span>
+            </a>
+            <div class="header-contact">
+                <a href="tel:9930304621" class="hc-item">
+                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <span>993030 4621</span>
+                </a>
+                <span class="hc-divider">|</span>
+                <a href="mailto:info@snehaenterprises.in" class="hc-item">
+                    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <span>info@snehaenterprises.in</span>
+                </a>
+            </div>
+        </div>
+        <button class="mobile-menu-btn" id="mobileToggle" aria-label="Toggle Menu">&#9776;</button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About Us</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="ai.html" class="nav-ai-link">✦ AI</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </header>
+
+    <!-- ══════════ HERO (Interactive Golden Constellation Web) ══════════ -->
+    <section class="hero">
+        <canvas id="about-waves-canvas"></canvas>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-eyebrow">
+                <span class="eyebrow-line"></span>
+                <span class="eyebrow-text">Our Story</span>
+                <span class="eyebrow-line"></span>
+            </div>
+            <h1 class="hero-title">Crafting <span class="gold">Iconic Brands</span><br>Since 2001</h1>
+        </div>
+    </section>
+
+    <!-- ══════════ STORY + VIDEO ══════════ -->
+    <section class="story-section section-wrapper section-pad">
+        <div class="story-grid">
+            <div class="reveal-left">
+                <div class="story-video-wrap">
+                    <video class="story-video" id="storyVideo" muted playsinline preload="metadata" poster="">
+                        <source src="assets/images/Sneha website final.mp4" type="video/mp4">
+                    </video>
+                    <div class="story-play-btn" id="playBtn">
+                        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
+                    </div>
+                </div>
+            </div>
+            <div class="story-text reveal-right">
+                <div class="section-eyebrow">
+                    <span class="line"></span>
+                    <span class="label">Who We Are</span>
+                </div>
+                <h2 class="section-heading">A Legacy of<br>Creative Excellence</h2>
+                <p>Sneha Enterprises is a full-service, 360-degree advertising firm founded in 2001 in Mumbai. Over 25 remarkable years, we have evolved from a traditional mainline agency into a powerhouse of integrated marketing — blending the best of classic advertising with cutting-edge digital solutions.</p>
+                <p>We are not restricted to any particular vertical. From real estate giants and FMCG leaders to tech startups and luxury brands, our portfolio spans every industry. We believe every brand has a unique story — and we are here to tell it in the most impactful way possible.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ STATS ══════════ -->
+    <section class="stats-bar section-wrapper">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number" data-target="25">0</div>
+                <div class="stat-label">Years of Excellence</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="100">0</div>
+                <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="500">0</div>
+                <div class="stat-label">Projects Delivered</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="360">0</div>
+                <div class="stat-label">Degree Solutions</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ COMMANDS / VALUES ══════════ -->
+    <section class="values-section section-wrapper section-pad">
+        <div class="values-header">
+            <div class="section-eyebrow">
+                <span class="line"></span>
+                <span class="label">Our Commands</span>
+                <span class="line"></span>
+            </div>
+            <h2 class="section-heading">While some have a vision and mission,<br><span style="color: var(--gold);">We follow our commands.</span></h2>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                </div>
+                <h3 class="value-title">Creativity is<br>Our Currency</h3>
+                <p class="value-desc">We love what we do. We exist for the joy of creating — crafting ideas that move people, stir emotions, and build brands that last generations.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+                <h3 class="value-title">Continuous<br>Learning</h3>
+                <p class="value-desc">A mindset of learning is more than talent. We constantly evolve — studying trends, mastering new platforms, and pushing beyond the boundaries of what's possible.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                </div>
+                <h3 class="value-title">Client Success<br>is Our Reward</h3>
+                <p class="value-desc">Our success is strongly related to the success of our clients. When your brand grows, when your audience connects — that's the reward that drives us forward.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ INNOVATIVE SERVICES STATEMENT ══════════ -->
+    <section class="section-wrapper section-pad" style="background: linear-gradient(180deg, var(--bg) 0%, rgba(42,21,8,0.3) 100%);">
+        <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+            <div class="reveal-left">
+                <h2 class="section-heading" style="font-size: 3rem;"><span style="color: var(--gold);">The entire range of<br>innovative services</span><br>that impact decisions<br>and perception</h2>
+            </div>
+            <div class="reveal-right" style="text-align: center;">
+                <div class="section-eyebrow" style="justify-content: center; margin-bottom: 30px;">
+                    <span class="line"></span>
+                    <span class="label">Results Driven</span>
+                    <span class="line"></span>
+                </div>
+                <p style="font-size: 1.5rem; color: rgba(255,225,185,0.8); line-height: 1.6; font-weight: 300;">More than an agency of promises,<br><strong style="color: var(--gold); font-weight: 600;">we're an agency of results.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ TIMELINE ══════════ -->
+    <section class="timeline-section section-wrapper section-pad">
+        <div class="timeline-header">
+            <div class="section-eyebrow">
+                <span class="line"></span>
+                <span class="label">Our Journey</span>
+                <span class="line"></span>
+            </div>
+            <h2 class="section-heading">Milestones That Define Us</h2>
+        </div>
+        <div class="timeline">
+            <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-year">2001</div>
+                <div class="tl-title">The Beginning</div>
+                <div class="tl-desc">Sneha Enterprises was founded in Borivali, Mumbai, with a vision to redefine 360-degree advertising through creativity and a client-first approach.</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-year">2007</div>
+                <div class="tl-title">Expansion into Print & Outdoor</div>
+                <div class="tl-desc">Established partnerships with major print publications and outdoor media houses, becoming a go-to agency for billboard and transit advertising across Mumbai.</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-year">2014</div>
+                <div class="tl-title">Digital Transformation</div>
+                <div class="tl-desc">Launched our dedicated digital marketing division, embracing social media, performance marketing, and modern digital branding.</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-year">2020</div>
+                <div class="tl-title">100+ Clients Milestone</div>
+                <div class="tl-desc">Crossed the landmark of serving 100+ satisfied clients, including leading brands like Sony, Tanishq, Big Bazaar, Croma, and Tata Sky.</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-year">2026</div>
+                <div class="tl-title">25 Years of Excellence</div>
+                <div class="tl-desc">Celebrating 25 years of accelerating brands with impactful creativity — now powered by AI-driven insights and next-generation marketing tools.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ CTA ══════════ -->
+    <section class="cta-section section-wrapper section-pad">
+        <div class="section-eyebrow">
+            <span class="line"></span>
+            <span class="label">Let's Connect</span>
+            <span class="line"></span>
+        </div>
+        <h2 class="cta-title">Ready to <span class="gold">Elevate</span> Your Brand?</h2>
+        <p class="cta-desc">Whether you're launching something new or reimagining an iconic brand — we're ready to bring your vision to life.</p>
+        <a href="contact.html" class="cta-btn">
+            Get In Touch
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+    </section>
+
+    <!-- ══════════ FOOTER SECTION (Reference Site Layout) ══════════ -->
+    <section class="footer-sec mt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <a href="index.html" title="Sneha Enterprises" rel="home">
+                        <img src="assets/images/Logo.png" alt="Sneha Enterprises Logo" class="logo img-fluid">
+                    </a>
+                    <p>We are a creative advertising firm with branding<br>
+                    at its core, and our capabilities include web,<br>
+                    video production, social, digital marketing,<br>
+                    interface design, performance marketing, and<br>
+                    immersive experiences.</p>
+                </div>
+
+                <div class="col-md-4">
+                    <h2 class="quick-links_heading">Quick Links</h2>
+                    <ul class="quick-links">
+                        <li class="line-hover"><a href="index.html">Home</a></li>
+                        <li class="line-hover"><a href="about.html">About Us</a></li>
+                        <li class="line-hover"><a href="portfolio.html">Portfolio</a></li>
+                        <li class="line-hover"><a href="ai.html" class="nav-ai-link">✦ AI</a></li>
+                        <li class="line-hover"><a href="services.html">Services</a></li>
+                        <li class="line-hover"><a href="contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 footer_address">
+                    <h3>Sneha Enterprises</h3>
+                    <p>203, Aparna, T. P. S. III,<br>
+                    Near. Veer Savarkar Garden,<br>
+                    Borivali (W), Mumbai-92</p>
+                    <p><b>T:</b> 99303 04621 / 99303 04622<br>
+                    <b>E:</b> <a href="mailto:info@snehaenterprises.in">info@snehaenterprises.in</a></p>
+                </div>
+            </div>
+
+            <div class="copyright-bar">
+                <span>&copy; 2026 Sneha Enterprises. All Rights Reserved.</span>
+                <span>Your Ideas, Our Expertise — Together We Shine.</span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // ── ELEGANT POPPING GOLD STARDUST HERO CANVAS ──
+        (function() {
+            var canvas = document.getElementById('about-waves-canvas');
+            if (!canvas) return;
+            var ctx = canvas.getContext('2d');
+            var W, H;
+            var particles = [];
+            var time = 0;
+
+            function resize() {
+                W = canvas.width = window.innerWidth;
+                H = canvas.height = window.innerHeight;
+                initParticles(480); // High quantity of popping stars in About Us hero
+            }
+
+            function initParticles(n) {
+                particles = [];
+                for (var i = 0; i < n; i++) {
+                    particles.push({
+                        x: Math.random() * W,
+                        y: Math.random() * H,
+                        r: Math.random() * 2.0 + 0.4,
+                        vx: (Math.random() - 0.5) * 0.6,
+                        vy: (Math.random() - 0.5) * 0.6,
+                        baseAlpha: Math.random() * 0.7 + 0.2,
+                        phase: Math.random() * Math.PI * 2,
+                        popSpeed: Math.random() * 0.035 + 0.015,
+                        isFlareStar: Math.random() < 0.2,
+                        color: Math.random() > 0.35 ? '#ffffff' : (Math.random() > 0.5 ? '#e5c158' : '#ffd700')
+                    });
+                }
+            }
+
+            resize();
+            window.addEventListener('resize', resize);
+
+            function draw4PointStar(x, y, size, alpha, color) {
+                ctx.save();
+                ctx.beginPath();
+                ctx.fillStyle = color;
+                ctx.globalAlpha = alpha;
+                ctx.shadowBlur = 12;
+                ctx.shadowColor = '#ffffff';
+
+                // Vertical beam
+                ctx.fillRect(x - 0.75, y - size, 1.5, size * 2);
+                // Horizontal beam
+                ctx.fillRect(x - size, y - 0.75, size * 2, 1.5);
+
+                ctx.restore();
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, W, H);
+                time += 0.018;
+
+                // 1. Soft Central Ambient Gold Core
+                var bgGrad = ctx.createRadialGradient(W / 2, H / 2, 20, W / 2, H / 2, Math.max(W, H) * 0.6);
+                bgGrad.addColorStop(0, 'rgba(212, 175, 55, 0.18)');
+                bgGrad.addColorStop(0.5, 'rgba(20, 13, 2, 0.4)');
+                bgGrad.addColorStop(1, 'transparent');
+                ctx.fillStyle = bgGrad;
+                ctx.fillRect(0, 0, W, H);
+
+                // 2. Render 180 Popping Hero Stars
+                for (var i = 0; i < particles.length; i++) {
+                    var p = particles[i];
+                    p.phase += p.popSpeed;
+
+                    p.x += p.vx + Math.sin(time + p.phase) * 0.25;
+                    p.y += p.vy + Math.cos(time + p.phase) * 0.25;
+
+                    // Wrap edges
+                    if (p.x < -10) p.x = W + 10;
+                    if (p.x > W + 10) p.x = -10;
+                    if (p.y < -10) p.y = H + 10;
+                    if (p.y > H + 10) p.y = -10;
+
+                    // Popping brightness sine phase
+                    var popFactor = 0.5 + 0.5 * Math.sin(p.phase);
+                    var currentAlpha = p.baseAlpha * popFactor;
+                    var renderR = p.r * (0.6 + popFactor * 0.7);
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, renderR, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+
+                    if (popFactor > 0.7) {
+                        ctx.shadowBlur = 10;
+                        ctx.shadowColor = p.color;
+                    }
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+
+                    // Render 4-pointed diamond star flare on peak pop
+                    if (p.isFlareStar && popFactor > 0.85) {
+                        var flareAlpha = (popFactor - 0.85) / 0.15 * p.baseAlpha;
+                        draw4PointStar(p.x, p.y, renderR * 4, flareAlpha, p.color);
+                    }
+                }
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+        // ── Particles Background ──
+        (function() {
+            var canvas = document.getElementById('particles');
+            if (!canvas) return;
+            var ctx = canvas.getContext('2d');
+            var particles = [];
+            var count = 50;
+
+            function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+            resize();
+            window.addEventListener('resize', resize);
+
+            for (var i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    r: Math.random() * 1.5 + 0.5,
+                    dx: (Math.random() - 0.5) * 0.3,
+                    dy: (Math.random() - 0.5) * 0.3,
+                    a: Math.random() * 0.3 + 0.1
+                });
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (var i = 0; i < count; i++) {
+                    var p = particles[i];
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(212,175,55,' + p.a + ')';
+                    ctx.fill();
+                    p.x += p.dx;
+                    p.y += p.dy;
+                    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+                }
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+        // ── Video Play/Pause ──
+        (function() {
+            var vid = document.getElementById('storyVideo');
+            var btn = document.getElementById('playBtn');
+            if (!vid || !btn) return;
+            btn.addEventListener('click', function() {
+                if (vid.paused) {
+                    vid.play();
+                    btn.classList.add('hidden');
+                } else {
+                    vid.pause();
+                    btn.classList.remove('hidden');
+                }
+            });
+            vid.addEventListener('ended', function() { btn.classList.remove('hidden'); });
+            vid.addEventListener('click', function() {
+                if (!vid.paused) { vid.pause(); btn.classList.remove('hidden'); }
+            });
+        })();
+
+        // ── Scroll Reveal Animation ──
+        (function() {
+            var reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .value-card, .tl-item, .stat-item');
+            var obs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.15 });
+            reveals.forEach(function(el) { obs.observe(el); });
+        })();
+
+        // ── Animated Counter ──
+        (function() {
+            var counters = document.querySelectorAll('.stat-number[data-target]');
+            var counted = new Set();
+            var obs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting && !counted.has(entry.target)) {
+                        counted.add(entry.target);
+                        var el = entry.target;
+                        var target = parseInt(el.getAttribute('data-target'));
+                        var step = Math.ceil(target / 60);
+                        var current = 0;
+                        var timer = setInterval(function() {
+                            current += step;
+                            if (current >= target) { current = target; clearInterval(timer); }
+                            el.textContent = current + '+';
+                        }, 30);
+                    }
+                });
+            }, { threshold: 0.5 });
+            counters.forEach(function(c) { obs.observe(c); });
+        })();
+
+        // ── Staggered value card & timeline delays ──
+        (function() {
+            var cards = document.querySelectorAll('.value-card');
+            cards.forEach(function(c, i) { c.style.transitionDelay = (i * 0.15) + 's'; });
+            var items = document.querySelectorAll('.tl-item');
+            items.forEach(function(t, i) { t.style.transitionDelay = (i * 0.12) + 's'; });
+            var stats = document.querySelectorAll('.stat-item');
+            stats.forEach(function(s, i) { s.style.transitionDelay = (i * 0.1) + 's'; });
+        })();
+        // ── Show Floating Social Bar ──
+        window.addEventListener('DOMContentLoaded', function() {
+            var floatingSocial = document.querySelector('.floating-social');
+            if (floatingSocial) {
+                // Add a small delay for a smooth entrance effect
+                setTimeout(function() {
+                    floatingSocial.classList.add('visible');
+                }, 500);
+            }
+        });
+
+        // Mobile Menu Drawer Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (mobileToggle && navLinks) {
+            mobileToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+            });
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => navLinks.classList.remove('active'));
+            });
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
