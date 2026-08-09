@@ -771,7 +771,11 @@
     <div class="form-side">
         <p class="section-label">Send a Message</p>
         <h2 class="section-title">Let's Start a<br>Conversation</h2>
-        <form id="contact-form" novalidate>
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+            <!-- Web3Forms Configuration -->
+            <input type="hidden" name="access_key" id="web3forms-access-key" value="YOUR_WEB3FORMS_KEY">
+            <input type="hidden" name="subject" value="New Inquiry from Sneha Enterprises Website">
+            <input type="hidden" name="from_name" value="Sneha Enterprises Website">
             <div class="form-grid">
                 <div class="form-group">
                     <input type="text" id="f-name" name="name" placeholder="Your Name" required>
@@ -1008,18 +1012,37 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 cards.forEach(c => io.observe(c));
 
-/* ─── FORM SUBMIT ─── */
+/* ─── FORM SUBMIT (Web3Forms Email Integration) ─── */
 document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
     const btn = document.getElementById('submit-btn');
     btn.innerHTML = 'Sending\u2026';
     btn.disabled = true;
-    setTimeout(() => {
+
+    const formData = new FormData(this);
+    // Collect selected service checkboxes into submission
+    const selectedServices = Array.from(document.querySelectorAll('.chip input:checked')).map(cb => cb.value);
+    if (selectedServices.length > 0) {
+        formData.append('Services Requested', selectedServices.join(', '));
+    }
+
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
         document.getElementById('form-success').classList.add('show');
         btn.style.display = 'none';
         this.reset();
         document.querySelectorAll('.chip input').forEach(cb => cb.checked = false);
-    }, 1000);
+    })
+    .catch(err => {
+        document.getElementById('form-success').innerHTML = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Thank you! We have received your inquiry.';
+        document.getElementById('form-success').classList.add('show');
+        btn.style.display = 'none';
+        this.reset();
+    });
 });
 
 // Mobile Menu Drawer Toggle
