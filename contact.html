@@ -371,9 +371,65 @@
         .submit-btn:disabled { opacity:0.6; cursor:not-allowed; }
         .btn-arrow { width:18px; height:18px; fill:none; stroke:#0d0900; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; transition:transform 0.3s; }
         .submit-btn:hover .btn-arrow { transform:translateX(5px); }
-        .form-success-msg { display:none; background:rgba(180,140,20,0.1); border:1px solid rgba(212,175,55,0.35); border-radius:12px; padding:16px 20px; color:var(--gold); font-size:0.88rem; align-items:center; gap:10px; }
+        .form-success-msg { display:none; background:rgba(180,140,20,0.1); border:1px solid rgba(212,175,55,0.35); border-radius:12px; padding:16px 20px; color:var(--gold); font-size:0.88rem; align-items:center; gap:12px; margin-top:15px; }
         .form-success-msg.show { display:flex; }
-        .form-success-msg svg { width:20px; height:20px; fill:none; stroke:var(--gold); stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
+        .form-success-msg svg { width:24px; height:24px; fill:none; stroke:var(--gold); stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
+
+        .form-group.error input, .form-group.error textarea {
+            border-color: #ff4d4d !important;
+            box-shadow: 0 0 12px rgba(255, 77, 77, 0.25) !important;
+        }
+        .field-error-msg {
+            color: #ff6b6b;
+            font-size: 0.75rem;
+            margin-top: 4px;
+            display: none;
+            font-weight: 500;
+        }
+        .form-group.error .field-error-msg {
+            display: block;
+        }
+        .form-error-msg {
+            display: none;
+            background: rgba(255, 77, 77, 0.1);
+            border: 1px solid rgba(255, 77, 77, 0.35);
+            border-radius: 12px;
+            padding: 16px 20px;
+            color: #ff6b6b;
+            font-size: 0.88rem;
+            margin-top: 15px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .form-error-msg.show {
+            display: flex;
+        }
+        .fallback-btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 6px;
+            flex-wrap: wrap;
+        }
+        .fallback-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: rgba(212,175,55,0.12);
+            border: 1px solid var(--gold);
+            border-radius: 20px;
+            color: var(--gold);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+        .fallback-btn:hover {
+            background: var(--gold);
+            color: #0d0900;
+            transform: translateY(-1px);
+        }
 
         
         /* ─── FLOATING SOCIAL ─── */
@@ -773,29 +829,34 @@
         <h2 class="section-title">Let's Start a<br>Conversation</h2>
         <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
             <!-- Web3Forms Configuration -->
-            <input type="hidden" name="access_key" id="web3forms-access-key" value="YOUR_WEB3FORMS_KEY">
+            <input type="hidden" name="access_key" id="web3forms-access-key" value="5517d750-b26e-4119-9026-91920f591a53">
             <input type="hidden" name="subject" value="New Inquiry from Sneha Enterprises Website">
             <input type="hidden" name="from_name" value="Sneha Enterprises Website">
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none !important;">
             <div class="form-grid">
-                <div class="form-group">
+                <div class="form-group" id="group-name">
                     <input type="text" id="f-name" name="name" placeholder="Your Name" required>
                     <span class="fl">Name</span>
+                    <span class="field-error-msg">Please enter your full name.</span>
                 </div>
-                <div class="form-group">
+                <div class="form-group" id="group-email">
                     <input type="email" id="f-email" name="email" placeholder="Email Address" required>
                     <span class="fl">Email</span>
+                    <span class="field-error-msg">Please enter a valid email address.</span>
                 </div>
-                <div class="form-group">
+                <div class="form-group" id="group-phone">
                     <input type="tel" id="f-phone" name="phone" placeholder="Phone Number">
                     <span class="fl">Phone</span>
+                    <span class="field-error-msg">Please enter a valid phone number.</span>
                 </div>
-                <div class="form-group">
+                <div class="form-group" id="group-company">
                     <input type="text" id="f-company" name="company" placeholder="Company Name">
                     <span class="fl">Company</span>
                 </div>
-                <div class="form-group full">
-                    <textarea id="f-msg" name="message" placeholder="Tell us about your project..."></textarea>
+                <div class="form-group full" id="group-msg">
+                    <textarea id="f-msg" name="message" placeholder="Tell us about your project..." required></textarea>
                     <span class="fl">Message</span>
+                    <span class="field-error-msg">Please write a brief message about your project.</span>
                 </div>
             </div>
             <p class="services-label">Services you're looking for</p>
@@ -815,7 +876,20 @@
             </div>
             <div class="form-success-msg" id="form-success">
                 <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Thank you! We'll get back to you within 24 hours.
+                <div>
+                    <strong>Thank you! Your message has been sent successfully.</strong><br>
+                    We'll get back to you within 24 hours.
+                </div>
+            </div>
+            <div class="form-error-msg" id="form-error">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <svg viewBox="0 0 24 24" style="width:20px; height:20px; fill:none; stroke:#ff6b6b; stroke-width:2.5;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    <span id="form-error-text">Unable to submit form. Please use direct contact options below:</span>
+                </div>
+                <div class="fallback-btn-group">
+                    <a href="mailto:info@snehaenterprises.in?subject=Website%20Inquiry" class="fallback-btn">Email: info@snehaenterprises.in</a>
+                    <a href="https://wa.me/919930304621?text=Hi%20Sneha%20Enterprises%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" rel="noopener" class="fallback-btn">Chat on WhatsApp</a>
+                </div>
             </div>
         </form>
     </div>
@@ -1012,38 +1086,126 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 cards.forEach(c => io.observe(c));
 
-/* ─── FORM SUBMIT (Web3Forms Email Integration) ─── */
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = document.getElementById('submit-btn');
-    btn.innerHTML = 'Sending\u2026';
-    btn.disabled = true;
+/* ─── FORM VALIDATION & SUBMISSION ─── */
+(function() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
 
-    const formData = new FormData(this);
-    // Collect selected service checkboxes into submission
-    const selectedServices = Array.from(document.querySelectorAll('.chip input:checked')).map(cb => cb.value);
-    if (selectedServices.length > 0) {
-        formData.append('Services Requested', selectedServices.join(', '));
+    const nameInput = document.getElementById('f-name');
+    const emailInput = document.getElementById('f-email');
+    const phoneInput = document.getElementById('f-phone');
+    const msgInput = document.getElementById('f-msg');
+    const btn = document.getElementById('submit-btn');
+    const successMsg = document.getElementById('form-success');
+    const errorMsg = document.getElementById('form-error');
+    const errorText = document.getElementById('form-error-text');
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function clearErrors() {
+        document.querySelectorAll('.form-group.error').forEach(g => g.classList.remove('error'));
+        if (successMsg) successMsg.classList.remove('show');
+        if (errorMsg) errorMsg.classList.remove('show');
     }
 
-    fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData
-    })
-    .then(res => res.json())
-    .then(data => {
-        document.getElementById('form-success').classList.add('show');
-        btn.style.display = 'none';
-        this.reset();
-        document.querySelectorAll('.chip input').forEach(cb => cb.checked = false);
-    })
-    .catch(err => {
-        document.getElementById('form-success').innerHTML = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Thank you! We have received your inquiry.';
-        document.getElementById('form-success').classList.add('show');
-        btn.style.display = 'none';
-        this.reset();
+    [nameInput, emailInput, phoneInput, msgInput].forEach(input => {
+        if (!input) return;
+        input.addEventListener('input', () => {
+            const group = input.closest('.form-group');
+            if (group) group.classList.remove('error');
+        });
     });
-});
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        clearErrors();
+
+        let isValid = true;
+        let firstInvalidField = null;
+
+        // Check honeypot field for bot submission
+        const botCheck = form.querySelector('input[name="botcheck"]');
+        if (botCheck && botCheck.checked) {
+            // Silently swallow bot submission
+            if (successMsg) successMsg.classList.add('show');
+            form.reset();
+            return;
+        }
+
+        // Validate Name
+        if (!nameInput.value.trim()) {
+            document.getElementById('group-name')?.classList.add('error');
+            isValid = false;
+            if (!firstInvalidField) firstInvalidField = nameInput;
+        }
+
+        // Validate Email
+        if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+            document.getElementById('group-email')?.classList.add('error');
+            isValid = false;
+            if (!firstInvalidField) firstInvalidField = emailInput;
+        }
+
+        // Validate Phone (optional, but check if filled)
+        if (phoneInput && phoneInput.value.trim() && phoneInput.value.trim().length < 7) {
+            document.getElementById('group-phone')?.classList.add('error');
+            isValid = false;
+            if (!firstInvalidField) firstInvalidField = phoneInput;
+        }
+
+        // Validate Message
+        if (!msgInput.value.trim()) {
+            document.getElementById('group-msg')?.classList.add('error');
+            isValid = false;
+            if (!firstInvalidField) firstInvalidField = msgInput;
+        }
+
+        if (!isValid) {
+            if (firstInvalidField) {
+                firstInvalidField.focus();
+                firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            return;
+        }
+
+        // Prepare submission
+        const originalBtnHTML = btn.innerHTML;
+        btn.innerHTML = 'Sending\u2026';
+        btn.disabled = true;
+
+        const formData = new FormData(form);
+        const selectedServices = Array.from(document.querySelectorAll('.chip input:checked')).map(cb => cb.value);
+        if (selectedServices.length > 0) {
+            formData.append('Services Requested', selectedServices.join(', '));
+        }
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                if (successMsg) successMsg.classList.add('show');
+                form.reset();
+                document.querySelectorAll('.chip input').forEach(cb => cb.checked = false);
+                btn.innerHTML = originalBtnHTML;
+                btn.disabled = false;
+            } else {
+                throw new Error(data.message || 'Submission failed');
+            }
+        })
+        .catch(err => {
+            console.error('Form submission error:', err);
+            if (errorText) {
+                errorText.textContent = 'Unable to send message automatically right now. Please use a direct contact option below:';
+            }
+            if (errorMsg) errorMsg.classList.add('show');
+            btn.innerHTML = originalBtnHTML;
+            btn.disabled = false;
+        });
+    });
+})();
 
 // Mobile Menu Drawer Toggle
 const mobileToggle = document.getElementById('mobileToggle');
