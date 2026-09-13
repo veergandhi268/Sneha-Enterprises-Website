@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Solutions — Sneha Enterprises</title>
     <meta name="description" content="Sneha Enterprises AI Solutions — Intelligent, generative AI-powered marketing, content creation, branding and digital experiences for forward-thinking brands.">
@@ -191,7 +194,7 @@
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
-            color: #ffffff;
+            color: #ffffff !important;
         }
         .header-contact {
             display: flex;
@@ -222,58 +225,59 @@
         .nav-ai-link::after { display: none !important; }
          50%{box-shadow:0 0 26px rgba(229,193,88,0.7)} }
 
-        /* ─── FOOTER SECTION ─── */
+        /* ─── LUXURY OBSIDIAN GOLD FOOTER ─── */
         .footer-sec {
             position: relative; z-index: 100;
             background: linear-gradient(180deg, #0b0703 0%, #181006 50%, #070402 100%);
             border-top: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 60px 0 25px 0; color: #ffffff;
+            padding: 48px 0 25px 0; color: #ffffff;
             box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
         }
         .footer-sec .container {
             max-width: 1200px; margin: 0 auto; padding: 0 30px;
         }
         .footer-sec .row {
-            display: grid;
-            grid-template-columns: 2fr 1.5fr 1.5fr;
-            gap: 40px;
-            margin-bottom: 40px;
+            display: grid; grid-template-columns: 2.2fr 1.5fr 1.5fr; gap: 40px;
+            align-items: start;
         }
         .footer-sec .logo {
-            height: 50px; width: auto; margin-bottom: 20px;
+            max-width: 110px; height: auto; margin-bottom: 16px; display: block;
+            border-radius: 4px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
         }
         .footer-sec p {
-            color: rgba(255, 235, 205, 0.8);
-            font-size: 0.9rem; line-height: 1.7; font-weight: 300;
+            font-size: 0.94rem; line-height: 1.7; color: #f0e9df;
+            font-weight: 400; margin: 0; letter-spacing: 0.2px;
         }
         .footer-sec .quick-links_heading,
         .footer-sec .footer_address h3 {
-            color: #d4af37;
-            font-size: 1.15rem; font-weight: 600;
-            margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;
+            font-family: 'Bodoni Moda', serif; font-size: 1.25rem; font-weight: 600;
+            font-style: italic; color: #d4af37; margin-top: 0; margin-bottom: 14px;
+            letter-spacing: 0.5px;
         }
         .footer-sec ul.quick-links {
-            list-style: none; padding: 0; margin: 0;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+            list-style: none; padding: 0; margin: 0; display: flex;
+            flex-direction: column; gap: 8px;
         }
         .footer-sec ul.quick-links li a {
-            color: rgba(255, 235, 205, 0.85); text-decoration: none;
-            font-size: 0.9rem; transition: color 0.25s ease; position: relative;
+            color: #e5ddd0; text-decoration: none; font-size: 0.92rem;
+            font-weight: 400; letter-spacing: 0.3px; position: relative;
+            padding-bottom: 2px; transition: color 0.25s ease; display: inline-block;
         }
         .footer-sec ul.quick-links li a::after {
-            content: ''; position: absolute; bottom: -2px; left: 0;
-            width: 0; height: 1px; background: #d4af37; transition: width 0.25s ease;
+            content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px;
+            background: #d4af37; transition: width 0.25s ease;
         }
         .footer-sec ul.quick-links li a:hover { color: #d4af37; }
         .footer-sec ul.quick-links li a:hover::after { width: 100%; }
-        .footer-sec .footer_address p { margin-bottom: 10px; }
+        .footer-sec .footer_address p { margin-bottom: 10px; color: #e5ddd0; font-size: 0.92rem; font-weight: 400; line-height: 1.65; }
         .footer-sec .footer_address b { color: #d4af37; font-weight: 600; }
-        .footer-sec .footer_address a { color: rgba(255, 225, 185, 0.8); text-decoration: none; transition: color 0.25s ease; }
+        .footer-sec .footer_address a { color: #e5ddd0; text-decoration: none; transition: color 0.25s ease; }
         .footer-sec .footer_address a:hover { color: #d4af37; }
         .footer-sec .copyright-bar {
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            padding-top: 25px; display: flex; justify-content: space-between;
-            align-items: center; font-size: 0.82rem; color: rgba(255, 235, 205, 0.6);
+            border-top: 1px solid rgba(212, 175, 55, 0.15); margin-top: 30px;
+            padding-top: 16px; display: flex; justify-content: space-between;
+            align-items: center; font-size: 0.82rem; color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 0.4px;
         }
 
         /* HERO */
@@ -768,7 +772,7 @@
 <header id="site-header">
     <div class="header-left">
         <a href="index.html" class="header-logo">
-            <img src="assets/images/Logo.png" alt="Sneha Enterprises Logo">
+            <img src="assets/images/logo_icon.png" alt="Sneha Enterprises Logo">
             <span class="brand-text">Sneha Enterprises</span>
         </a>
         <div class="header-contact">
@@ -1032,7 +1036,7 @@
         <div class="row">
             <div class="col-md-5">
                 <a href="index.html" title="Sneha Enterprises" rel="home">
-                    <img src="assets/images/Logo.png" alt="Sneha Enterprises Logo" class="logo img-fluid">
+                    <img src="assets/images/logo_footer_v3.png" alt="Sneha Enterprises Logo" class="logo img-fluid">
                 </a>
                 <p>We are a creative advertising firm with branding<br>
                 at its core, and our capabilities include web,<br>
