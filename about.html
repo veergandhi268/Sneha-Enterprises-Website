@@ -431,12 +431,52 @@
         .hero-content .hero-subtitle { animation: fadeUp 0.8s 0.9s both; }
         .hero-content .eyebrow-line { animation: expandLine 0.8s 0.5s both; }
 
+        /* ─── INNOVATIVE SERVICES STATEMENT ─── */
+        .innovative-services-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 60px;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .innovative-services-grid .section-heading {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            line-height: 1.25;
+            margin-bottom: 0;
+        }
+        .innovative-services-grid .results-box {
+            text-align: center;
+        }
+        .innovative-services-grid .eyebrow-center {
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        .innovative-services-grid .results-statement-p {
+            font-size: clamp(1.15rem, 2vw, 1.5rem);
+            color: rgba(255, 225, 185, 0.85);
+            line-height: 1.6;
+            font-weight: 300;
+            margin: 0;
+        }
+
         /* ─── RESPONSIVE ─── */
         @media (max-width: 1024px) {
             .story-grid { grid-template-columns: 1fr; gap: 50px; }
             .values-grid { grid-template-columns: 1fr 1fr; }
             .hero-title { font-size: 3.5rem; }
             .section-heading { font-size: 2.8rem; }
+            .innovative-services-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+                text-align: center;
+            }
+            .innovative-services-grid .section-heading {
+                font-size: 2.4rem;
+                text-align: center;
+            }
         }
         @media (max-width: 768px) {
             header { padding: 14px 20px; }
@@ -444,13 +484,39 @@
             .floating-social { top: 24% !important; transform: translateY(-50%) !important; right: 0 !important; }
             .nav-links { gap: 16px; }
             .nav-links a { font-size: 0.75rem; }
-            .section-pad { padding: 80px 25px; }
+            .section-pad { padding: 70px 20px; }
             .values-grid { grid-template-columns: 1fr; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .stat-item { padding: 35px 15px; }
             .hero-title { font-size: 2.5rem; }
             .section-heading { font-size: 2.2rem; }
             .cta-title { font-size: 2.5rem; }
+            .innovative-services-grid {
+                grid-template-columns: 1fr !important;
+                gap: 28px !important;
+                padding: 0 !important;
+                text-align: center !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            .innovative-services-grid .section-heading {
+                font-size: 1.85rem !important;
+                text-align: center !important;
+                line-height: 1.3 !important;
+            }
+            .innovative-services-grid .results-statement-p {
+                font-size: 1.15rem !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .section-pad { padding: 55px 16px !important; }
+            .innovative-services-grid .section-heading {
+                font-size: 1.65rem !important;
+                line-height: 1.35 !important;
+            }
+            .innovative-services-grid .results-statement-p {
+                font-size: 1.05rem !important;
+            }
         }
         /* ─── LUXURY OBSIDIAN GOLD FOOTER ─── */
         .footer-sec {
@@ -833,18 +899,18 @@
     </section>
 
     <!-- ══════════ INNOVATIVE SERVICES STATEMENT ══════════ -->
-    <section class="section-wrapper section-pad" style="background: linear-gradient(180deg, var(--bg) 0%, rgba(42,21,8,0.3) 100%);">
-        <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+    <section class="section-wrapper section-pad" style="background: linear-gradient(180deg, var(--bg) 0%, rgba(42,21,8,0.3) 100%); overflow: hidden;">
+        <div class="innovative-services-grid">
             <div class="reveal-left">
-                <h2 class="section-heading" style="font-size: 3rem;"><span style="color: var(--gold);">The entire range of<br>innovative services</span><br>that impact decisions<br>and perception</h2>
+                <h2 class="section-heading"><span style="color: var(--gold);">The entire range of<br>innovative services</span><br>that impact decisions<br>and perception</h2>
             </div>
-            <div class="reveal-right" style="text-align: center;">
-                <div class="section-eyebrow" style="justify-content: center; margin-bottom: 30px;">
+            <div class="reveal-right results-box">
+                <div class="section-eyebrow eyebrow-center">
                     <span class="line"></span>
                     <span class="label">Results Driven</span>
                     <span class="line"></span>
                 </div>
-                <p style="font-size: 1.5rem; color: rgba(255,225,185,0.8); line-height: 1.6; font-weight: 300;">More than an agency of promises,<br><strong style="color: var(--gold); font-weight: 600;">we're an agency of results.</strong></p>
+                <p class="results-statement-p">More than an agency of promises,<br><strong style="color: var(--gold); font-weight: 600;">we're an agency of results.</strong></p>
             </div>
         </div>
     </section>
