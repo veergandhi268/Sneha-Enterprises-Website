@@ -421,56 +421,50 @@
         .marquee-container {
             width: 100%;
             overflow: hidden;
-            display: flex;
-            user-select: none;
-            gap: 36px;
             position: relative;
             padding: 8px 0;
+            pointer-events: none;
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
             -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
             mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
         }
 
-        .marquee-content {
+        .marquee-track {
             display: flex;
-            flex-shrink: 0;
             width: max-content;
             gap: 36px;
             align-items: center;
-            justify-content: space-around;
-            min-width: 100%;
             will-change: transform;
-            -webkit-animation: marqueeScroll 20s linear infinite;
-            animation: marqueeScroll 20s linear infinite;
+            transform: translate3d(-50%, 0, 0);
+            -webkit-animation: marqueeLeftToRight 26s linear infinite;
+            animation: marqueeLeftToRight 26s linear infinite;
+            pointer-events: none;
         }
 
-
-        .marquee-content img {
+        .marquee-track img {
             height: 56px;
             width: auto;
             max-width: none;
             object-fit: contain;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             background-color: rgba(255, 245, 200, 0.92);
             padding: 8px 18px;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(212,175,55,0.3), 0 0 0 1px rgba(212,175,55,0.15);
             flex-shrink: 0;
             display: block;
+            pointer-events: none;
+            -webkit-user-drag: none;
         }
 
-        .marquee-content img:hover {
-            transform: scale(1.06);
-            background-color: #fffaed;
-            box-shadow: 0 8px 30px rgba(212,175,55,0.5);
+        @keyframes marqueeLeftToRight {
+            0% { transform: translate3d(-50%, 0, 0); }
+            100% { transform: translate3d(0, 0, 0); }
         }
-
-        @keyframes marqueeScroll {
-            0% { transform: translateX(calc(-100% - 36px)); }
-            100% { transform: translateX(0); }
-        }
-        @-webkit-keyframes marqueeScroll {
-            0% { -webkit-transform: translateX(calc(-100% - 36px)); }
-            100% { -webkit-transform: translateX(0); }
+        @-webkit-keyframes marqueeLeftToRight {
+            0% { -webkit-transform: translate3d(-50%, 0, 0); }
+            100% { -webkit-transform: translate3d(0, 0, 0); }
         }
 
         /* ── BROWN SECTION: Why Choose Us ── */
@@ -1207,30 +1201,33 @@
                 margin-bottom: 14px !important;
             }
             .marquee-container {
-                gap: 16px !important;
                 padding: 4px 0 !important;
                 -webkit-mask-image: none !important;
                 mask-image: none !important;
+                pointer-events: none !important;
             }
-            .marquee-content {
+            .marquee-track {
                 gap: 16px !important;
-                -webkit-animation: marqueeScrollMobile 12s linear infinite !important;
-                animation: marqueeScrollMobile 12s linear infinite !important;
+                -webkit-animation: marqueeLeftToRightMobile 15s linear infinite !important;
+                animation: marqueeLeftToRightMobile 15s linear infinite !important;
                 will-change: transform !important;
+                transform: translate3d(-50%, 0, 0) !important;
+                pointer-events: none !important;
             }
-            .marquee-content img {
+            .marquee-track img {
                 height: 42px !important;
                 padding: 6px 12px !important;
                 border-radius: 6px !important;
                 flex-shrink: 0 !important;
+                pointer-events: none !important;
             }
-            @keyframes marqueeScrollMobile {
-                0% { transform: translateX(calc(-100% - 16px)); }
-                100% { transform: translateX(0); }
+            @keyframes marqueeLeftToRightMobile {
+                0% { transform: translate3d(-50%, 0, 0); }
+                100% { transform: translate3d(0, 0, 0); }
             }
-            @-webkit-keyframes marqueeScrollMobile {
-                0% { -webkit-transform: translateX(calc(-100% - 16px)); }
-                100% { -webkit-transform: translateX(0); }
+            @-webkit-keyframes marqueeLeftToRightMobile {
+                0% { -webkit-transform: translate3d(-50%, 0, 0); }
+                100% { -webkit-transform: translate3d(0, 0, 0); }
             }
         }
 
@@ -1305,7 +1302,8 @@
     <section class="clients-section">
         <h2>Trusted By</h2>
         <div class="marquee-container">
-            <div class="marquee-content">
+            <div class="marquee-track">
+                <!-- Sequence 1 -->
                 <img src="assets/images/Acufine.png" alt="Acufine" loading="eager" decoding="async">
                 <img src="assets/images/Wockhard.png" alt="Wockhardt" loading="eager" decoding="async">
                 <img src="assets/images/Tanishq_Logo.svg_.png" alt="Tanishq" loading="eager" decoding="async">
@@ -1326,8 +1324,7 @@
                 <img src="assets/images/big-bazaa.png" alt="big bazaar" loading="eager" decoding="async">
                 <img src="assets/images/Sony.webp" alt="Sony" loading="eager" decoding="async">
                 <img src="assets/images/Croma.png" alt="Croma" loading="eager" decoding="async">
-            </div>
-            <div class="marquee-content" aria-hidden="true">
+                <!-- Sequence 2 -->
                 <img src="assets/images/Acufine.png" alt="Acufine" loading="eager" decoding="async">
                 <img src="assets/images/Wockhard.png" alt="Wockhardt" loading="eager" decoding="async">
                 <img src="assets/images/Tanishq_Logo.svg_.png" alt="Tanishq" loading="eager" decoding="async">
