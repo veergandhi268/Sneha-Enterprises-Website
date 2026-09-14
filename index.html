@@ -23,7 +23,7 @@
             width: 100%;
             height: 100vh;
             overflow: hidden;
-            background: #0d0900;
+            background: #b69248 url('assets/images/clean_gold_bg.jpg') center/cover no-repeat;
         }
 
         .video-section video {
@@ -37,44 +37,7 @@
             transform: translate3d(0, 0, 0);
             backface-visibility: hidden;
             will-change: transform;
-            background: #0d0900;
-        }
-
-        .hero-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-            color: #ffffff;
-            text-align: center;
-            pointer-events: none;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.4);
-            opacity: 1;
-            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-            will-change: opacity;
-        }
-
-        .hero-text.hidden {
-            opacity: 0;
-        }
-
-        .hero-text h2 {
-            font-size: 2rem;
-            font-weight: 300;
-            margin: 0;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .hero-text h1 {
-            font-family: 'Bodoni Moda', serif;
-            font-size: 5rem;
-            font-weight: 600;
-            font-style: italic;
-            margin: 0;
-            letter-spacing: -1px;
-            line-height: 1.1;
+            background: #b69248 url('assets/images/clean_gold_bg.jpg') center/cover no-repeat;
         }
         
         header {
@@ -1230,14 +1193,9 @@
     </header>
     
     <div class="video-section">
-        <video id="intro-video" autoplay muted playsinline preload="auto">
+        <video id="intro-video" autoplay muted playsinline preload="auto" poster="assets/images/clean_gold_bg.jpg">
             <source src="assets/images/Sneha enterprises home page.mp4" type="video/mp4">
         </video>
-
-        <div class="hero-text" id="hero-text">
-            <h2>Welcome To</h2>
-            <h1>Sneha Enterprises</h1>
-        </div>
 
         <div class="final-content" id="final-content">
             <h3>Accelerating Brands<br>With Impactful Creativity</h3>
@@ -1494,7 +1452,6 @@
 
     <script>
         const video = document.getElementById('intro-video');
-        const heroText = document.getElementById('hero-text');
         const header = document.getElementById('main-header');
         const finalContent = document.getElementById('final-content');
         const floatingSocial = document.querySelector('.floating-social');
@@ -1537,20 +1494,12 @@
             // immediately transition to our clean golden showcase so the device frame is never visible
             if (isMobilePortrait() && !skippedInMobile && (video.currentTime >= 6.8 || progress >= 0.68)) {
                 skippedInMobile = true;
-                heroText.classList.add('hidden');
                 video.pause();
                 video.currentTime = 0.4;
                 finalContent.classList.add('visible');
                 header.classList.add('visible');
                 if (floatingSocial) floatingSocial.classList.add('visible');
                 return;
-            }
-
-            // Hide Welcome text after initial 25% progress (or once skipped on mobile)
-            if (progress >= 0.25 || skippedInMobile) {
-                heroText.classList.add('hidden');
-            } else {
-                heroText.classList.remove('hidden');
             }
 
             // Desktop / Landscape flow:
@@ -1564,7 +1513,6 @@
 
         // Ensure everything settles into place when video ends
         video.addEventListener('ended', () => {
-            heroText.classList.add('hidden');
             if (isMobilePortrait()) {
                 video.pause();
                 video.currentTime = 0.4;
