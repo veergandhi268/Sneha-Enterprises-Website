@@ -421,41 +421,55 @@
         .marquee-container {
             width: 100%;
             overflow: hidden;
-            white-space: nowrap;
             display: flex;
-            align-items: center;
+            user-select: none;
+            gap: 36px;
+            position: relative;
+            padding: 8px 0;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
         }
 
         .marquee-content {
             display: flex;
-            gap: 50px;
-            padding: 0;
-            will-change: transform;
-            transform: translate3d(0, 0, 0);
-            animation: marquee 25s linear infinite;
+            flex-shrink: 0;
+            width: max-content;
+            gap: 36px;
             align-items: center;
+            justify-content: space-around;
+            min-width: 100%;
+            will-change: transform;
+            -webkit-animation: marqueeScroll 22s linear infinite;
+            animation: marqueeScroll 22s linear infinite;
         }
 
         .marquee-content img {
-            height: 60px;
+            height: 56px;
+            width: auto;
+            max-width: none;
             object-fit: contain;
-            transition: all 0.3s ease;
-            background-color: rgba(255, 245, 200, 0.9);
-            padding: 10px 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: rgba(255, 245, 200, 0.92);
+            padding: 8px 18px;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(212,175,55,0.3), 0 0 0 1px rgba(212,175,55,0.15);
             flex-shrink: 0;
+            display: block;
         }
 
         .marquee-content img:hover {
-            transform: scale(1.05);
+            transform: scale(1.06);
             background-color: #fffaed;
             box-shadow: 0 8px 30px rgba(212,175,55,0.5);
         }
 
-        @keyframes marquee {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); }
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-100% - 36px)); }
+        }
+        @-webkit-keyframes marqueeScroll {
+            0% { -webkit-transform: translateX(0); }
+            100% { -webkit-transform: translateX(calc(-100% - 36px)); }
         }
 
         /* ── BROWN SECTION: Why Choose Us ── */
@@ -1182,27 +1196,40 @@
 
             /* Trusted By Section & Fast Continuous Logo Floating on Mobile */
             .clients-section {
-                padding: 20px 0 45px 0 !important;
+                padding: 16px 0 35px 0 !important;
             }
             .clients-section::before {
-                margin-bottom: 24px !important;
-            }
-            .clients-section h2 {
-                font-size: 2rem !important;
                 margin-bottom: 18px !important;
             }
+            .clients-section h2 {
+                font-size: 1.9rem !important;
+                margin-bottom: 14px !important;
+            }
+            .marquee-container {
+                gap: 16px !important;
+                padding: 4px 0 !important;
+                -webkit-mask-image: none !important;
+                mask-image: none !important;
+            }
             .marquee-content {
-                gap: 20px !important;
-                padding: 0 !important;
-                animation: marquee 14s linear infinite !important;
+                gap: 16px !important;
+                -webkit-animation: marqueeScrollMobile 12s linear infinite !important;
+                animation: marqueeScrollMobile 12s linear infinite !important;
                 will-change: transform !important;
-                transform: translate3d(0, 0, 0) !important;
             }
             .marquee-content img {
-                height: 46px !important;
-                padding: 7px 14px !important;
+                height: 42px !important;
+                padding: 6px 12px !important;
                 border-radius: 6px !important;
                 flex-shrink: 0 !important;
+            }
+            @keyframes marqueeScrollMobile {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(calc(-100% - 16px)); }
+            }
+            @-webkit-keyframes marqueeScrollMobile {
+                0% { -webkit-transform: translateX(0); }
+                100% { -webkit-transform: translateX(calc(-100% - 16px)); }
             }
         }
 
@@ -1278,48 +1305,48 @@
         <h2>Trusted By</h2>
         <div class="marquee-container">
             <div class="marquee-content">
-                <!-- First Set -->
-                <img src="assets/images/Acufine.png" alt="Acufine">
-                <img src="assets/images/Wockhard.png" alt="Wockhardt">
-                <img src="assets/images/Tanishq_Logo.svg_.png" alt="Tanishq">
-                <img src="assets/images/titan-eye-plus-e1753623185759.jpg" alt="Titan Eye+">
-                <img src="assets/images/Tata_Sky_Logo-scaled.jpg" alt="Tata Sky">
-                <img src="assets/images/RNA.png" alt="RNA">
-                <img src="assets/images/sheth-creators.png" alt="Sheth Creators">
-                <img src="assets/images/logo.jpg" alt="Client">
-                <img src="assets/images/Sky_screen.png" alt="Sky Screen">
-                <img src="assets/images/uni-new-logo.png" alt="UNI">
-                <img src="assets/images/Yamuna.png" alt="Yamuna">
-                <img src="assets/images/IPSIT-Logo-01.png" alt="Ipsit">
-                <img src="assets/images/dovay_logo.png" alt="Dovay">
-                <img src="assets/images/Prima.jpg" alt="Prima">
-                <img src="assets/images/Screen-tex_logo.png" alt="Screentex">
-                <img src="assets/images/Sanskruti.jpg" alt="Sanskruti">
-                <img src="assets/images/Star_rays-e1753624153785.png" alt="Starrays">
-                <img src="assets/images/big-bazaa.png" alt="big bazaar">
-                <img src="assets/images/Sony.webp" alt="Sony">
-                <img src="assets/images/Croma.png" alt="Croma">
-                <!-- Duplicate Set for infinite scroll illusion -->
-                <img src="assets/images/Acufine.png" alt="Acufine">
-                <img src="assets/images/Wockhard.png" alt="Wockhardt">
-                <img src="assets/images/Tanishq_Logo.svg_.png" alt="Tanishq">
-                <img src="assets/images/titan-eye-plus-e1753623185759.jpg" alt="Titan Eye+">
-                <img src="assets/images/Tata_Sky_Logo-scaled.jpg" alt="Tata Sky">
-                <img src="assets/images/RNA.png" alt="RNA">
-                <img src="assets/images/sheth-creators.png" alt="Sheth Creators">
-                <img src="assets/images/logo.jpg" alt="Client">
-                <img src="assets/images/Sky_screen.png" alt="Sky Screen">
-                <img src="assets/images/uni-new-logo.png" alt="UNI">
-                <img src="assets/images/Yamuna.png" alt="Yamuna">
-                <img src="assets/images/IPSIT-Logo-01.png" alt="Ipsit">
-                <img src="assets/images/dovay_logo.png" alt="Dovay">
-                <img src="assets/images/Prima.jpg" alt="Prima">
-                <img src="assets/images/Screen-tex_logo.png" alt="Screentex">
-                <img src="assets/images/Sanskruti.jpg" alt="Sanskruti">
-                <img src="assets/images/Star_rays-e1753624153785.png" alt="Starrays">
-                <img src="assets/images/big-bazaa.png" alt="big bazaar">
-                <img src="assets/images/Sony.webp" alt="Sony">
-                <img src="assets/images/Croma.png" alt="Croma">
+                <img src="assets/images/Acufine.png" alt="Acufine" loading="eager" decoding="async">
+                <img src="assets/images/Wockhard.png" alt="Wockhardt" loading="eager" decoding="async">
+                <img src="assets/images/Tanishq_Logo.svg_.png" alt="Tanishq" loading="eager" decoding="async">
+                <img src="assets/images/titan-eye-plus-e1753623185759.jpg" alt="Titan Eye+" loading="eager" decoding="async">
+                <img src="assets/images/Tata_Sky_Logo-scaled.jpg" alt="Tata Sky" loading="eager" decoding="async">
+                <img src="assets/images/RNA.png" alt="RNA" loading="eager" decoding="async">
+                <img src="assets/images/sheth-creators.png" alt="Sheth Creators" loading="eager" decoding="async">
+                <img src="assets/images/logo.jpg" alt="Client" loading="eager" decoding="async">
+                <img src="assets/images/Sky_screen.png" alt="Sky Screen" loading="eager" decoding="async">
+                <img src="assets/images/uni-new-logo.png" alt="UNI" loading="eager" decoding="async">
+                <img src="assets/images/Yamuna.png" alt="Yamuna" loading="eager" decoding="async">
+                <img src="assets/images/IPSIT-Logo-01.png" alt="Ipsit" loading="eager" decoding="async">
+                <img src="assets/images/dovay_logo.png" alt="Dovay" loading="eager" decoding="async">
+                <img src="assets/images/Prima.jpg" alt="Prima" loading="eager" decoding="async">
+                <img src="assets/images/Screen-tex_logo.png" alt="Screentex" loading="eager" decoding="async">
+                <img src="assets/images/Sanskruti.jpg" alt="Sanskruti" loading="eager" decoding="async">
+                <img src="assets/images/Star_rays-e1753624153785.png" alt="Starrays" loading="eager" decoding="async">
+                <img src="assets/images/big-bazaa.png" alt="big bazaar" loading="eager" decoding="async">
+                <img src="assets/images/Sony.webp" alt="Sony" loading="eager" decoding="async">
+                <img src="assets/images/Croma.png" alt="Croma" loading="eager" decoding="async">
+            </div>
+            <div class="marquee-content" aria-hidden="true">
+                <img src="assets/images/Acufine.png" alt="Acufine" loading="eager" decoding="async">
+                <img src="assets/images/Wockhard.png" alt="Wockhardt" loading="eager" decoding="async">
+                <img src="assets/images/Tanishq_Logo.svg_.png" alt="Tanishq" loading="eager" decoding="async">
+                <img src="assets/images/titan-eye-plus-e1753623185759.jpg" alt="Titan Eye+" loading="eager" decoding="async">
+                <img src="assets/images/Tata_Sky_Logo-scaled.jpg" alt="Tata Sky" loading="eager" decoding="async">
+                <img src="assets/images/RNA.png" alt="RNA" loading="eager" decoding="async">
+                <img src="assets/images/sheth-creators.png" alt="Sheth Creators" loading="eager" decoding="async">
+                <img src="assets/images/logo.jpg" alt="Client" loading="eager" decoding="async">
+                <img src="assets/images/Sky_screen.png" alt="Sky Screen" loading="eager" decoding="async">
+                <img src="assets/images/uni-new-logo.png" alt="UNI" loading="eager" decoding="async">
+                <img src="assets/images/Yamuna.png" alt="Yamuna" loading="eager" decoding="async">
+                <img src="assets/images/IPSIT-Logo-01.png" alt="Ipsit" loading="eager" decoding="async">
+                <img src="assets/images/dovay_logo.png" alt="Dovay" loading="eager" decoding="async">
+                <img src="assets/images/Prima.jpg" alt="Prima" loading="eager" decoding="async">
+                <img src="assets/images/Screen-tex_logo.png" alt="Screentex" loading="eager" decoding="async">
+                <img src="assets/images/Sanskruti.jpg" alt="Sanskruti" loading="eager" decoding="async">
+                <img src="assets/images/Star_rays-e1753624153785.png" alt="Starrays" loading="eager" decoding="async">
+                <img src="assets/images/big-bazaa.png" alt="big bazaar" loading="eager" decoding="async">
+                <img src="assets/images/Sony.webp" alt="Sony" loading="eager" decoding="async">
+                <img src="assets/images/Croma.png" alt="Croma" loading="eager" decoding="async">
             </div>
         </div>
     </section>
