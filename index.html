@@ -429,7 +429,9 @@
         .marquee-content {
             display: flex;
             gap: 50px;
-            padding: 0 25px;
+            padding: 0;
+            will-change: transform;
+            transform: translate3d(0, 0, 0);
             animation: marquee 25s linear infinite;
             align-items: center;
         }
@@ -442,6 +444,7 @@
             padding: 10px 20px;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(212,175,55,0.3), 0 0 0 1px rgba(212,175,55,0.15);
+            flex-shrink: 0;
         }
 
         .marquee-content img:hover {
@@ -451,8 +454,8 @@
         }
 
         @keyframes marquee {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
         }
 
         /* ── BROWN SECTION: Why Choose Us ── */
@@ -1175,6 +1178,31 @@
                 bottom: auto !important;
                 transform: translateY(-50%) !important;
                 right: 0 !important;
+            }
+
+            /* Trusted By Section & Fast Continuous Logo Floating on Mobile */
+            .clients-section {
+                padding: 20px 0 45px 0 !important;
+            }
+            .clients-section::before {
+                margin-bottom: 24px !important;
+            }
+            .clients-section h2 {
+                font-size: 2rem !important;
+                margin-bottom: 18px !important;
+            }
+            .marquee-content {
+                gap: 20px !important;
+                padding: 0 !important;
+                animation: marquee 14s linear infinite !important;
+                will-change: transform !important;
+                transform: translate3d(0, 0, 0) !important;
+            }
+            .marquee-content img {
+                height: 46px !important;
+                padding: 7px 14px !important;
+                border-radius: 6px !important;
+                flex-shrink: 0 !important;
             }
         }
 
