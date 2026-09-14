@@ -512,10 +512,11 @@
         }
 
         .marquee-track img:hover,
-        .marquee-track img:active {
+        .marquee-track img:active,
+        .marquee-track img.tapped-white {
             background-color: #ffffff !important;
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.65), 0 0 0 1.5px rgba(212, 175, 55, 0.4) !important;
-            filter: brightness(1.05);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.75), 0 0 0 1.5px rgba(212, 175, 55, 0.5) !important;
+            filter: brightness(1.06) !important;
         }
 
         @keyframes marqueeLeftToRight {
@@ -1760,6 +1761,28 @@
             }, { threshold: 0.15 });
 
             videoObserver.observe(midVideo);
+        })();
+
+        // ── Interactive Tap / Touch White Card Highlight for Company Logos ──
+        (function() {
+            document.addEventListener('touchstart', function() {}, { passive: true });
+
+            var logos = document.querySelectorAll('.marquee-track img');
+            logos.forEach(function(img) {
+                var timer;
+                function activate(e) {
+                    logos.forEach(function(el) { el.classList.remove('tapped-white'); });
+                    img.classList.add('tapped-white');
+                    clearTimeout(timer);
+                    timer = setTimeout(function() {
+                        img.classList.remove('tapped-white');
+                    }, 1200);
+                }
+
+                img.addEventListener('touchstart', activate, { passive: true });
+                img.addEventListener('pointerdown', activate, { passive: true });
+                img.addEventListener('click', activate);
+            });
         })();
     </script>
 </body>
