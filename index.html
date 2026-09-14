@@ -1271,6 +1271,9 @@
                 height: 44px !important;
                 padding: 6px 14px !important;
                 border-radius: 6px !important;
+                pointer-events: auto !important;
+                touch-action: manipulation !important;
+                cursor: pointer !important;
             }
         }
 
@@ -1766,54 +1769,66 @@
 
         // ── Interactive Tap / Touch White Card Highlight for Company Logos ──
         (function() {
-            var container = document.querySelector('.marquee-container');
             var track = document.querySelector('.marquee-track');
-            if (!container || !track) return;
+            if (!track) return;
 
             var activeTimer = null;
+            var currentActive = null;
+            var lastTrigger = 0;
 
-            function highlightLogo(target) {
-                if (!target) return;
-                var img = (target.tagName === 'IMG') ? target : target.closest('img');
+            function activateLogo(img) {
                 if (!img || img.tagName !== 'IMG') return;
+                var now = Date.now();
+                if (currentActive === img && (now - lastTrigger < 400)) return;
+                lastTrigger = now;
 
                 var allLogos = track.querySelectorAll('img');
                 for (var i = 0; i < allLogos.length; i++) {
                     allLogos[i].classList.remove('tapped-white');
+                    allLogos[i].style.removeProperty('background-color');
+                    allLogos[i].style.removeProperty('box-shadow');
                 }
+
                 img.classList.add('tapped-white');
+                img.style.setProperty('background-color', '#ffffff', 'important');
+                img.style.setProperty('box-shadow', '0 8px 30px rgba(212, 175, 55, 0.85), 0 0 0 2px rgba(212, 175, 55, 0.6)', 'important');
+                currentActive = img;
+
                 clearTimeout(activeTimer);
                 activeTimer = setTimeout(function() {
                     img.classList.remove('tapped-white');
-                }, 1500);
+                    img.style.removeProperty('background-color');
+                    img.style.removeProperty('box-shadow');
+                    if (currentActive === img) currentActive = null;
+                }, 1800);
             }
-
-            function handleTouchOrClick(e) {
-                var touch = e.touches ? e.touches[0] : (e.changedTouches ? e.changedTouches[0] : e);
-                if (touch && touch.clientX) {
-                    var el = document.elementFromPoint(touch.clientX, touch.clientY);
-                    if (el && el.tagName === 'IMG' && el.closest('.marquee-track')) {
-                        highlightLogo(el);
-                        return;
-                    }
-                }
-                if (e.target && e.target.tagName === 'IMG') {
-                    highlightLogo(e.target);
-                }
-            }
-
-            container.addEventListener('touchstart', handleTouchOrClick, { passive: true, capture: true });
-            container.addEventListener('touchend', handleTouchOrClick, { passive: true, capture: true });
-            container.addEventListener('pointerdown', handleTouchOrClick, { passive: true, capture: true });
-            container.addEventListener('click', handleTouchOrClick, { capture: true });
 
             var logos = track.querySelectorAll('img');
             logos.forEach(function(img) {
-                img.addEventListener('touchstart', function() { highlightLogo(img); }, { passive: true });
-                img.addEventListener('touchend', function() { highlightLogo(img); }, { passive: true });
-                img.addEventListener('pointerdown', function() { highlightLogo(img); }, { passive: true });
-                img.addEventListener('click', function() { highlightLogo(img); });
+                img.addEventListener('touchstart', function(e) {
+                    activateLogo(img);
+                }, { passive: true });
+
+                img.addEventListener('pointerdown', function(e) {
+                    activateLogo(img);
+                }, { passive: true });
+
+                img.addEventListener('click', function(e) {
+                    activateLogo(img);
+                });
             });
+
+            var container = document.querySelector('.marquee-container');
+            if (container) {
+                container.addEventListener('touchstart', function(e) {
+                    if (e.touches && e.touches[0]) {
+                        var el = document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY);
+                        if (el && el.tagName === 'IMG' && el.closest('.marquee-track')) {
+                            activateLogo(el);
+                        }
+                    }
+                }, { passive: true });
+            }
         })();
     </script>
 </body>
