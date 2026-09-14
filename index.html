@@ -423,7 +423,6 @@
             overflow: hidden;
             position: relative;
             padding: 8px 0;
-            pointer-events: none;
             -webkit-user-select: none;
             user-select: none;
             -webkit-touch-callout: none;
@@ -440,7 +439,6 @@
             transform: translate3d(-50%, 0, 0);
             -webkit-animation: marqueeLeftToRight 26s linear infinite;
             animation: marqueeLeftToRight 26s linear infinite;
-            pointer-events: none;
         }
 
         .marquee-track img {
@@ -454,8 +452,21 @@
             box-shadow: 0 4px 15px rgba(212,175,55,0.3), 0 0 0 1px rgba(212,175,55,0.15);
             flex-shrink: 0;
             display: block;
-            pointer-events: none;
+            cursor: pointer;
+            pointer-events: auto;
             -webkit-user-drag: none;
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: transparent;
+            transition: background-color 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+        }
+
+        .marquee-track img:hover,
+        .marquee-track img:active {
+            background-color: #ffffff !important;
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.65), 0 0 0 1.5px rgba(212, 175, 55, 0.4) !important;
+            filter: brightness(1.05);
         }
 
         @keyframes marqueeLeftToRight {
@@ -1204,7 +1215,6 @@
                 padding: 4px 0 !important;
                 -webkit-mask-image: none !important;
                 mask-image: none !important;
-                pointer-events: none !important;
             }
             .marquee-track {
                 gap: 16px !important;
@@ -1212,14 +1222,17 @@
                 animation: marqueeLeftToRightMobile 15s linear infinite !important;
                 will-change: transform !important;
                 transform: translate3d(-50%, 0, 0) !important;
-                pointer-events: none !important;
             }
             .marquee-track img {
                 height: 42px !important;
                 padding: 6px 12px !important;
                 border-radius: 6px !important;
                 flex-shrink: 0 !important;
-                pointer-events: none !important;
+                pointer-events: auto !important;
+                -webkit-touch-callout: none !important;
+                -webkit-user-select: none !important;
+                user-select: none !important;
+                -webkit-tap-highlight-color: transparent !important;
             }
             @keyframes marqueeLeftToRightMobile {
                 0% { transform: translate3d(-50%, 0, 0); }
