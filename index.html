@@ -439,8 +439,13 @@
             justify-content: space-around;
             min-width: 100%;
             will-change: transform;
-            -webkit-animation: marqueeScroll 22s linear infinite;
-            animation: marqueeScroll 22s linear infinite;
+            -webkit-animation: marqueeScroll 20s linear infinite;
+            animation: marqueeScroll 20s linear infinite;
+        }
+
+        .marquee-container:hover .marquee-content {
+            -webkit-animation-play-state: paused;
+            animation-play-state: paused;
         }
 
         .marquee-content img {
