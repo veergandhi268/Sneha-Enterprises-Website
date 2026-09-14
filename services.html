@@ -1105,7 +1105,13 @@
             display: flex;
             gap: 50px;
             white-space: nowrap;
-            animation: marqueeScroll 28s linear infinite;
+            -webkit-animation: marqueeScroll 12s linear infinite;
+            animation: marqueeScroll 12s linear infinite;
+            will-change: transform;
+            -webkit-transform: translate3d(-50%, 0, 0);
+            transform: translate3d(-50%, 0, 0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
         .marquee-item {
@@ -1126,11 +1132,20 @@
 
         @keyframes marqueeScroll {
             0% {
-                transform: translateX(-50%)
+                transform: translate3d(-50%, 0, 0);
             }
 
             100% {
-                transform: translateX(0)
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        @-webkit-keyframes marqueeScroll {
+            0% {
+                -webkit-transform: translate3d(-50%, 0, 0);
+            }
+
+            100% {
+                -webkit-transform: translate3d(0, 0, 0);
             }
         }
 
@@ -1461,6 +1476,11 @@
                 gap: 8px;
                 text-align: center;
             }
+            .marquee-track {
+                -webkit-animation: marqueeScroll 10s linear infinite !important;
+                animation: marqueeScroll 10s linear infinite !important;
+                gap: 36px !important;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1472,6 +1492,11 @@
             .slide-num { font-size: 3.5rem; top: 16px; right: 18px; opacity: 0.6; }
             .stats-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
             .timeline { grid-template-columns: 1fr; gap: 30px; }
+            .marquee-track {
+                -webkit-animation: marqueeScroll 8s linear infinite !important;
+                animation: marqueeScroll 8s linear infinite !important;
+                gap: 26px !important;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1481,12 +1506,21 @@
             .stats-grid { grid-template-columns: 1fr; }
             .cta-h2 { font-size: 1.8rem; }
             .btn-gold, .btn-outline { width: 100%; text-align: center; }
+            .marquee-track {
+                -webkit-animation: marqueeScroll 7s linear infinite !important;
+                animation: marqueeScroll 7s linear infinite !important;
+                gap: 20px !important;
+            }
         }
 
         /* Landscape Mobile Mode (Tilted Down) */
         @media (max-height: 500px) and (orientation: landscape) {
             .slide-num { font-size: 3rem; top: 12px; right: 16px; opacity: 0.5; }
             .slide-text-panel { padding: 24px 20px; }
+            .marquee-track {
+                -webkit-animation: marqueeScroll 8s linear infinite !important;
+                animation: marqueeScroll 8s linear infinite !important;
+            }
         }
         /* Mobile Navigation Toggle Button & Full Overlay */
         .mobile-menu-btn {
