@@ -1135,37 +1135,46 @@
                 object-fit: contain !important;
             }
 
-            /* Intro Video & Final Content (Work Showcase) */
+            /* Intro Video & Final Content (Work Showcase) - Mobile Portrait (No Dark Mode Mask, Radiant Gold) */
             .final-content {
-                left: 5% !important;
-                right: 5% !important;
-                max-width: 90% !important;
-                text-align: center;
-                top: 55% !important;
+                left: 6% !important;
+                right: 6% !important;
+                max-width: 88% !important;
+                text-align: left !important;
+                top: 50% !important;
                 transform: translateY(-50%) !important;
                 z-index: 10 !important;
             }
-            .final-content h3 { font-size: 1.75rem !important; line-height: 1.25 !important; margin-bottom: 10px !important; }
-            .final-content p { font-size: 0.88rem !important; line-height: 1.5 !important; margin-bottom: 16px !important; }
-            .final-content .btn { padding: 12px 30px !important; font-size: 0.85rem !important; display: inline-block !important; }
-            .floating-social { display: flex; bottom: 16px; right: 16px; }
-        }
-
-        /* Ambient Golden Overlay Mask for Upright Mobile Portrait (hides video logo when text appears) */
-        .video-section::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 50% 45%, rgba(35, 20, 5, 0.94) 0%, rgba(13, 9, 0, 0.98) 85%);
-            z-index: 4;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        @media (max-width: 768px) and (orientation: portrait) {
-            .video-section.end-stage::after {
-                opacity: 1;
+            .final-content h3 {
+                font-family: 'Bodoni Moda', serif !important;
+                font-size: 2.1rem !important;
+                font-weight: 600 !important;
+                font-style: italic !important;
+                line-height: 1.18 !important;
+                margin-bottom: 14px !important;
+                color: #ffffff !important;
+                text-shadow: 0 4px 18px rgba(0,0,0,0.65), 0 2px 6px rgba(0,0,0,0.7) !important;
+            }
+            .final-content p {
+                font-size: 0.95rem !important;
+                line-height: 1.65 !important;
+                margin-bottom: 22px !important;
+                color: rgba(255, 255, 255, 0.95) !important;
+                font-weight: 300 !important;
+                text-shadow: 0 2px 12px rgba(0,0,0,0.65) !important;
+            }
+            .final-content .btn {
+                padding: 13px 32px !important;
+                font-size: 0.88rem !important;
+                display: inline-block !important;
+                box-shadow: 0 8px 25px rgba(212,175,55,0.45) !important;
+            }
+            .floating-social {
+                display: flex !important;
+                top: 24% !important;
+                bottom: auto !important;
+                transform: translateY(-50%) !important;
+                right: 0 !important;
             }
         }
 
@@ -1508,6 +1517,12 @@
             });
         }
 
+        function isMobilePortrait() {
+            return (window.innerWidth <= 768 && window.innerHeight > window.innerWidth) || window.matchMedia('(max-width: 768px) and (orientation: portrait)').matches;
+        }
+
+        let skippedInMobile = false;
+
         // Ensure video starts playing immediately without startup delay
         if (video.paused) {
             video.play().catch(() => {});
@@ -1518,29 +1533,55 @@
             if (!video.duration) return;
             const progress = video.currentTime / video.duration;
 
-            // Hide Welcome text after initial 25% progress
-            if (progress >= 0.25) {
+            // In mobile phone portrait mode: once logo creation completes (~6.8s) and frame is about to appear,
+            // immediately transition to our clean golden showcase so the device frame is never visible
+            if (isMobilePortrait() && !skippedInMobile && (video.currentTime >= 6.8 || progress >= 0.68)) {
+                skippedInMobile = true;
+                heroText.classList.add('hidden');
+                video.pause();
+                video.currentTime = 0.4;
+                finalContent.classList.add('visible');
+                header.classList.add('visible');
+                if (floatingSocial) floatingSocial.classList.add('visible');
+                return;
+            }
+
+            // Hide Welcome text after initial 25% progress (or once skipped on mobile)
+            if (progress >= 0.25 || skippedInMobile) {
                 heroText.classList.add('hidden');
             } else {
                 heroText.classList.remove('hidden');
             }
 
+            // Desktop / Landscape flow:
             // Reveal header navigation bar, final text and floating social together when MP4 stops / finishes (at 75% or last 1.5s)
             if (progress >= 0.75 || (video.duration - video.currentTime) <= 1.5) {
                 finalContent.classList.add('visible');
                 header.classList.add('visible');
                 if (floatingSocial) floatingSocial.classList.add('visible');
-                document.querySelector('.video-section')?.classList.add('end-stage');
             }
         });
 
         // Ensure everything settles into place when video ends
         video.addEventListener('ended', () => {
             heroText.classList.add('hidden');
+            if (isMobilePortrait()) {
+                video.pause();
+                video.currentTime = 0.4;
+            }
             finalContent.classList.add('visible');
             header.classList.add('visible');
             if (floatingSocial) floatingSocial.classList.add('visible');
-            document.querySelector('.video-section')?.classList.add('end-stage');
+        });
+
+        // Handle viewport / orientation changes
+        window.addEventListener('resize', () => {
+            if (!isMobilePortrait()) {
+                skippedInMobile = false;
+                if (video.paused && video.currentTime < video.duration - 0.5) {
+                    video.play().catch(() => {});
+                }
+            }
         });
         
         // Intersection Observer for Why Choose Us animations
