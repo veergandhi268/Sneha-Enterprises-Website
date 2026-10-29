@@ -31,25 +31,33 @@
             display: flex; justify-content: space-between; align-items: center;
             z-index: 2000;
             background: linear-gradient(to bottom, rgba(13,9,0,0.92) 0%, rgba(13,9,0,0.6) 70%, rgba(0,0,0,0) 100%);
-            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            box-sizing: border-box;
+            transition: padding 0.3s ease, background 0.3s ease;
         }
-        .header-left { display: flex; align-items: center; gap: 25px; }
-        .header-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
-        .header-logo img { height: 38px; border-radius: 4px; }
+        .header-left { display: flex; align-items: center; gap: 25px; flex-shrink: 0; min-width: 0; }
+        .header-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; flex-shrink: 0; white-space: nowrap !important; }
+        .header-logo img { height: 38px; border-radius: 4px; width: auto; }
         .brand-text {
-            color: #ffffff !important; font-size: 1.3rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
-        .header-contact { display: flex; align-items: center; gap: 14px; font-size: 0.82rem; border-left: 1px solid rgba(212,175,55,0.25); padding-left: 18px; }
-        .hc-item { display: flex; align-items: center; gap: 5px; color: rgba(255,235,180,0.85); text-decoration: none; transition: color 0.3s; }
+            color: #ffffff !important; font-size: 1.3rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap !important; }
+        .header-contact { display: flex; align-items: center; gap: 14px; font-size: 0.82rem; border-left: 1px solid rgba(212,175,55,0.25); padding-left: 18px; flex-shrink: 0; white-space: nowrap !important; }
+        .hc-item { display: inline-flex; align-items: center; gap: 5px; color: rgba(255,235,180,0.85); text-decoration: none; transition: color 0.3s; white-space: nowrap !important; flex-shrink: 0; }
+        .hc-item span { white-space: nowrap !important; }
         .hc-item:hover { color: var(--gold); }
         .hc-item svg { width: 13px; height: 13px; stroke: var(--gold); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-        .hc-divider { color: rgba(212,175,55,0.3); }
-        .nav-links { display: flex; gap: 28px; list-style: none; }
-        .nav-links a { color: rgba(255,235,180,0.8); text-decoration: none; font-size: 0.85rem; font-weight: 300; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s; position: relative; }
+        .hc-divider { color: rgba(212,175,55,0.3); white-space: nowrap !important; }
+        .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; margin: 0; padding: 0; flex-shrink: 0; }
+        .nav-links li { list-style: none; flex-shrink: 0; }
+        .nav-links a, .nav-links li a { color: rgba(255,235,180,0.8); text-decoration: none; font-size: 0.85rem; font-weight: 300; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s; position: relative; white-space: nowrap !important; }
         .nav-links a::after { content:''; position: absolute; bottom:-4px; left:0; width:0; height:1px; background: var(--gold); transition: width 0.3s; }
         .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
         .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-        .nav-ai-link { color: #e5c158 !important; font-weight:600 !important; padding: 4px 13px !important; border: 1px solid rgba(229,193,88,0.6); border-radius:20px; background: linear-gradient(135deg,rgba(229,193,88,0.12),rgba(180,120,40,0.08)); box-shadow:0 0 14px rgba(229,193,88,0.3);  }
+        .nav-ai-link { color: #e5c158 !important; font-weight:600 !important; padding: 4px 13px !important; border: 1px solid rgba(229,193,88,0.6); border-radius:20px; background: linear-gradient(135deg,rgba(229,193,88,0.12),rgba(180,120,40,0.08)); box-shadow:0 0 14px rgba(229,193,88,0.3); animation: navAiPulse 2.5s ease-in-out infinite; }
         .nav-ai-link:hover { color:#fff !important; background:linear-gradient(135deg,rgba(229,193,88,0.35),rgba(180,120,40,0.25)) !important; box-shadow:0 0 28px rgba(229,193,88,0.7) !important; }
+        @keyframes navAiPulse {
+            0%, 100% { box-shadow: 0 0 12px rgba(229,193,88,0.3); }
+            50% { box-shadow: 0 0 26px rgba(229,193,88,0.7), 0 0 50px rgba(229,193,88,0.15); }
+        }
 
         /* ─── HERO ─── */
         .hero {
@@ -617,8 +625,114 @@
             line-height: 1;
         }
 
+        /* ── Header Responsive Optimization for All Computer Sizes ── */
+        @media (min-width: 1400px) {
+            header {
+                padding: 18px clamp(32px, 3.5vw, 50px);
+            }
+            .nav-links {
+                gap: clamp(22px, 2vw, 30px);
+            }
+        }
+
+        @media (max-width: 1399px) and (min-width: 1181px) {
+            header {
+                padding: 14px 28px !important;
+            }
+            .header-left {
+                gap: 16px !important;
+            }
+            .header-logo {
+                gap: 10px !important;
+            }
+            .header-logo img {
+                height: 34px !important;
+            }
+            .header-logo .brand-text,
+            .brand-text {
+                font-size: 1.18rem !important;
+                letter-spacing: 0.5px !important;
+            }
+            .header-contact {
+                gap: 10px !important;
+                font-size: 0.78rem !important;
+                padding-left: 14px !important;
+            }
+            .hc-item {
+                gap: 5px !important;
+            }
+            .hc-item svg {
+                width: 13px !important;
+                height: 13px !important;
+            }
+            .nav-links {
+                gap: 18px !important;
+            }
+            .nav-links li a,
+            .nav-links a {
+                font-size: 0.82rem !important;
+                letter-spacing: 0.6px !important;
+            }
+            .nav-ai-link {
+                padding: 4px 11px !important;
+            }
+        }
+
+        @media (max-width: 1180px) and (min-width: 993px) {
+            header {
+                padding: 12px 18px !important;
+            }
+            .header-left {
+                gap: 12px !important;
+            }
+            .header-logo {
+                gap: 8px !important;
+            }
+            .header-logo img {
+                height: 32px !important;
+            }
+            .header-logo .brand-text,
+            .brand-text {
+                font-size: 1.08rem !important;
+                letter-spacing: 0.3px !important;
+            }
+            .header-contact {
+                gap: 8px !important;
+                font-size: 0.74rem !important;
+                padding-left: 10px !important;
+            }
+            .header-contact a[href^="mailto:"] span {
+                display: none !important;
+            }
+            .header-contact a[href^="mailto:"] {
+                padding: 2px 4px;
+            }
+            .hc-item svg {
+                width: 13px !important;
+                height: 13px !important;
+            }
+            .nav-links {
+                gap: 14px !important;
+            }
+            .nav-links li a,
+            .nav-links a {
+                font-size: 0.78rem !important;
+                letter-spacing: 0.4px !important;
+            }
+            .nav-ai-link {
+                padding: 3px 9px !important;
+                font-size: 0.75rem !important;
+            }
+        }
+
         @media (max-width: 992px) {
             .mobile-menu-btn { display: flex; }
+            .header-contact { display: none !important; }
+            header { padding: 12px 18px !important; }
+            .brand-text,
+            .header-logo .brand-text {
+                font-size: 1.15rem !important;
+            }
             .nav-links {
                 position: fixed;
                 inset: 0;
@@ -706,7 +820,7 @@
                 <span>993030 4621</span>
             </a>
             <span class="hc-divider">|</span>
-            <a href="mailto:info@snehaenterprises.in" class="hc-item">
+            <a href="mailto:info@snehaenterprises.in" class="hc-item" title="info@snehaenterprises.in" aria-label="Email info@snehaenterprises.in">
                 <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                 <span>info@snehaenterprises.in</span>
             </a>

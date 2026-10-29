@@ -83,6 +83,8 @@
             display: flex;
             align-items: center;
             gap: 25px;
+            flex-shrink: 0;
+            min-width: 0;
         }
 
         .header-logo {
@@ -91,10 +93,13 @@
             gap: 12px;
             text-decoration: none;
             color: #fff;
+            flex-shrink: 0;
+            white-space: nowrap !important;
         }
 
         .header-logo img {
             height: 38px;
+            width: auto;
             border-radius: 4px;
         }
 
@@ -104,6 +109,7 @@
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
+            white-space: nowrap !important;
         }
 
         .header-contact {
@@ -113,15 +119,23 @@
             font-size: 0.82rem;
             border-left: 1px solid rgba(212, 175, 55, 0.25);
             padding-left: 18px;
+            flex-shrink: 0;
+            white-space: nowrap !important;
         }
 
         .hc-item {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 5px;
             color: rgba(255, 235, 180, 0.85);
             text-decoration: none;
             transition: color 0.3s;
+            white-space: nowrap !important;
+            flex-shrink: 0;
+        }
+
+        .hc-item span {
+            white-space: nowrap !important;
         }
 
         .hc-item:hover {
@@ -140,15 +154,26 @@
 
         .hc-div {
             color: rgba(212, 175, 55, 0.3);
+            white-space: nowrap !important;
         }
 
         .nav-links {
             display: flex;
+            align-items: center;
             gap: 28px;
             list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-shrink: 0;
         }
 
-        .nav-links a {
+        .nav-links li {
+            list-style: none;
+            flex-shrink: 0;
+        }
+
+        .nav-links a,
+        .nav-links li a {
             color: rgba(255, 235, 180, 0.8);
             text-decoration: none;
             font-size: 0.85rem;
@@ -157,6 +182,7 @@
             text-transform: uppercase;
             transition: color 0.3s;
             position: relative;
+            white-space: nowrap !important;
         }
 
         .nav-links a::after {
@@ -1414,14 +1440,125 @@
             transition-delay: 0.4s;
         }
 
+        /* ── Header Responsive Optimization for All Computer Sizes ── */
+        @media (min-width: 1400px) {
+            header {
+                padding: 18px clamp(32px, 3.5vw, 50px);
+            }
+            header.scrolled {
+                padding: 10px clamp(32px, 3.5vw, 50px);
+            }
+            .nav-links {
+                gap: clamp(22px, 2vw, 30px);
+            }
+        }
+
+        @media (max-width: 1399px) and (min-width: 1181px) {
+            header,
+            header.scrolled {
+                padding: 14px 28px !important;
+            }
+            .header-left {
+                gap: 16px !important;
+            }
+            .header-logo {
+                gap: 10px !important;
+            }
+            .header-logo img {
+                height: 34px !important;
+            }
+            .header-logo .brand-text,
+            .brand-text {
+                font-size: 1.18rem !important;
+                letter-spacing: 0.5px !important;
+            }
+            .header-contact {
+                gap: 10px !important;
+                font-size: 0.78rem !important;
+                padding-left: 14px !important;
+            }
+            .hc-item {
+                gap: 5px !important;
+            }
+            .hc-item svg {
+                width: 13px !important;
+                height: 13px !important;
+            }
+            .nav-links {
+                gap: 18px !important;
+            }
+            .nav-links li a,
+            .nav-links a {
+                font-size: 0.82rem !important;
+                letter-spacing: 0.6px !important;
+            }
+            .nav-ai-link {
+                padding: 4px 11px !important;
+            }
+        }
+
+        @media (max-width: 1180px) and (min-width: 993px) {
+            header,
+            header.scrolled {
+                padding: 12px 18px !important;
+            }
+            .header-left {
+                gap: 12px !important;
+            }
+            .header-logo {
+                gap: 8px !important;
+            }
+            .header-logo img {
+                height: 32px !important;
+            }
+            .header-logo .brand-text,
+            .brand-text {
+                font-size: 1.08rem !important;
+                letter-spacing: 0.3px !important;
+            }
+            .header-contact {
+                gap: 8px !important;
+                font-size: 0.74rem !important;
+                padding-left: 10px !important;
+            }
+            .header-contact a[href^="mailto:"] span {
+                display: none !important;
+            }
+            .header-contact a[href^="mailto:"] {
+                padding: 2px 4px;
+            }
+            .hc-item svg {
+                width: 13px !important;
+                height: 13px !important;
+            }
+            .nav-links {
+                gap: 14px !important;
+            }
+            .nav-links li a,
+            .nav-links a {
+                font-size: 0.78rem !important;
+                letter-spacing: 0.4px !important;
+            }
+            .nav-ai-link {
+                padding: 3px 9px !important;
+                font-size: 0.75rem !important;
+            }
+        }
+
         /* ── RESPONSIVE ── */
         @media (max-width: 992px) {
-            header {
-                padding: 14px 20px;
+            header,
+            header.scrolled {
+                padding: 12px 18px !important;
             }
 
             .header-contact {
-                display: none;
+                display: none !important;
+            }
+
+            .brand-text,
+            .header-logo .brand-text {
+                font-size: 1.15rem !important;
             }
 
             .hero-h1 {
@@ -1638,7 +1775,7 @@
                     <span>993030 4621</span>
                 </a>
                 <span class="hc-div">|</span>
-                <a href="mailto:info@snehaenterprises.in" class="hc-item">
+                <a href="mailto:info@snehaenterprises.in" class="hc-item" title="info@snehaenterprises.in" aria-label="Email info@snehaenterprises.in">
                     <svg viewBox="0 0 24 24">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                         <polyline points="22,6 12,13 2,6" />
