@@ -633,21 +633,28 @@
             flex: 1;
             display: flex;
             justify-content: center;
+            align-items: center;
             position: relative;
+            width: 100%;
         }
 
         .experience-typography {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
+            text-align: center;
             width: 100%;
             position: relative;
+            margin: 0 auto;
         }
 
         .number-container {
             position: relative;
-            display: inline-block;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
         }
 
         /* Ambient Orbs & New Aura */
@@ -782,7 +789,10 @@
             animation: intenseGradient 6s ease-in-out infinite;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-left: 0; 
+            margin-left: 0;
+            margin-right: 0;
+            text-align: center;
+            display: block;
             filter: drop-shadow(0 10px 40px rgba(255, 140, 0, 0.5));
             position: relative;
             z-index: 2;
@@ -797,7 +807,13 @@
         .text-stack {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             margin-top: 15px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
             position: relative;
             z-index: 2;
             animation: floatText 4s ease-in-out infinite alternate;
@@ -812,10 +828,14 @@
             font-family: 'Montserrat', sans-serif;
             font-size: clamp(0.85rem, 2vw, 1.5rem);
             letter-spacing: clamp(5px, 1.5vw, 15px);
+            text-indent: clamp(5px, 1.5vw, 15px);
             text-transform: uppercase;
             color: rgba(255,255,255,0.7);
             margin-bottom: -5px;
-            padding-left: 3px;
+            padding-left: 0;
+            text-align: center;
+            display: block;
+            width: 100%;
         }
 
         .word-exp {
@@ -825,6 +845,9 @@
             font-style: italic;
             color: #fff;
             text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            text-align: center;
+            display: block;
+            width: 100%;
         }
 
         .wcu-right {
@@ -899,12 +922,66 @@
             .wcu-container {
                 flex-direction: column;
                 text-align: center;
+                align-items: center;
+                gap: 45px;
+            }
+            .wcu-left {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+            }
+            .experience-typography {
+                align-items: center;
+                text-align: center;
+                width: 100%;
+                margin: 0 auto;
+            }
+            .number-container {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+            }
+            .big-number {
+                text-align: center;
+                margin: 0 auto;
+            }
+            .text-stack {
+                align-items: center;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+            }
+            .word-years {
+                text-align: center;
+                padding-left: 0;
+            }
+            .word-exp {
+                text-align: center;
             }
             .wcu-right {
                 padding-left: 0;
+                width: 100%;
+                max-width: 680px;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .wcu-desc {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .wcu-subtitle {
+                text-align: center;
             }
             .wcu-list {
-                align-items: center;
+                display: inline-flex;
+                flex-direction: column;
+                align-items: flex-start;
+                margin: 0 auto;
             }
         }
 
@@ -1527,23 +1604,56 @@
             .why-choose-us {
                 padding: 35px 12px !important;
             }
+            .wcu-container {
+                gap: 25px !important;
+            }
+            .experience-typography {
+                align-items: center !important;
+                text-align: center !important;
+                margin: 0 auto !important;
+            }
+            .number-container {
+                display: inline-flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                margin: 0 auto !important;
+            }
             .big-number {
                 font-size: clamp(4.8rem, 22vw, 6.8rem) !important;
+                text-align: center !important;
+                margin: 0 auto !important;
+            }
+            .text-stack {
+                align-items: center !important;
+                text-align: center !important;
+                margin: 10px auto 0 !important;
             }
             .word-exp {
                 font-size: 1.75rem !important;
+                text-align: center !important;
             }
             .word-years {
                 font-size: 0.72rem !important;
                 letter-spacing: 4px !important;
+                text-indent: 4px !important;
+                padding-left: 0 !important;
+                text-align: center !important;
             }
             .wcu-desc {
                 font-size: 0.9rem !important;
                 margin-bottom: 22px !important;
+                text-align: center !important;
             }
             .wcu-subtitle {
                 font-size: 1.4rem !important;
                 margin-bottom: 18px !important;
+                text-align: center !important;
+            }
+            .wcu-list {
+                display: inline-flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                margin: 0 auto !important;
             }
             .wcu-list li {
                 font-size: 0.92rem !important;
