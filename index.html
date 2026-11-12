@@ -508,17 +508,28 @@
         }
 
         .gold-gradient-text {
-            background: linear-gradient(120deg, #d4af37 0%, #fff7d6 30%, #e5c158 55%, #ffffff 75%, #d4af37 100%);
-            background-size: 250% auto;
+            background: linear-gradient(120deg,
+                #b8860b 0%,
+                #ffd700 12%,
+                #ffef80 28%,
+                #ffffff 42%,
+                #ffe44d 55%,
+                #ffd700 68%,
+                #ffaa00 82%,
+                #ffd700 100%
+            );
+            background-size: 300% auto;
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: goldTextShimmer 6s linear infinite;
+            animation: goldTextShimmer 4s linear infinite;
             display: inline-block;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.55)) drop-shadow(0 2px 4px rgba(180, 110, 0, 0.5));
         }
 
         @keyframes goldTextShimmer {
-            0% { background-position: 0% center; }
-            100% { background-position: 250% center; }
+            0%   { background-position: 0% center; }
+            100% { background-position: 300% center; }
         }
 
         .final-content p {
@@ -1662,39 +1673,68 @@
                 object-fit: contain !important;
             }
             .final-content {
-                left: 7% !important;
-                right: 7% !important;
-                max-width: 86% !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                transform: none !important;
                 text-align: left !important;
-                top: 50% !important;
-                transform: translateY(-50%) !important;
                 z-index: 10 !important;
-                padding: 32px 30px !important;
-                border-radius: 22px !important;
-                background: linear-gradient(145deg, rgba(14, 9, 2, 0.90) 0%, rgba(26, 17, 4, 0.82) 100%) !important;
-                box-shadow: 0 20px 50px rgba(0,0,0,0.75), 0 0 35px rgba(212,175,55,0.2) !important;
+                padding: 100px 36px 70px 36px !important;
+                border-radius: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                background:
+                    radial-gradient(ellipse at 15% 90%, rgba(212, 175, 55, 0.35) 0%, transparent 55%),
+                    radial-gradient(ellipse at 85% 10%, rgba(180, 110, 15, 0.25) 0%, transparent 50%),
+                    radial-gradient(ellipse at 50% 50%, rgba(140, 85, 10, 0.16) 0%, transparent 70%),
+                    linear-gradient(175deg,
+                        rgba(6, 4, 1, 0.80) 0%,
+                        rgba(14, 9, 2, 0.70) 25%,
+                        rgba(22, 14, 3, 0.56) 55%,
+                        rgba(35, 22, 5, 0.42) 80%,
+                        rgba(50, 32, 6, 0.28) 100%
+                    ) !important;
+                box-shadow: none !important;
+                border: none !important;
+                backdrop-filter: blur(8px) saturate(140%) !important;
+                -webkit-backdrop-filter: blur(8px) saturate(140%) !important;
+            }
+            .final-content.visible {
+                transform: none !important;
             }
             .final-content h3 {
                 font-family: 'Bodoni Moda', serif !important;
-                font-size: clamp(1.9rem, 3.8vw, 2.6rem) !important;
+                font-size: clamp(2.1rem, 3.8vw, 2.8rem) !important;
                 font-weight: 600 !important;
                 font-style: italic !important;
                 line-height: 1.18 !important;
-                margin-bottom: 12px !important;
+                margin-bottom: 14px !important;
                 color: #ffffff !important;
                 text-shadow: 0 4px 18px rgba(0,0,0,0.65), 0 2px 6px rgba(0,0,0,0.7) !important;
             }
             .final-content p {
-                font-size: clamp(0.92rem, 1.6vw, 1.05rem) !important;
+                font-size: clamp(0.95rem, 1.6vw, 1.1rem) !important;
                 line-height: 1.65 !important;
-                margin-bottom: 20px !important;
+                margin-bottom: 22px !important;
                 color: rgba(255, 255, 255, 0.95) !important;
                 font-weight: 300 !important;
                 text-shadow: 0 2px 12px rgba(0,0,0,0.65) !important;
+                max-width: 580px !important;
             }
             .hero-quick-stats {
-                padding: 12px 16px !important;
-                margin-bottom: 20px !important;
+                padding: 14px 18px !important;
+                margin-bottom: 22px !important;
+                max-width: 500px !important;
+            }
+            .hero-actions {
+                gap: 14px !important;
+            }
+            .hero-eyebrow-pill {
+                margin-bottom: 16px !important;
             }
         }
 
