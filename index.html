@@ -129,6 +129,9 @@
             opacity: 1;
             transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1);
             will-change: opacity;
+            width: 90%;
+            max-width: 900px;
+            box-sizing: border-box;
         }
 
         .hero-text.hidden {
@@ -136,7 +139,7 @@
         }
 
         .hero-text h2 {
-            font-size: 2rem;
+            font-size: clamp(0.95rem, 3vw, 2rem);
             font-weight: 300;
             margin: 0;
             letter-spacing: 2px;
@@ -145,12 +148,14 @@
 
         .hero-text h1 {
             font-family: 'Bodoni Moda', serif;
-            font-size: 5rem;
+            font-size: clamp(2rem, 6.5vw, 5rem);
             font-weight: 600;
             font-style: italic;
             margin: 0;
             letter-spacing: -1px;
             line-height: 1.1;
+            overflow-wrap: break-word;
+            word-break: break-word;
         }
         
         header {
@@ -590,11 +595,12 @@
         /* ── BROWN SECTION: Why Choose Us ── */
         .why-choose-us {
             background: linear-gradient(180deg, #130800 0%, #2a1508 50%, #1a0d05 100%);
-            padding: 80px 50px;
+            padding: clamp(45px, 6vw, 80px) clamp(16px, 3.5vw, 50px);
             color: #fff;
             position: relative;
             z-index: 50;
             overflow: hidden;
+            box-sizing: border-box;
         }
 
         /* Brown top-border accent line */
@@ -649,10 +655,10 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 600px;
-            height: 600px;
-            margin-top: -300px;
-            margin-left: -300px;
+            width: min(85vw, 550px);
+            height: min(85vw, 550px);
+            margin-top: calc(-1 * min(42.5vw, 275px));
+            margin-left: calc(-1 * min(42.5vw, 275px));
             background: repeating-conic-gradient(
                 from 0deg,
                 rgba(255, 215, 0, 0.15) 0deg 10deg,
@@ -767,16 +773,16 @@
 
         .big-number {
             font-family: 'Bodoni Moda', serif;
-            font-size: 20rem;
+            font-size: clamp(6.5rem, 20vw, 20rem);
             font-weight: 700;
-            line-height: 0.8;
+            line-height: 0.85;
             /* Added a bright white metallic shine sweep to the gradient */
             background: linear-gradient(60deg, #f6d365 0%, #fda085 35%, #ffffff 50%, #fda085 65%, #ff1493 100%);
             background-size: 400% 400%;
             animation: intenseGradient 6s ease-in-out infinite;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-left: -15px; 
+            margin-left: 0; 
             filter: drop-shadow(0 10px 40px rgba(255, 140, 0, 0.5));
             position: relative;
             z-index: 2;
@@ -804,17 +810,17 @@
 
         .word-years {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
-            letter-spacing: 15px;
+            font-size: clamp(0.85rem, 2vw, 1.5rem);
+            letter-spacing: clamp(5px, 1.5vw, 15px);
             text-transform: uppercase;
             color: rgba(255,255,255,0.7);
             margin-bottom: -5px;
-            padding-left: 5px;
+            padding-left: 3px;
         }
 
         .word-exp {
             font-family: 'Bodoni Moda', serif;
-            font-size: 4.5rem;
+            font-size: clamp(2.2rem, 6.5vw, 4.5rem);
             font-weight: 600;
             font-style: italic;
             color: #fff;
@@ -905,11 +911,12 @@
         /* ─── FEATURED PROJECTS SHOWCASE (Home Page) ─── */
         .home-projects-sec {
             position: relative;
-            padding: 100px 50px;
+            padding: clamp(45px, 6vw, 100px) clamp(16px, 3.5vw, 50px);
             background: linear-gradient(180deg, #0d0900 0%, #140d02 50%, #0b0703 100%);
             border-top: 1px solid rgba(212, 175, 55, 0.3);
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
             overflow: hidden;
+            box-sizing: border-box;
         }
         .hp-header {
             text-align: center;
@@ -1348,6 +1355,53 @@
             .footer-sec .row { grid-template-columns: 1fr; gap: 25px; }
             .footer-sec .container { padding: 0 20px; }
             .footer-sec .copyright-bar { flex-direction: column; gap: 8px; text-align: center; }
+
+            /* Tablet Portrait & Samsung Fold 4 Unfolded (~674px–840px Near-Square Aspect Ratio) */
+            .video-showcase-sec {
+                height: auto !important;
+                min-height: 240px;
+                max-height: 75vh;
+                background: #0b0703;
+                padding: 10px 0;
+            }
+            .video-showcase-sec video {
+                height: auto !important;
+                max-height: 75vh;
+                object-fit: contain !important;
+            }
+            .final-content {
+                left: 6% !important;
+                right: 6% !important;
+                max-width: 82% !important;
+                text-align: left !important;
+                top: 50% !important;
+                transform: translateY(-50%) !important;
+                z-index: 10 !important;
+            }
+            .final-content h3 {
+                font-family: 'Bodoni Moda', serif !important;
+                font-size: clamp(1.8rem, 4.2vw, 2.8rem) !important;
+                font-weight: 600 !important;
+                font-style: italic !important;
+                line-height: 1.18 !important;
+                margin-bottom: 14px !important;
+                color: #ffffff !important;
+                text-shadow: 0 4px 18px rgba(0,0,0,0.65), 0 2px 6px rgba(0,0,0,0.7) !important;
+            }
+            .final-content p {
+                font-size: clamp(0.92rem, 1.8vw, 1.05rem) !important;
+                line-height: 1.65 !important;
+                margin-bottom: 22px !important;
+                color: rgba(255, 255, 255, 0.95) !important;
+                font-weight: 300 !important;
+                text-shadow: 0 2px 12px rgba(0,0,0,0.65) !important;
+            }
+            .final-content .btn {
+                padding: 12px 28px !important;
+                font-size: 0.86rem !important;
+                display: inline-block !important;
+                box-shadow: 0 8px 25px rgba(212,175,55,0.45) !important;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1383,7 +1437,7 @@
             }
             .final-content h3 {
                 font-family: 'Bodoni Moda', serif !important;
-                font-size: 2.1rem !important;
+                font-size: clamp(1.6rem, 5.5vw, 2.1rem) !important;
                 font-weight: 600 !important;
                 font-style: italic !important;
                 line-height: 1.18 !important;
@@ -1392,7 +1446,7 @@
                 text-shadow: 0 4px 18px rgba(0,0,0,0.65), 0 2px 6px rgba(0,0,0,0.7) !important;
             }
             .final-content p {
-                font-size: 0.95rem !important;
+                font-size: clamp(0.85rem, 2.5vw, 0.95rem) !important;
                 line-height: 1.65 !important;
                 margin-bottom: 22px !important;
                 color: rgba(255, 255, 255, 0.95) !important;
@@ -1400,8 +1454,8 @@
                 text-shadow: 0 2px 12px rgba(0,0,0,0.65) !important;
             }
             .final-content .btn {
-                padding: 13px 32px !important;
-                font-size: 0.88rem !important;
+                padding: clamp(10px, 2.5vw, 13px) clamp(20px, 4.5vw, 32px) !important;
+                font-size: clamp(0.78rem, 2vw, 0.88rem) !important;
                 display: inline-block !important;
                 box-shadow: 0 8px 25px rgba(212,175,55,0.45) !important;
             }
@@ -1443,6 +1497,115 @@
                 pointer-events: auto !important;
                 touch-action: manipulation !important;
                 cursor: pointer !important;
+            }
+        }
+
+        /* ── Compact Foldable & Small Phones (e.g., Samsung Galaxy Fold 4 cover screen ~344px, iPhone SE 320-375px) ── */
+        @media (max-width: 360px) {
+            header {
+                padding: 9px 12px !important;
+            }
+            .header-left {
+                gap: 6px !important;
+            }
+            .header-logo {
+                gap: 6px !important;
+            }
+            .header-logo img {
+                height: 26px !important;
+            }
+            .brand-text,
+            .header-logo .brand-text {
+                font-size: 0.88rem !important;
+                letter-spacing: 0.3px !important;
+            }
+            .mobile-menu-btn {
+                padding: 5px 9px !important;
+                font-size: 1.05rem !important;
+            }
+            
+            .why-choose-us {
+                padding: 35px 12px !important;
+            }
+            .big-number {
+                font-size: clamp(4.8rem, 22vw, 6.8rem) !important;
+            }
+            .word-exp {
+                font-size: 1.75rem !important;
+            }
+            .word-years {
+                font-size: 0.72rem !important;
+                letter-spacing: 4px !important;
+            }
+            .wcu-desc {
+                font-size: 0.9rem !important;
+                margin-bottom: 22px !important;
+            }
+            .wcu-subtitle {
+                font-size: 1.4rem !important;
+                margin-bottom: 18px !important;
+            }
+            .wcu-list li {
+                font-size: 0.92rem !important;
+                gap: 10px !important;
+            }
+            .check-icon {
+                width: 32px !important;
+                height: 32px !important;
+            }
+            .check-icon svg {
+                width: 17px !important;
+                height: 17px !important;
+            }
+            
+            .home-projects-sec {
+                padding: 35px 12px !important;
+            }
+            .hp-title {
+                font-size: 1.6rem !important;
+            }
+            .hp-card-body {
+                padding: 16px 12px !important;
+            }
+            .hp-cta-btn {
+                padding: 12px 24px !important;
+                font-size: 0.8rem !important;
+            }
+            
+            .final-content {
+                left: 4% !important;
+                right: 4% !important;
+                max-width: 92% !important;
+            }
+            .final-content h3 {
+                font-size: 1.35rem !important;
+                margin-bottom: 8px !important;
+            }
+            .final-content p {
+                font-size: 0.78rem !important;
+                line-height: 1.5 !important;
+                margin-bottom: 14px !important;
+            }
+            .final-content .btn {
+                padding: 9px 18px !important;
+                font-size: 0.75rem !important;
+                letter-spacing: 1px !important;
+            }
+            
+            .clients-section h2 {
+                font-size: 1.4rem !important;
+            }
+            .marquee-track img {
+                height: 36px !important;
+                padding: 4px 10px !important;
+            }
+            
+            .footer-sec .container {
+                padding: 0 12px !important;
+            }
+            .footer-sec p,
+            .footer-sec .footer_address p {
+                font-size: 0.84rem !important;
             }
         }
 

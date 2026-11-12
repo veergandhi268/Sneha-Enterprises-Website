@@ -429,12 +429,13 @@
             position: sticky;
             top: 75px;
             z-index: 100;
-            padding: 22px 50px;
+            padding: 18px clamp(12px, 3vw, 50px);
             background: rgba(13, 9, 0, 0.94);
             backdrop-filter: blur(15px);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            box-sizing: border-box;
         }
         .filter-container {
             max-width: 1300px;
@@ -505,9 +506,10 @@
 
         /* ── PORTFOLIO GRID SECTION ── */
         .portfolio-section {
-            padding: 80px 50px 120px;
+            padding: clamp(40px, 6vw, 80px) clamp(14px, 3vw, 50px) clamp(50px, 8vw, 120px);
             max-width: 1400px;
             margin: 0 auto;
+            box-sizing: border-box;
         }
         .section-header {
             text-align: center;
@@ -852,10 +854,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px;
+            padding: clamp(10px, 3vw, 40px);
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.4s ease;
+            box-sizing: border-box;
         }
         .modal-overlay.active {
             opacity: 1;
@@ -901,7 +904,8 @@
             transform: rotate(90deg);
         }
         .modal-body {
-            padding: 45px;
+            padding: clamp(16px, 3.5vw, 45px);
+            box-sizing: border-box;
         }
         .modal-header {
             margin-bottom: 25px;
@@ -1298,7 +1302,10 @@
             .cta-subtitle { font-size: 0.92rem; }
             .btn-gold, .btn-outline { width: 100%; text-align: center; padding: 12px 20px; }
 
-            .modal-container { width: 94vw; max-height: 90vh; padding: 18px 14px; }
+            .modal-overlay { padding: 12px 8px !important; }
+            .modal-container { width: 96vw !important; max-height: 92vh !important; }
+            .modal-body { padding: 18px 14px !important; }
+            .modal-meta { gap: 10px !important; padding: 10px 12px !important; font-size: 0.8rem !important; }
             .modal-title { font-size: 1.4rem; }
             .modal-close { top: 10px; right: 10px; width: 34px; height: 34px; font-size: 1.3rem; }
         }
@@ -1312,6 +1319,104 @@
             .stat-label { font-size: 0.62rem; }
             .exp-badge-huge { font-size: 4.8rem; }
             .exp-badge-plus { font-size: 2.5rem; }
+        }
+
+        /* ── Compact Foldable & Small Phones (Samsung Galaxy Fold 4 ~344px) ── */
+        @media (max-width: 360px) {
+            header {
+                padding: 9px 12px !important;
+            }
+            .header-left {
+                gap: 6px !important;
+            }
+            .header-logo {
+                gap: 6px !important;
+            }
+            .header-logo img {
+                height: 26px !important;
+            }
+            .brand-text,
+            .header-logo .brand-text {
+                font-size: 0.88rem !important;
+                letter-spacing: 0.3px !important;
+            }
+            .mobile-menu-btn {
+                padding: 5px 9px !important;
+                font-size: 1.05rem !important;
+            }
+            
+            .portfolio-hero {
+                padding: 65px 12px 20px !important;
+            }
+            .hero-title {
+                font-size: 1.6rem !important;
+            }
+            .hero-subtitle {
+                font-size: 0.82rem !important;
+            }
+            .hero-stats {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 6px !important;
+            }
+            .stat-item {
+                padding: 8px 6px !important;
+            }
+            .stat-num {
+                font-size: 1.25rem !important;
+            }
+            .stat-label {
+                font-size: 0.6rem !important;
+            }
+            .filter-section {
+                padding: 0 10px 20px !important;
+            }
+            .filter-btn {
+                padding: 6px 12px !important;
+                font-size: 0.75rem !important;
+                min-height: 34px !important;
+            }
+            .portfolio-section {
+                padding: 30px 10px 50px !important;
+            }
+            .card-img-container {
+                height: 180px !important;
+            }
+            .card-details-panel {
+                padding: 12px 12px !important;
+            }
+            .card-title {
+                font-size: 1.1rem !important;
+            }
+            .card-summary {
+                font-size: 0.8rem !important;
+            }
+            .exp-badge-huge {
+                font-size: 4rem !important;
+            }
+            .exp-badge-plus {
+                font-size: 2rem !important;
+            }
+            .modal-overlay {
+                padding: 6px 4px !important;
+            }
+            .modal-container {
+                width: 98vw !important;
+                border-radius: 12px !important;
+            }
+            .modal-body {
+                padding: 14px 10px !important;
+            }
+            .modal-title {
+                font-size: 1.25rem !important;
+            }
+            
+            .footer-sec .container {
+                padding: 0 12px !important;
+            }
+            .footer-sec p,
+            .footer-sec .footer_address p {
+                font-size: 0.84rem !important;
+            }
         }
 
         /* LANDSCAPE PHONE ORIENTATION (Tilted Down) */

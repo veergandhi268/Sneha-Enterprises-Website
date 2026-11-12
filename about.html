@@ -203,9 +203,10 @@
             text-transform: uppercase; color: var(--gold);
         }
         .hero-title {
-            font-family: 'Bodoni Moda', serif; font-size: clamp(3rem, 5vw, 4.8rem);
+            font-family: 'Bodoni Moda', serif; font-size: clamp(1.85rem, 5.5vw, 4.8rem);
             font-weight: 700; font-style: italic; line-height: 1.1;
             margin-bottom: 20px; color: #fff;
+            overflow-wrap: break-word; word-break: break-word;
         }
         .hero-title .gold {
             background: linear-gradient(120deg, #d4af37 0%, #ffffff 40%, #e5c158 70%, #d4af37 100%);
@@ -227,7 +228,7 @@
 
         /* ─── SECTION COMMON ─── */
         .section-wrapper { position: relative; z-index: 10; }
-        .section-pad { padding: 90px 60px; }
+        .section-pad { padding: clamp(45px, 6vw, 90px) clamp(16px, 3.5vw, 60px); box-sizing: border-box; }
         .section-eyebrow {
             display: flex; align-items: center; gap: 16px; margin-bottom: 20px;
         }
@@ -237,9 +238,10 @@
             text-transform: uppercase; color: var(--gold);
         }
         .section-heading {
-            font-family: 'Bodoni Moda', serif; font-size: 3.5rem;
+            font-family: 'Bodoni Moda', serif; font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 600; font-style: italic; line-height: 1.15;
             margin-bottom: 30px; color: #fff;
+            overflow-wrap: break-word; word-break: break-word;
         }
 
         /* ─── ABOUT STORY (split layout - Reduced Top Gap) ─── */
@@ -498,13 +500,21 @@
             .floating-social { top: 24% !important; transform: translateY(-50%) !important; right: 0 !important; }
             .nav-links { gap: 16px; }
             .nav-links a { font-size: 0.75rem; }
-            .section-pad { padding: 70px 20px; }
+            .section-pad { padding: 60px 18px; }
             .values-grid { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .stat-item { padding: 35px 15px; }
-            .hero-title { font-size: 2.5rem; }
-            .section-heading { font-size: 2.2rem; }
-            .cta-title { font-size: 2.5rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .stat-item { padding: 30px 14px; }
+            .hero-title { font-size: 2.3rem; }
+            .section-heading { font-size: 2rem; }
+            .timeline { padding-left: 36px !important; }
+            .timeline::before { left: 10px !important; }
+            .tl-dot { left: -31px !important; width: 14px !important; height: 14px !important; }
+            .tl-year { font-size: 1.35rem !important; }
+            .tl-title { font-size: 1.05rem !important; }
+            .tl-desc { font-size: 0.88rem !important; }
+            .cta-title { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+            .cta-desc { font-size: 0.95rem; padding: 0 10px; }
+            .cta-btn { padding: 13px 32px; font-size: 0.86rem; }
             .innovative-services-grid {
                 grid-template-columns: 1fr !important;
                 gap: 28px !important;
@@ -523,7 +533,7 @@
             }
         }
         @media (max-width: 480px) {
-            .section-pad { padding: 55px 16px !important; }
+            .section-pad { padding: 50px 14px !important; }
             .innovative-services-grid .section-heading {
                 font-size: 1.65rem !important;
                 line-height: 1.35 !important;
@@ -872,6 +882,88 @@
             .hero-sub { font-size: 1rem; }
             .footer-sec .row { grid-template-columns: 1fr; gap: 25px; }
             .footer-sec .copyright-bar { flex-direction: column; gap: 8px; text-align: center; }
+        }
+
+        /* ── Compact Foldable & Small Phones (Samsung Galaxy Fold 4 ~344px) ── */
+        @media (max-width: 360px) {
+            header {
+                padding: 9px 12px !important;
+            }
+            .header-left {
+                gap: 6px !important;
+            }
+            .header-logo {
+                gap: 6px !important;
+            }
+            .header-logo img {
+                height: 26px !important;
+            }
+            .brand-text,
+            .header-logo .brand-text {
+                font-size: 0.88rem !important;
+                letter-spacing: 0.3px !important;
+            }
+            .mobile-menu-btn {
+                padding: 5px 9px !important;
+                font-size: 1.05rem !important;
+            }
+            
+            .section-pad {
+                padding: 40px 12px !important;
+            }
+            .hero-title {
+                font-size: 1.65rem !important;
+            }
+            .hero-subtitle {
+                font-size: 0.88rem !important;
+            }
+            .section-heading {
+                font-size: 1.55rem !important;
+            }
+            .timeline {
+                padding-left: 28px !important;
+            }
+            .timeline::before {
+                left: 6px !important;
+            }
+            .tl-dot {
+                left: -25px !important;
+                width: 12px !important;
+                height: 12px !important;
+            }
+            .tl-year {
+                font-size: 1.2rem !important;
+            }
+            .tl-title {
+                font-size: 0.95rem !important;
+            }
+            .tl-desc {
+                font-size: 0.82rem !important;
+            }
+            .stat-item {
+                padding: 20px 8px !important;
+            }
+            .stat-num {
+                font-size: 2rem !important;
+            }
+            .stat-label {
+                font-size: 0.7rem !important;
+            }
+            .cta-title {
+                font-size: 1.45rem !important;
+            }
+            .cta-btn {
+                padding: 11px 22px !important;
+                font-size: 0.78rem !important;
+            }
+            
+            .footer-sec .container {
+                padding: 0 12px !important;
+            }
+            .footer-sec p,
+            .footer-sec .footer_address p {
+                font-size: 0.84rem !important;
+            }
         }
     </style>
 </head>

@@ -554,12 +554,19 @@
             header { padding:14px 20px; }
             .header-contact { display:none; }
             .nav-links { gap:14px; }
-            .info-row { grid-template-columns:1fr; padding:50px 24px; }
+            .info-row { grid-template-columns:1fr; padding: clamp(30px, 5vw, 50px) clamp(14px, 3.5vw, 24px); }
             .contact-grid { grid-template-columns:1fr; }
-            .map-side, .form-side { padding:50px 24px; }
+            .map-side, .form-side { padding: clamp(30px, 5vw, 50px) clamp(14px, 3.5vw, 24px); }
             .form-side { border-left:none; border-top:1px solid rgba(200,129,58,0.1); }
             .chip-grid { grid-template-columns:repeat(2,1fr); }
-            .hero-title { font-size: 3rem; }
+            .hero-title { font-size: clamp(2rem, 5vw, 3rem); }
+        }
+        @media (max-width: 600px) {
+            .form-grid { grid-template-columns: 1fr !important; }
+            .form-grid .full { grid-column: auto !important; }
+        }
+        @media (max-width: 440px) {
+            .chip-grid { grid-template-columns: 1fr !important; }
         }
         /* ─── LUXURY OBSIDIAN GOLD FOOTER ─── */
         .footer-sec {
@@ -780,6 +787,96 @@
             .header-contact { display: none; }
             .floating-social { top: 24% !important; transform: translateY(-50%) !important; right: 0 !important; }
             .hero-h1 { font-size: 2.2rem; }
+            .hero-title { font-size: clamp(1.8rem, 5.5vw, 2.5rem); }
+            .hero-sub { font-size: 0.95rem; }
+        }
+
+        /* ── Compact Foldable & Small Phones (Samsung Galaxy Fold 4 ~344px) ── */
+        @media (max-width: 360px) {
+            header {
+                padding: 9px 12px !important;
+            }
+            .header-left {
+                gap: 6px !important;
+            }
+            .header-logo {
+                gap: 6px !important;
+            }
+            .header-logo img {
+                height: 26px !important;
+            }
+            .brand-text,
+            .header-logo .brand-text {
+                font-size: 0.88rem !important;
+                letter-spacing: 0.3px !important;
+            }
+            .mobile-menu-btn {
+                padding: 5px 9px !important;
+                font-size: 1.05rem !important;
+            }
+            
+            .hero-section {
+                padding: 70px 12px 30px !important;
+            }
+            .hero-title {
+                font-size: 1.6rem !important;
+            }
+            .hero-sub {
+                font-size: 0.84rem !important;
+            }
+            .info-row {
+                padding: 28px 12px !important;
+                gap: 20px !important;
+            }
+            .info-card {
+                padding: 16px 12px !important;
+            }
+            .info-card h3 {
+                font-size: 1.15rem !important;
+            }
+            .info-card p {
+                font-size: 0.84rem !important;
+            }
+            .map-side,
+            .form-side {
+                padding: 24px 12px !important;
+            }
+            .form-side h2 {
+                font-size: 1.45rem !important;
+            }
+            .form-side p {
+                font-size: 0.84rem !important;
+            }
+            .form-grid {
+                grid-template-columns: 1fr !important;
+                gap: 12px !important;
+            }
+            .chip-grid {
+                grid-template-columns: 1fr !important;
+                gap: 6px !important;
+            }
+            .chip {
+                padding: 8px 10px !important;
+                font-size: 0.78rem !important;
+            }
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 11px 12px !important;
+                font-size: 0.85rem !important;
+            }
+            .submit-btn {
+                padding: 13px 20px !important;
+                font-size: 0.85rem !important;
+            }
+            
+            .footer-sec .container {
+                padding: 0 12px !important;
+            }
+            .footer-sec p,
+            .footer-sec .footer_address p {
+                font-size: 0.84rem !important;
+            }
         }
     </style>
     <style id="perf-layer">

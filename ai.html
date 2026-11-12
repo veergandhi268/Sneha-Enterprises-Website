@@ -367,12 +367,14 @@
             50% { transform: scale(1.7); opacity:0.5; }
         }
         .hero-h1 {
-            font-size: clamp(3rem, 8vw, 7.5rem);
+            font-size: clamp(1.85rem, 6.5vw, 7.5rem);
             font-weight: 800;
-            line-height: 1;
-            letter-spacing: -2px;
+            line-height: 1.05;
+            letter-spacing: -1.5px;
             margin-bottom: 28px;
             animation: fadeSlideUp 0.9s 0.4s both;
+            overflow-wrap: break-word;
+            word-break: break-word;
         }
         .word-ai {
             display: inline-block;
@@ -489,12 +491,13 @@
             background: linear-gradient(90deg, rgba(212,175,55,0.06), rgba(180,120,40,0.09), rgba(243,229,171,0.06));
             border-top: 1px solid rgba(212,175,55,0.2);
             border-bottom: 1px solid rgba(212,175,55,0.2);
-            padding: 28px 48px;
+            padding: 24px clamp(14px, 3.5vw, 48px);
             display: flex;
             justify-content: space-around;
             align-items: center;
             gap: 24px;
             flex-wrap: wrap;
+            box-sizing: border-box;
         }
         .stat-item {
             text-align: center;
@@ -504,7 +507,7 @@
         }
         .stat-item.visible { opacity: 1; transform: translateY(0); }
         .stat-num {
-            font-size: 2.4rem;
+            font-size: clamp(1.6rem, 5vw, 2.4rem);
             font-weight: 800;
             background: linear-gradient(135deg, #f3e5ab, #d4af37);
             -webkit-background-clip: text;
@@ -526,7 +529,7 @@
         }
 
         /* SECTION COMMON */
-        section { padding: 120px 48px; }
+        section { padding: clamp(55px, 7vw, 120px) clamp(16px, 3.5vw, 48px); box-sizing: border-box; }
         .section-tag {
             display: inline-flex;
             align-items: center;
@@ -876,6 +879,76 @@
             .hero-h1 { font-size: 2.2rem; }
             .footer-sec .row { grid-template-columns: 1fr; gap: 25px; }
             .footer-sec .copyright-bar { flex-direction: column; gap: 8px; text-align: center; }
+        }
+
+        /* ── Compact Foldable & Small Phones (Samsung Galaxy Fold 4 ~344px) ── */
+        @media (max-width: 360px) {
+            header {
+                padding: 9px 12px !important;
+            }
+            .header-left {
+                gap: 6px !important;
+            }
+            .header-logo {
+                gap: 6px !important;
+            }
+            .header-logo img {
+                height: 26px !important;
+            }
+            .brand-text,
+            .header-logo .brand-text {
+                font-size: 0.88rem !important;
+                letter-spacing: 0.3px !important;
+            }
+            .mobile-menu-btn {
+                padding: 5px 9px !important;
+                font-size: 1.05rem !important;
+            }
+            
+            section {
+                padding: 45px 12px !important;
+            }
+            .hero-h1 {
+                font-size: 1.7rem !important;
+                letter-spacing: -1px !important;
+            }
+            .hero-sub {
+                font-size: 0.85rem !important;
+                margin-bottom: 30px !important;
+            }
+            .btn-primary, .btn-outline {
+                width: 100% !important;
+                justify-content: center !important;
+                padding: 12px 18px !important;
+                font-size: 0.82rem !important;
+            }
+            .stats-bar {
+                padding: 18px 10px !important;
+                gap: 14px !important;
+            }
+            .stat-num {
+                font-size: 1.6rem !important;
+            }
+            .stat-label {
+                font-size: 0.65rem !important;
+            }
+            .card {
+                padding: 22px 14px !important;
+            }
+            .card-title {
+                font-size: 1.25rem !important;
+            }
+            .card-p {
+                font-size: 0.82rem !important;
+            }
+            
+            .footer-sec .container {
+                padding: 0 12px !important;
+            }
+            .footer-sec p,
+            .footer-sec .footer_address p {
+                font-size: 0.84rem !important;
+            }
         }
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
