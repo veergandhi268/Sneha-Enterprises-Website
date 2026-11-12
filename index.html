@@ -509,27 +509,26 @@
 
         .gold-gradient-text {
             background: linear-gradient(120deg,
-                #b8860b 0%,
-                #ffd700 12%,
-                #ffef80 28%,
-                #ffffff 42%,
-                #ffe44d 55%,
-                #ffd700 68%,
-                #ffaa00 82%,
-                #ffd700 100%
+                #c8960a 0%,
+                #e8c038 20%,
+                #ffd700 40%,
+                #fff4b0 52%,
+                #ffd700 65%,
+                #d4a010 85%,
+                #c8960a 100%
             );
-            background-size: 300% auto;
+            background-size: 220% auto;
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: goldTextShimmer 4s linear infinite;
+            animation: goldTextShimmer 9s ease-in-out infinite;
             display: inline-block;
-            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.55)) drop-shadow(0 2px 4px rgba(180, 110, 0, 0.5));
+            filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.4));
         }
 
         @keyframes goldTextShimmer {
-            0%   { background-position: 0% center; }
-            100% { background-position: 300% center; }
+            0%, 100% { background-position: 0% center; }
+            50%       { background-position: 220% center; }
         }
 
         .final-content p {
@@ -1657,9 +1656,10 @@
             .footer-sec .row { grid-template-columns: 1fr; gap: 25px; }
             .footer-sec .container { padding: 0 20px; }
             .footer-sec .copyright-bar { flex-direction: column; gap: 8px; text-align: center; }
+        }
 
-            /* Tablet Portrait & Samsung Fold 4 Unfolded (~674px–991px Near-Square Aspect Ratio) */
-            /* Video is paused at golden frame; card fills the hero area like portrait mobile */
+        /* ── All Viewports Under 1250px: Immersive Golden Hero Layout ── */
+        @media (max-width: 1249px) {
             .video-showcase-sec {
                 height: auto !important;
                 min-height: 240px;
@@ -1682,7 +1682,7 @@
                 transform: none !important;
                 text-align: left !important;
                 z-index: 10 !important;
-                padding: 100px 36px 70px 36px !important;
+                padding: 110px clamp(32px, 5vw, 64px) 70px !important;
                 border-radius: 0 !important;
                 display: flex !important;
                 flex-direction: column !important;
@@ -1708,7 +1708,7 @@
             }
             .final-content h3 {
                 font-family: 'Bodoni Moda', serif !important;
-                font-size: clamp(2.1rem, 3.8vw, 2.8rem) !important;
+                font-size: clamp(2.1rem, 3.8vw, 2.9rem) !important;
                 font-weight: 600 !important;
                 font-style: italic !important;
                 line-height: 1.18 !important;
@@ -1717,24 +1717,43 @@
                 text-shadow: 0 4px 18px rgba(0,0,0,0.65), 0 2px 6px rgba(0,0,0,0.7) !important;
             }
             .final-content p {
-                font-size: clamp(0.95rem, 1.6vw, 1.1rem) !important;
+                font-size: clamp(0.95rem, 1.4vw, 1.1rem) !important;
                 line-height: 1.65 !important;
                 margin-bottom: 22px !important;
                 color: rgba(255, 255, 255, 0.95) !important;
                 font-weight: 300 !important;
                 text-shadow: 0 2px 12px rgba(0,0,0,0.65) !important;
-                max-width: 580px !important;
+                max-width: 640px !important;
             }
             .hero-quick-stats {
                 padding: 14px 18px !important;
                 margin-bottom: 22px !important;
-                max-width: 500px !important;
+                max-width: 520px !important;
             }
             .hero-actions {
                 gap: 14px !important;
             }
             .hero-eyebrow-pill {
                 margin-bottom: 16px !important;
+            }
+        }
+
+        /* ── Tablet Portrait & Samsung Fold 4 Unfolded (~674px–991px) ── */
+        @media (max-width: 992px) {
+            .final-content {
+                padding: 100px 36px 70px 36px !important;
+            }
+            .final-content h3 {
+                font-size: clamp(2.0rem, 3.6vw, 2.7rem) !important;
+            }
+            .final-content p {
+                font-size: clamp(0.92rem, 1.6vw, 1.05rem) !important;
+                max-width: 580px !important;
+            }
+            .hero-quick-stats {
+                padding: 12px 16px !important;
+                margin-bottom: 20px !important;
+                max-width: 500px !important;
             }
         }
 
@@ -2518,10 +2537,11 @@
         }
 
         function isSmallScreen() {
-            // All viewports below 992px (hamburger menu visible) use the glassmorphism card treatment:
-            // video paused at frame 0.4s (warm gold bg), full luxury card shown centred.
-            // 992px+ (full nav bar visible) lets the video play through so the logo appears on the right.
-            return window.innerWidth < 992;
+            // All viewports below 1250px use the full-screen golden card treatment:
+            // video paused at frame 0.4s (warm gold bg), luxury card fills the entire hero.
+            // 1250px+ (proper wide desktop) lets the video play through fully so the
+            // Sneha Enterprises logo plate is beautifully visible on the right half.
+            return window.innerWidth < 1250;
         }
 
         let skippedInMobile = false;
@@ -2558,7 +2578,7 @@
                 if (heroText) heroText.classList.remove('hidden');
             }
 
-            // Desktop flow (>= 992px):
+            // Desktop flow (>= 1250px):
             // Reveal header, card and floating social when MP4 is near its end (at 75% or last 1.5s).
             // The Sneha Enterprises logo plate is then fully visible on the right half of the video.
             if (progress >= 0.75 || (video.duration - video.currentTime) <= 1.5) {
@@ -2585,13 +2605,13 @@
         // Handle viewport / orientation changes (e.g. user rotates or resizes window)
         window.addEventListener('resize', () => {
             if (!isSmallScreen()) {
-                // Crossed into desktop territory — allow video to play if it was held
+                // Crossed into desktop territory (>= 1250px) — allow video to play if it was held
                 skippedInMobile = false;
                 if (video.paused && video.currentTime < video.duration - 0.5) {
                     video.play().catch(() => {});
                 }
             } else if (!skippedInMobile) {
-                // Shrank back below 992px — apply small-screen treatment immediately
+                // Shrank back below 1250px — apply small-screen treatment immediately
                 skippedInMobile = true;
                 if (heroText) heroText.classList.add('hidden');
                 video.pause();
