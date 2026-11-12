@@ -2099,72 +2099,171 @@
             }
         }
 
-        /* Landscape Mode (Mobile & Tablet Tilted — height < 550px) - Compact card, hide non-essential elements */
+        /* ── Landscape Mode on Phones (Height < 550px) - Full-Screen Golden Hero ── */
         @media (max-height: 550px) and (orientation: landscape) {
             header {
-                padding: 10px 32px !important;
+                padding: 8px clamp(16px, 4vw, 30px) !important;
                 display: flex !important;
                 justify-content: space-between !important;
                 align-items: center !important;
                 width: 100% !important;
                 box-sizing: border-box !important;
+                background: linear-gradient(to bottom, rgba(13,9,0,0.95) 0%, rgba(13,9,0,0.7) 70%, transparent 100%) !important;
             }
             .header-left {
                 display: flex !important;
                 align-items: center !important;
-                gap: 20px !important;
+                gap: 10px !important;
             }
             .header-logo {
                 display: flex !important;
                 align-items: center !important;
-                gap: 12px !important;
+                gap: 10px !important;
             }
             .header-logo img {
-                height: 32px !important;
+                height: 26px !important;
                 width: auto !important;
             }
-            .brand-text {
-                font-size: 1.15rem !important;
-                letter-spacing: 1px !important;
+            .brand-text,
+            .header-logo .brand-text {
+                font-size: 0.95rem !important;
+                letter-spacing: 0.8px !important;
                 line-height: 1 !important;
             }
             .header-contact {
-                display: flex !important;
-                align-items: center !important;
-                gap: 16px !important;
-                font-size: 0.8rem !important;
-                border-left: 1px solid rgba(255, 255, 255, 0.25) !important;
-                padding-left: 18px !important;
-            }
-            .contact-item {
-                display: flex !important;
-                align-items: center !important;
-                gap: 6px !important;
+                display: none !important; /* Hide contact on mobile landscape to prevent header crowding */
             }
             .mobile-menu-btn {
-                padding: 6px 14px !important;
-                font-size: 1.15rem !important;
+                padding: 4px 10px !important;
+                font-size: 1.05rem !important;
                 margin: 0 !important;
             }
+
+            /* Video Section & Full-Bleed Golden Hero in Phone Landscape */
+            .video-section {
+                height: 100vh !important;
+                min-height: 100vh !important;
+                position: relative !important;
+                overflow: hidden !important;
+            }
+            .video-section video {
+                height: 100% !important;
+                width: 100% !important;
+                object-fit: cover !important;
+            }
+            .final-content {
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                transform: none !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                border: none !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: flex-start !important;
+                padding: 50px clamp(24px, 5vw, 45px) 15px !important;
+                box-sizing: border-box !important;
+                background:
+                    radial-gradient(ellipse at 15% 90%, rgba(212, 175, 55, 0.38) 0%, transparent 55%),
+                    radial-gradient(ellipse at 85% 10%, rgba(180, 110, 15, 0.28) 0%, transparent 50%),
+                    radial-gradient(ellipse at 50% 50%, rgba(140, 85, 10, 0.18) 0%, transparent 70%),
+                    linear-gradient(175deg,
+                        rgba(6, 4, 1, 0.82) 0%,
+                        rgba(14, 9, 2, 0.72) 25%,
+                        rgba(22, 14, 3, 0.58) 55%,
+                        rgba(35, 22, 5, 0.44) 80%,
+                        rgba(50, 32, 6, 0.30) 100%
+                    ) !important;
+                backdrop-filter: blur(8px) saturate(140%) !important;
+                -webkit-backdrop-filter: blur(8px) saturate(140%) !important;
+            }
+            .final-content.visible {
+                transform: none !important;
+            }
+
+            .hero-eyebrow-pill {
+                display: inline-flex !important;
+                margin-bottom: 6px !important;
+                padding: 3px 10px !important;
+            }
+            .hero-eyebrow-pill .pill-dot {
+                width: 5px !important;
+                height: 5px !important;
+            }
+            .hero-eyebrow-pill .pill-text {
+                font-size: 0.58rem !important;
+                letter-spacing: 1.5px !important;
+            }
+
+            .final-content h3 {
+                font-family: 'Bodoni Moda', serif !important;
+                font-size: clamp(1.25rem, 3.4vw, 1.65rem) !important;
+                font-weight: 600 !important;
+                font-style: italic !important;
+                line-height: 1.15 !important;
+                margin-bottom: 6px !important;
+                color: #ffffff !important;
+                text-shadow: 0 3px 12px rgba(0,0,0,0.65) !important;
+            }
+
+            .final-content p {
+                font-size: clamp(0.72rem, 1.8vw, 0.84rem) !important;
+                line-height: 1.45 !important;
+                margin-bottom: 12px !important;
+                max-width: clamp(380px, 60vw, 600px) !important;
+                color: rgba(255, 255, 255, 0.95) !important;
+                font-weight: 300 !important;
+                text-shadow: 0 2px 10px rgba(0,0,0,0.65) !important;
+            }
+
+            .hero-quick-stats {
+                display: none !important;
+            }
+
+            .hero-actions {
+                display: flex !important;
+                gap: 10px !important;
+            }
+
+            .btn-showcase {
+                padding: 7px 18px !important;
+                font-size: 0.72rem !important;
+                letter-spacing: 1px !important;
+            }
+            .btn-showcase .btn-arrow {
+                width: 13px !important;
+                height: 13px !important;
+            }
+
+            .btn-subtle {
+                padding: 6px 14px !important;
+                font-size: 0.7rem !important;
+                letter-spacing: 1px !important;
+            }
+
+            .hero-scroll-indicator {
+                display: none !important;
+            }
+
+            .floating-social {
+                display: flex !important;
+                top: 50% !important;
+                transform: translateY(-50%) scale(0.8) !important;
+                transform-origin: right center !important;
+                right: 0 !important;
+            }
+
             .marquee-track {
                 -webkit-animation: marqueeLeftToRight 28s linear infinite !important;
                 animation: marqueeLeftToRight 28s linear infinite !important;
             }
             .video-showcase-sec { max-height: 85vh !important; }
             .video-showcase-sec video { max-height: 85vh !important; object-fit: contain !important; }
-            .final-content {
-                top: 50% !important;
-                left: 6% !important;
-                right: 6% !important;
-                max-width: 88% !important;
-                padding: 16px 20px !important;
-                border-radius: 16px !important;
-            }
-            .hero-eyebrow-pill { display: none !important; }
-            .hero-quick-stats { display: none !important; }
-            .hero-scroll-indicator { display: none !important; }
-            .final-content h3 { font-size: 1.35rem !important; margin-bottom: 6px !important; }
-            .final-content p { font-size: 0.8rem !important; margin-bottom: 10px !important; }
         }
     </style>
 </head>
