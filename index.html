@@ -516,14 +516,18 @@
                 #ffd700 65%,
                 #d4a010 85%,
                 #c8960a 100%
-            );
-            background-size: 220% auto;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: goldTextShimmer 9s ease-in-out infinite;
-            display: inline-block;
-            filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.4));
+            ) !important;
+            background-size: 220% auto !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            color: transparent !important;
+            animation: goldTextShimmer 9s ease-in-out infinite !important;
+            display: inline-block !important;
+            -webkit-box-decoration-break: clone !important;
+            box-decoration-break: clone !important;
+            text-shadow: none !important;
+            filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.4)) !important;
         }
 
         @keyframes goldTextShimmer {
@@ -1687,21 +1691,11 @@
                 display: flex !important;
                 flex-direction: column !important;
                 justify-content: center !important;
-                background:
-                    radial-gradient(ellipse at 15% 90%, rgba(212, 175, 55, 0.35) 0%, transparent 55%),
-                    radial-gradient(ellipse at 85% 10%, rgba(180, 110, 15, 0.25) 0%, transparent 50%),
-                    radial-gradient(ellipse at 50% 50%, rgba(140, 85, 10, 0.16) 0%, transparent 70%),
-                    linear-gradient(175deg,
-                        rgba(6, 4, 1, 0.80) 0%,
-                        rgba(14, 9, 2, 0.70) 25%,
-                        rgba(22, 14, 3, 0.56) 55%,
-                        rgba(35, 22, 5, 0.42) 80%,
-                        rgba(50, 32, 6, 0.28) 100%
-                    ) !important;
+                background: linear-gradient(135deg, rgba(14, 9, 2, 0.88) 0%, rgba(26, 17, 4, 0.80) 50%, rgba(14, 9, 2, 0.90) 100%) !important;
                 box-shadow: none !important;
                 border: none !important;
-                backdrop-filter: blur(8px) saturate(140%) !important;
-                -webkit-backdrop-filter: blur(8px) saturate(140%) !important;
+                backdrop-filter: blur(24px) saturate(180%) !important;
+                -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
             }
             .final-content.visible {
                 transform: none !important;
@@ -1794,21 +1788,11 @@
                 display: flex !important;
                 flex-direction: column !important;
                 justify-content: center !important;
-                background:
-                    radial-gradient(ellipse at 15% 90%, rgba(212, 175, 55, 0.38) 0%, transparent 55%),
-                    radial-gradient(ellipse at 85% 10%, rgba(180, 110, 15, 0.28) 0%, transparent 50%),
-                    radial-gradient(ellipse at 50% 50%, rgba(140, 85, 10, 0.18) 0%, transparent 70%),
-                    linear-gradient(175deg,
-                        rgba(6, 4, 1, 0.78) 0%,
-                        rgba(14, 9, 2, 0.68) 25%,
-                        rgba(22, 14, 3, 0.55) 55%,
-                        rgba(35, 22, 5, 0.42) 80%,
-                        rgba(50, 32, 6, 0.30) 100%
-                    ) !important;
+                background: linear-gradient(135deg, rgba(14, 9, 2, 0.88) 0%, rgba(26, 17, 4, 0.80) 50%, rgba(14, 9, 2, 0.90) 100%) !important;
                 box-shadow: none !important;
                 border: none !important;
-                backdrop-filter: blur(8px) saturate(140%) !important;
-                -webkit-backdrop-filter: blur(8px) saturate(140%) !important;
+                backdrop-filter: blur(24px) saturate(180%) !important;
+                -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
             }
             /* Fade-in still from translateY(25px) entry */
             .final-content.visible {
@@ -2168,19 +2152,9 @@
                 align-items: flex-start !important;
                 padding: 50px clamp(24px, 5vw, 45px) 15px !important;
                 box-sizing: border-box !important;
-                background:
-                    radial-gradient(ellipse at 15% 90%, rgba(212, 175, 55, 0.38) 0%, transparent 55%),
-                    radial-gradient(ellipse at 85% 10%, rgba(180, 110, 15, 0.28) 0%, transparent 50%),
-                    radial-gradient(ellipse at 50% 50%, rgba(140, 85, 10, 0.18) 0%, transparent 70%),
-                    linear-gradient(175deg,
-                        rgba(6, 4, 1, 0.82) 0%,
-                        rgba(14, 9, 2, 0.72) 25%,
-                        rgba(22, 14, 3, 0.58) 55%,
-                        rgba(35, 22, 5, 0.44) 80%,
-                        rgba(50, 32, 6, 0.30) 100%
-                    ) !important;
-                backdrop-filter: blur(8px) saturate(140%) !important;
-                -webkit-backdrop-filter: blur(8px) saturate(140%) !important;
+                background: linear-gradient(135deg, rgba(14, 9, 2, 0.88) 0%, rgba(26, 17, 4, 0.80) 50%, rgba(14, 9, 2, 0.90) 100%) !important;
+                backdrop-filter: blur(24px) saturate(180%) !important;
+                -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
             }
             .final-content.visible {
                 transform: none !important;
