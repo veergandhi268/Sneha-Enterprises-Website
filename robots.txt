@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Allow all favicon and logo crawlers explicitly
+User-agent: Googlebot-Image
+Allow: /assets/images/
+Allow: /favicon*
+Allow: /*.ico$
+Allow: /*.png$
+
+Sitemap: https://www.snehaenterprises.in/sitemap.xml
