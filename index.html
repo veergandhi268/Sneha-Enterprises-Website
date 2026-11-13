@@ -1328,11 +1328,202 @@
             transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             flex-direction: column;
+            cursor: pointer;
         }
         .hp-card:hover {
             border-color: #e5c158;
             transform: translateY(-8px);
             box-shadow: 0 20px 45px rgba(0,0,0,0.85), 0 0 35px rgba(212,175,55,0.3);
+        }
+        .hp-card:focus-visible {
+            outline: 2px solid #e5c158;
+            outline-offset: 4px;
+        }
+        .hp-card-title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.35rem;
+            color: #ffffff;
+            margin: 0 0 4px 0;
+            font-weight: 600;
+            line-height: 1.25;
+            transition: color 0.3s ease;
+        }
+        .hp-card:hover .hp-card-title {
+            color: #e5c158;
+        }
+
+        /* ── HOMEPAGE LIGHTBOX MODAL DETAIL VIEWER ── */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: rgba(13, 9, 0, 0.94);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(10px, 3vw, 40px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            box-sizing: border-box;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-container {
+            background: #140e03;
+            border: 1px solid rgba(229, 193, 88, 0.5);
+            border-radius: 20px;
+            max-width: 1050px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.85), 0 0 45px rgba(212,175,55,0.25);
+            position: relative;
+            transform: scale(0.92) translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .modal-overlay.active .modal-container {
+            transform: scale(1) translateY(0);
+        }
+        .modal-close {
+            position: sticky;
+            top: 15px;
+            float: right;
+            margin-right: 15px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            transition: all 0.3s;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .modal-close:hover {
+            background: #d4af37;
+            color: #0d0900;
+            transform: rotate(90deg);
+        }
+        .modal-body {
+            padding: clamp(18px, 4vw, 45px);
+            box-sizing: border-box;
+            clear: both;
+        }
+        .modal-header {
+            margin-bottom: 25px;
+        }
+        .modal-title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: #e5c158;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .modal-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.95rem;
+            color: rgba(245, 238, 220, 0.75);
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 14px 20px;
+            border-radius: 12px;
+        }
+        .modal-meta span { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .work-done-pill {
+            font-size: 0.76rem;
+            color: rgba(245,238,220,0.9);
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(212,175,55,0.25);
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .work-done-pill::before {
+            content: '✦';
+            font-size: 0.65rem;
+            color: #e5c158;
+        }
+        .modal-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+        .modal-gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            display: block;
+        }
+        .modal-similar-section {
+            margin-top: 40px;
+            padding-top: 35px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .similar-heading {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.6rem;
+            color: #e5c158;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .similar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .similar-card {
+            background: rgba(212, 175, 55, 0.04);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.35s ease;
+        }
+        .similar-card:hover {
+            border-color: #e5c158;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+        }
+        .similar-card-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+        }
+        .similar-card-body {
+            padding: 14px;
+        }
+        .similar-card-title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        .similar-card-cat {
+            font-size: 0.75rem;
+            color: #e5c158;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .hp-card-img {
@@ -2061,10 +2252,19 @@
             .hp-card-body {
                 padding: 16px 12px !important;
             }
+            .hp-card-title {
+                font-size: 1.15rem !important;
+            }
             .hp-cta-btn {
                 padding: 12px 24px !important;
                 font-size: 0.8rem !important;
             }
+            .modal-overlay { padding: 10px !important; }
+            .modal-container { max-height: 94vh !important; border-radius: 16px !important; }
+            .modal-body { padding: 18px 14px !important; }
+            .modal-title { font-size: 1.45rem !important; }
+            .modal-meta { gap: 8px !important; padding: 10px 12px !important; font-size: 0.8rem !important; }
+            .modal-close { width: 36px !important; height: 36px !important; font-size: 1.25rem !important; top: 10px !important; right: 10px !important; }
             
             .final-content {
                 top: 0 !important;
@@ -2508,83 +2708,114 @@
         </div>
 
         <div class="hp-grid">
-            <a href="portfolio.html" class="hp-card">
+            <div class="hp-card" data-slug="ambaram-live-the-high-life" role="button" tabindex="0" aria-label="View Ambaram – Live the High Life Project">
                 <img src="assets/images/portfolio/Amabram_feature_image-1.jpg" alt="Ambaram High-Rise Real Estate" class="hp-card-img">
                 <div class="hp-card-body">
+                    <h3 class="hp-card-title">Ambaram – Live the High Life</h3>
                     <div class="hp-work-pills">
                         <span class="hp-pill">Luxury Real Estate Campaign</span>
                         <span class="hp-pill">Architectural Brochure</span>
                         <span class="hp-pill">On-Site Branding</span>
                     </div>
-                    <div class="hp-btn">Explore Portfolio Project &rarr;</div>
+                    <div class="hp-btn">View Project Showcase &rarr;</div>
                 </div>
-            </a>
+            </div>
 
-            <a href="portfolio.html" class="hp-card">
+            <div class="hp-card" data-slug="acufine-life-sciences" role="button" tabindex="0" aria-label="View Acufine Lifesciences Project">
                 <img src="assets/images/portfolio/Acufine-Logo-1.jpg" alt="Acufine Lifesciences" class="hp-card-img">
                 <div class="hp-card-body">
+                    <h3 class="hp-card-title">Acufine Lifesciences</h3>
                     <div class="hp-work-pills">
                         <span class="hp-pill">Pharma Visual Identity</span>
                         <span class="hp-pill">3D Packaging Design</span>
                         <span class="hp-pill">Exhibition Stall Display</span>
                     </div>
-                    <div class="hp-btn">Explore Portfolio Project &rarr;</div>
+                    <div class="hp-btn">View Project Showcase &rarr;</div>
                 </div>
-            </a>
+            </div>
 
-            <a href="portfolio.html" class="hp-card">
+            <div class="hp-card" data-slug="kings-diamond-jewellry" role="button" tabindex="0" aria-label="View KINGS Diamond & Jewellry Project">
                 <img src="assets/images/portfolio/Kings_Feature_image.jpg" alt="KINGS Diamond Jewelry" class="hp-card-img">
                 <div class="hp-card-body">
+                    <h3 class="hp-card-title">KINGS Diamond &amp; Jewellry</h3>
                     <div class="hp-work-pills">
                         <span class="hp-pill">High-End Diamond Branding</span>
                         <span class="hp-pill">Luxury Print Catalog</span>
                         <span class="hp-pill">Social Media Campaigns</span>
                     </div>
-                    <div class="hp-btn">Explore Portfolio Project &rarr;</div>
+                    <div class="hp-btn">View Project Showcase &rarr;</div>
                 </div>
-            </a>
+            </div>
 
-            <a href="portfolio.html" class="hp-card">
+            <div class="hp-card" data-slug="friends" role="button" tabindex="0" aria-label="View Friends Business Bay Project">
                 <img src="assets/images/portfolio/Home_2.jpg" alt="Friends Business Bay" class="hp-card-img">
                 <div class="hp-card-body">
+                    <h3 class="hp-card-title">Friends Business Bay</h3>
                     <div class="hp-work-pills">
                         <span class="hp-pill">Commercial Site Signage</span>
                         <span class="hp-pill">Sales Brochure</span>
                         <span class="hp-pill">Outdoor Advertising</span>
                     </div>
-                    <div class="hp-btn">Explore Portfolio Project &rarr;</div>
+                    <div class="hp-btn">View Project Showcase &rarr;</div>
                 </div>
-            </a>
+            </div>
 
-            <a href="portfolio.html#alpine_primo" class="hp-card">
+            <div class="hp-card" data-slug="alpine_primo" role="button" tabindex="0" aria-label="View ALPINE PRIMO Project">
                 <img src="assets/images/portfolio/Home_1.jpg" alt="Alpine Primo" class="hp-card-img">
                 <div class="hp-card-body">
+                    <h3 class="hp-card-title">ALPINE PRIMO</h3>
                     <div class="hp-work-pills">
                         <span class="hp-pill">Real Estate Branding</span>
                         <span class="hp-pill">Luxury Print Collateral</span>
                         <span class="hp-pill">Sales Literature</span>
                     </div>
-                    <div class="hp-btn">Explore Portfolio Project &rarr;</div>
+                    <div class="hp-btn">View Project Showcase &rarr;</div>
                 </div>
-            </a>
+            </div>
 
-            <a href="portfolio.html" class="hp-card">
+            <div class="hp-card" data-slug="cox-kings" role="button" tabindex="0" aria-label="View Cox & Kings Project">
                 <img src="assets/images/portfolio/CoXkings_image.jpg" alt="Cox & Kings Global Travel" class="hp-card-img">
                 <div class="hp-card-body">
+                    <h3 class="hp-card-title">Cox &amp; Kings</h3>
                     <div class="hp-work-pills">
                         <span class="hp-pill">Global Travel Literature</span>
                         <span class="hp-pill">Print Media Campaign</span>
                         <span class="hp-pill">Promotional Collateral</span>
                     </div>
-                    <div class="hp-btn">Explore Portfolio Project &rarr;</div>
+                    <div class="hp-btn">View Project Showcase &rarr;</div>
                 </div>
-            </a>
+            </div>
         </div>
 
         <div class="hp-cta-bar">
             <a href="portfolio.html" class="hp-cta-btn">View All 14+ Portfolio Works &rarr;</a>
         </div>
     </section>
+
+    <!-- ══════════ PROJECT DETAIL MODAL / LIGHTBOX ══════════ -->
+    <div class="modal-overlay" id="project-modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-container">
+            <button class="modal-close" id="modal-close" aria-label="Close dialog">&times;</button>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modal-title">Project Title</h2>
+                    <div class="modal-meta">
+                        <span id="modal-client"><strong>Client:</strong> Client Name</span>
+                        <span id="modal-category"><strong>Work Delivered:</strong> Category</span>
+                    </div>
+                </div>
+                <div class="modal-gallery" id="modal-gallery">
+                    <!-- Images dynamically injected -->
+                </div>
+                <div class="modal-similar-section">
+                    <h3 class="similar-heading">Similar Works</h3>
+                    <div class="similar-grid" id="modal-similar-grid">
+                        <!-- Similar project cards dynamically injected -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ══════════ FOOTER SECTION (Reference Site Layout) ══════════ -->
     <section class="footer-sec mt-0">
@@ -2882,6 +3113,288 @@
                 section.addEventListener('click', onSectionTouch, { capture: true });
             }
         })();
+
+        // ── HOMEPAGE PROJECT DETAIL LIGHTBOX MODAL ENGINE ──
+        const projectsData = {
+            "acufine-life-sciences": {
+                slug: "acufine-life-sciences",
+                title: "Acufine Lifesciences",
+                client: "Acufine Life Sciences",
+                workDone: ["Pharma Visual Identity", "3D Packaging Design", "Corporate Brochure", "Exhibition Stall Display"],
+                thumbnail: "assets/images/portfolio/Acufine-Logo-1.jpg",
+                gallery: [
+                    "assets/images/portfolio/Acufine-Logo-2.jpg",
+                    "assets/images/portfolio/Accufine.jpg",
+                    "assets/images/portfolio/brochure.jpg",
+                    "assets/images/portfolio/web.jpg",
+                    "assets/images/portfolio/Stall.jpg"
+                ],
+                similar: ["unicorn", "kings-diamond-jewellry", "wockhardt"]
+            },
+            "ambaram-live-the-high-life": {
+                slug: "ambaram-live-the-high-life",
+                title: "Ambaram – Live the High Life",
+                client: "Shree Varad Homes",
+                workDone: ["Luxury High-Rise Campaign", "Real Estate Brochure", "On-Site Branding", "Digital Launch Experience"],
+                thumbnail: "assets/images/portfolio/Amabram_feature_image-1.jpg",
+                gallery: [
+                    "assets/images/portfolio/Ambaram-Banner-1.jpg",
+                    "assets/images/portfolio/Ambaram_1.jpg",
+                    "assets/images/portfolio/Ambaram_2.jpg",
+                    "assets/images/portfolio/Ambaram_3.jpg"
+                ],
+                similar: ["friends", "prem-nagar-legacy", "seasons-jawhara"]
+            },
+            "arihant-group": {
+                slug: "arihant-group",
+                title: "Arihant Group",
+                client: "Arihant Group",
+                workDone: ["Corporate Brand Literature", "Print Strategy", "Property Catalog"],
+                thumbnail: "assets/images/portfolio/Arihant_feature.jpg",
+                gallery: [
+                    "assets/images/portfolio/Arihant_banner.jpg",
+                    "assets/images/portfolio/Arihant-Group.jpg"
+                ],
+                similar: ["unicorn", "dovoy", "ambaram-live-the-high-life"]
+            },
+            "cox-kings": {
+                slug: "cox-kings",
+                title: "Cox & Kings",
+                client: "Cox & Kings",
+                workDone: ["Global Travel Literature", "Print Campaign", "Promotional Media"],
+                thumbnail: "assets/images/portfolio/CoXkings_image.jpg",
+                gallery: [
+                    "assets/images/portfolio/Cox_kings_banner.jpg",
+                    "assets/images/portfolio/CoX_kings.jpg",
+                    "assets/images/portfolio/CoX_kings_2.jpg"
+                ],
+                similar: ["dovoy", "alpine_primo", "shreeji"]
+            },
+            "kings-diamond-jewellry": {
+                slug: "kings-diamond-jewellry",
+                title: "KINGS Diamond & Jewellry",
+                client: "KINGS Diamond & Jewellry",
+                workDone: ["High-End Diamond Branding", "Luxury Print Catalog", "Social Media Campaigns"],
+                thumbnail: "assets/images/portfolio/Kings_Feature_image.jpg",
+                gallery: [
+                    "assets/images/portfolio/Kingsbanner.jpg",
+                    "assets/images/portfolio/Kings.jpg"
+                ],
+                similar: ["arihant-group", "cox-kings", "dovoy"]
+            },
+            "unicorn": {
+                slug: "unicorn",
+                title: "Unicorn",
+                client: "Avighna Industries LLP",
+                workDone: ["Industrial Brand Identity", "Product Catalog", "Corporate Stationery"],
+                thumbnail: "assets/images/portfolio/logo.jpg",
+                gallery: [
+                    "assets/images/portfolio/logo.jpg",
+                    "assets/images/portfolio/unicorn-1.jpg",
+                    "assets/images/portfolio/unicorn-2.jpg",
+                    "assets/images/portfolio/unicorn-4.jpg"
+                ],
+                similar: ["kings-diamond-jewellry", "friends", "arihant-group"]
+            },
+            "alpine_primo": {
+                slug: "alpine_primo",
+                title: "ALPINE PRIMO",
+                client: "ALPINE PRIMO",
+                workDone: ["3D Render Showcase", "Architectural Brochure", "Social Media Creatives"],
+                thumbnail: "assets/images/portfolio/Home_1.jpg",
+                gallery: [
+                    "assets/images/portfolio/LOGO2.jpg",
+                    "assets/images/portfolio/3.jpg",
+                    "assets/images/portfolio/Almimo.jpg",
+                    "assets/images/portfolio/ALPINE-PRIMO_2.jpg"
+                ],
+                similar: ["wockhardt", "shreeji", "cox-kings"]
+            },
+            "star-rays": {
+                slug: "star-rays",
+                title: "Star Rays",
+                client: "Star Rays",
+                workDone: ["Diamond Brand Identity", "Exhibition Display Design", "Luxury Print Collateral"],
+                thumbnail: "assets/images/portfolio/star_rays_user_cover.png",
+                gallery: [
+                    "assets/images/portfolio/Star_rays_banner.jpg",
+                    "assets/images/portfolio/Star_ray_img1-scaled.jpg",
+                    "assets/images/portfolio/Star_ray_img2.jpg"
+                ],
+                similar: ["dovoy", "acufine-life-sciences", "friends"]
+            },
+            "friends": {
+                slug: "friends",
+                title: "Friends Business Bay",
+                client: "Friends the Realtors",
+                workDone: ["Commercial Site Signage", "Sales Brochure", "Outdoor Advertising & Social Ads"],
+                thumbnail: "assets/images/portfolio/Home_2.jpg",
+                gallery: [
+                    "assets/images/portfolio/Logo-2.jpg",
+                    "assets/images/portfolio/Brochure.jpg",
+                    "assets/images/portfolio/social.jpg",
+                    "assets/images/portfolio/ad.jpg",
+                    "assets/images/portfolio/site-branding.jpg",
+                    "assets/images/portfolio/signage.jpg"
+                ],
+                similar: ["cox-kings", "alpine_primo", "arihant-group"]
+            },
+            "prem-nagar-legacy": {
+                slug: "prem-nagar-legacy",
+                title: "Prem Nagar Legacy",
+                client: "Chedda Group",
+                workDone: ["Heritage Builder Profile", "Luxury Sales Brochure", "Print Campaign"],
+                thumbnail: "assets/images/portfolio/chedda_group_user_cover.png",
+                gallery: [
+                    "assets/images/portfolio/Prem-nagar_-banner-1.jpg",
+                    "assets/images/portfolio/Prem-nagar_ime_1-1.jpg",
+                    "assets/images/portfolio/Prem-nagar_ime_2-1.jpg",
+                    "assets/images/portfolio/Prem_nagar_1.jpg",
+                    "assets/images/portfolio/Prem_nagar_2.jpg",
+                    "assets/images/portfolio/Sneha-Enterprises-Builders-Profile_Page_15-1.jpg"
+                ],
+                similar: ["ambaram-live-the-high-life", "friends", "shreeji"]
+            },
+            "shreeji": {
+                slug: "shreeji",
+                title: "SHREEJI",
+                client: "Shreeji Developers",
+                workDone: ["Real Estate Branding", "Luxury Property Literature", "Site Collateral"],
+                thumbnail: "assets/images/portfolio/shreeji_user_cover.png",
+                gallery: [
+                    "assets/images/portfolio/Shreeji.jpg",
+                    "assets/images/portfolio/Shriji.jpg"
+                ],
+                similar: ["prem-nagar-legacy", "alpine_primo", "arihant-group"]
+            },
+            "wockhardt": {
+                slug: "wockhardt",
+                title: "Wockhardt",
+                client: "Wockhardt Hospitals",
+                workDone: ["Healthcare Brand Literature", "Patient Awareness Campaign", "Hospital Print Media"],
+                thumbnail: "assets/images/Wockhard.png",
+                gallery: [
+                    "assets/images/portfolio/wockhardt_banner.jpg",
+                    "assets/images/portfolio/Wockhardt_1.jpg",
+                    "assets/images/portfolio/Wockhardt_2.jpg"
+                ],
+                similar: ["acufine-life-sciences", "alpine_primo", "cox-kings"]
+            },
+            "dovoy": {
+                slug: "dovoy",
+                title: "Dovoy",
+                client: "Dovoy Global",
+                workDone: ["E-Commerce Web Design", "Digital Marketing Creatives", "Custom Product Packaging"],
+                thumbnail: "assets/images/portfolio/Logo-1.jpg",
+                gallery: [
+                    "assets/images/portfolio/Dovoy_banner.jpg",
+                    "assets/images/portfolio/Ad.jpg",
+                    "assets/images/portfolio/Bag.jpg"
+                ],
+                similar: ["star-rays", "cox-kings", "unicorn"]
+            },
+            "seasons-jawhara": {
+                slug: "seasons-jawhara",
+                title: "Seasons Jawhara",
+                client: "Seasons Jawhara",
+                workDone: ["Fine Jewelry Catalog", "Luxury Brand Identity", "Print Campaign"],
+                thumbnail: "assets/images/portfolio/seasons_user_cover.jpg",
+                gallery: [
+                    "assets/images/portfolio/Seasons_banner.jpg",
+                    "assets/images/portfolio/SEASON-BY-JAWHARA.jpg"
+                ],
+                similar: ["ambaram-live-the-high-life", "alpine_primo", "shreeji"]
+            }
+        };
+
+        const modal = document.getElementById('project-modal');
+        const modalClose = document.getElementById('modal-close');
+        const modalTitle = document.getElementById('modal-title');
+        const modalClient = document.getElementById('modal-client');
+        const modalCategory = document.getElementById('modal-category');
+        const modalGallery = document.getElementById('modal-gallery');
+        const modalSimilarGrid = document.getElementById('modal-similar-grid');
+
+        function openProjectModal(slug) {
+            const p = projectsData[slug];
+            if (!p) return;
+
+            modalTitle.textContent = p.title;
+            modalClient.innerHTML = '<strong>Client:</strong> ' + p.client;
+            modalCategory.innerHTML = '<strong>Work Delivered:</strong> ' + p.workDone.map(function(w) {
+                return '<span class="work-done-pill">' + w + '</span>';
+            }).join(' ');
+
+            modalGallery.innerHTML = p.gallery.map(function(img) {
+                return '<img src="' + img + '" alt="' + p.title + '" loading="lazy">';
+            }).join('');
+
+            if (p.similar && p.similar.length > 0) {
+                var simCardsHtml = p.similar.map(function(simSlug) {
+                    var simProj = projectsData[simSlug];
+                    if (!simProj) return '';
+                    return '<div class="similar-card" data-simslug="' + simProj.slug + '">' +
+                        '<img src="' + simProj.thumbnail + '" alt="' + simProj.title + '" class="similar-card-img">' +
+                        '<div class="similar-card-body">' +
+                            '<h4 class="similar-card-title">' + simProj.title + '</h4>' +
+                            '<div class="similar-card-cat">' + (simProj.workDone && simProj.workDone[0] ? simProj.workDone[0] : '') + '</div>' +
+                        '</div>' +
+                    '</div>';
+                }).join('');
+                modalSimilarGrid.innerHTML = simCardsHtml;
+                document.querySelector('.modal-similar-section').style.display = 'block';
+
+                modalSimilarGrid.querySelectorAll('.similar-card').forEach(function(card) {
+                    card.addEventListener('click', function() {
+                        var s = this.getAttribute('data-simslug');
+                        if (s) openProjectModal(s);
+                    });
+                });
+            } else {
+                document.querySelector('.modal-similar-section').style.display = 'none';
+            }
+
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+            modal.querySelector('.modal-container').scrollTop = 0;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            if (!modal) return;
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        if (modalClose) {
+            modalClose.addEventListener('click', closeProjectModal);
+        }
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeProjectModal();
+            });
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+                closeProjectModal();
+            }
+        });
+
+        document.querySelectorAll('.hp-card').forEach(function(card) {
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                var slug = this.getAttribute('data-slug');
+                if (slug) openProjectModal(slug);
+            });
+            card.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    var slug = this.getAttribute('data-slug');
+                    if (slug) openProjectModal(slug);
+                }
+            });
+        });
     </script>
 </body>
 </html>
