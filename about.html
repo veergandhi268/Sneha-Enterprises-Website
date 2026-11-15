@@ -584,43 +584,54 @@
         }
         .crest-frame-outer {
             position: relative;
-            width: 230px;
-            height: 230px;
-            border-radius: 50%;
+            width: 240px;
+            height: 240px;
+            border-radius: 12px;
             padding: 8px;
-            background: linear-gradient(135deg, rgba(240,204,80,0.85) 0%, rgba(160,120,32,0.35) 50%, rgba(240,204,80,0.9) 100%);
-            box-shadow: 0 15px 45px rgba(0,0,0,0.65), 0 0 45px rgba(212,175,55,0.22);
+            background: linear-gradient(135deg, #f0cc50 0%, #a07820 25%, #fff1b0 50%, #8c6014 75%, #f0cc50 100%);
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.75), 0 0 40px rgba(212, 175, 55, 0.28);
             transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        .crest-frame-outer::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            pointer-events: none;
         }
         .crest-frame-outer:hover {
             transform: scale(1.03);
-            box-shadow: 0 20px 55px rgba(0,0,0,0.8), 0 0 60px rgba(212,175,55,0.35);
+            box-shadow: 0 20px 55px rgba(0, 0, 0, 0.85), 0 0 60px rgba(212, 175, 55, 0.45);
         }
         .crest-frame-inner {
             width: 100%;
             height: 100%;
-            border-radius: 50%;
-            background: radial-gradient(circle at center, #261407 0%, #0d0900 80%);
-            border: 2px solid rgba(212,175,55,0.45);
+            border-radius: 6px;
+            background: #0d0900;
+            border: 2px solid rgba(212, 175, 55, 0.55);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
-            box-shadow: inset 0 0 25px rgba(212,175,55,0.18);
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.7);
         }
         .director-photo {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 15%;
+            object-position: center 10%;
             display: block;
-            border-radius: 50%;
+            border-radius: 4px;
+            image-rendering: -webkit-optimize-contrast;
+            transform: translateZ(0);
+            backface-visibility: hidden;
             transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         }
         .crest-frame-outer:hover .director-photo {
-            transform: scale(1.06);
+            transform: scale(1.05) translateZ(0);
         }
         .crest-monogram {
             font-family: 'Bodoni Moda', serif;
@@ -883,8 +894,9 @@
                 border-radius: 20px;
             }
             .crest-frame-outer {
-                width: 190px;
-                height: 190px;
+                width: 210px;
+                height: 210px;
+                border-radius: 10px;
             }
             .crest-monogram {
                 font-size: 3.8rem;
@@ -958,9 +970,10 @@
                 gap: 8px;
             }
             .crest-frame-outer {
-                width: 160px;
-                height: 160px;
+                width: 180px;
+                height: 180px;
                 padding: 6px;
+                border-radius: 10px;
             }
             .crest-monogram {
                 font-size: 3.2rem;
@@ -1530,7 +1543,7 @@
                     <div class="leadership-crest-side">
                         <div class="crest-frame-outer" title="Tushar Gandhi - Chairman &amp; Managing Director">
                             <div class="crest-frame-inner">
-                                <img src="assets/images/tushar_gandhi.jpg" alt="Tushar Gandhi - Chairman &amp; Managing Director" class="director-photo">
+                                <img src="assets/images/tushar_gandhi.jpg" alt="Tushar Gandhi - Chairman &amp; Managing Director" class="director-photo" width="1024" height="951" loading="eager" decoding="async">
                             </div>
                         </div>
                         <div class="leadership-title-badge">
