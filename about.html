@@ -299,18 +299,11 @@
         }
         .story-video {
             width: 100%; display: block; border-radius: 20px;
-            aspect-ratio: 16/9; object-fit: cover;
+            aspect-ratio: 16/9; object-fit: cover; cursor: pointer;
         }
         .story-play-btn {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-            width: 80px; height: 80px; border-radius: 50%;
-            background: rgba(212,175,55,0.2); 
-            border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center;
-            cursor: pointer; transition: all 0.4s ease; z-index: 5;
+            display: none !important;
         }
-        .story-play-btn:hover { background: rgba(212,175,55,0.4); transform: translate(-50%,-50%) scale(1.1); }
-        .story-play-btn svg { width: 30px; height: 30px; fill: var(--gold); margin-left: 4px; }
-        .story-play-btn.hidden { opacity: 0; pointer-events: none; }
 
         .story-text p {
             font-size: 1.1rem; line-height: 1.9; color: rgba(255,225,185,0.75);
@@ -570,7 +563,7 @@
         }
         .leadership-grid {
             display: grid;
-            grid-template-columns: 330px 1fr;
+            grid-template-columns: 400px 1fr;
             gap: clamp(40px, 5vw, 65px);
             align-items: center;
             position: relative;
@@ -584,39 +577,41 @@
         }
         .crest-frame-outer {
             position: relative;
-            width: 240px;
-            height: 240px;
-            border-radius: 12px;
-            padding: 8px;
+            width: 370px;
+            height: 370px;
+            max-width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 18px;
+            padding: 10px;
             background: linear-gradient(135deg, #f0cc50 0%, #a07820 25%, #fff1b0 50%, #8c6014 75%, #f0cc50 100%);
-            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.75), 0 0 40px rgba(212, 175, 55, 0.28);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85), 0 0 55px rgba(212, 175, 55, 0.35);
             transition: transform 0.5s ease, box-shadow 0.5s ease;
         }
         .crest-frame-outer::before {
             content: '';
             position: absolute;
-            inset: -4px;
-            border-radius: 16px;
-            border: 1px solid rgba(212, 175, 55, 0.35);
+            inset: -5px;
+            border-radius: 22px;
+            border: 1.5px solid rgba(212, 175, 55, 0.4);
             pointer-events: none;
         }
         .crest-frame-outer:hover {
-            transform: scale(1.03);
-            box-shadow: 0 20px 55px rgba(0, 0, 0, 0.85), 0 0 60px rgba(212, 175, 55, 0.45);
+            transform: scale(1.02);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9), 0 0 70px rgba(212, 175, 55, 0.5);
         }
         .crest-frame-inner {
             width: 100%;
             height: 100%;
-            border-radius: 6px;
+            border-radius: 10px;
             background: #0d0900;
-            border: 2px solid rgba(212, 175, 55, 0.55);
+            border: 2px solid rgba(212, 175, 55, 0.6);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
-            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.7);
+            box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.7);
         }
         .director-photo {
             width: 100%;
@@ -624,14 +619,14 @@
             object-fit: cover;
             object-position: center 10%;
             display: block;
-            border-radius: 4px;
+            border-radius: 8px;
             image-rendering: -webkit-optimize-contrast;
             transform: translateZ(0);
             backface-visibility: hidden;
             transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         }
         .crest-frame-outer:hover .director-photo {
-            transform: scale(1.05) translateZ(0);
+            transform: scale(1.04) translateZ(0);
         }
         .crest-monogram {
             font-family: 'Bodoni Moda', serif;
@@ -863,6 +858,11 @@
             .leadership-crest-side {
                 margin: 0 auto;
             }
+            .crest-frame-outer {
+                width: 340px;
+                height: 340px;
+                margin: 0 auto;
+            }
             .leadership-role-pill {
                 margin: 0 auto 12px;
             }
@@ -894,9 +894,10 @@
                 border-radius: 20px;
             }
             .crest-frame-outer {
-                width: 210px;
-                height: 210px;
-                border-radius: 10px;
+                width: 290px;
+                height: 290px;
+                border-radius: 14px;
+                padding: 8px;
             }
             .crest-monogram {
                 font-size: 3.8rem;
@@ -970,10 +971,10 @@
                 gap: 8px;
             }
             .crest-frame-outer {
-                width: 180px;
-                height: 180px;
+                width: 250px;
+                height: 250px;
                 padding: 6px;
-                border-radius: 10px;
+                border-radius: 12px;
             }
             .crest-monogram {
                 font-size: 3.2rem;
@@ -1481,10 +1482,10 @@
         <div class="story-grid">
             <div class="reveal-left">
                 <div class="story-video-wrap">
-                    <video class="story-video" id="storyVideo" muted playsinline preload="metadata" poster="">
+                    <video class="story-video" id="storyVideo" muted playsinline loop autoplay preload="auto" poster="">
                         <source src="assets/images/Sneha website final.mp4" type="video/mp4">
                     </video>
-                    <div class="story-play-btn" id="playBtn">
+                    <div class="story-play-btn" id="playBtn" style="display: none;">
                         <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
                     </div>
                 </div>
@@ -1910,23 +1911,51 @@
             draw();
         })();
 
-        // ── Video Play/Pause ──
+        // ── Top Story Video: Autoplay in loop & restart from start when user comes into view ──
         (function() {
             var vid = document.getElementById('storyVideo');
-            var btn = document.getElementById('playBtn');
-            if (!vid || !btn) return;
-            btn.addEventListener('click', function() {
+            if (!vid) return;
+
+            vid.muted = true;
+            vid.loop = true;
+
+            var playVideo = function() {
+                var p = vid.play();
+                if (p !== undefined) {
+                    p.catch(function() {});
+                }
+            };
+
+            // Initial play attempt on load
+            playVideo();
+
+            // Whenever user comes around it, restart from start & play; pause when out of view
+            var hasIntersected = false;
+            var videoObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        try {
+                            vid.currentTime = 0;
+                            playVideo();
+                        } catch (e) {}
+                        hasIntersected = true;
+                    } else {
+                        if (hasIntersected) {
+                            try { vid.pause(); } catch (e) {}
+                        }
+                    }
+                });
+            }, { threshold: 0.25 });
+
+            videoObserver.observe(vid);
+
+            // Click video to toggle pause/play
+            vid.addEventListener('click', function() {
                 if (vid.paused) {
                     vid.play();
-                    btn.classList.add('hidden');
                 } else {
                     vid.pause();
-                    btn.classList.remove('hidden');
                 }
-            });
-            vid.addEventListener('ended', function() { btn.classList.remove('hidden'); });
-            vid.addEventListener('click', function() {
-                if (!vid.paused) { vid.pause(); btn.classList.remove('hidden'); }
             });
         })();
 
