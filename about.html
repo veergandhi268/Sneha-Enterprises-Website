@@ -570,7 +570,7 @@
             display: grid;
             grid-template-columns: 330px 1fr;
             gap: clamp(40px, 5vw, 65px);
-            align-items: center;
+            align-items: start;
             position: relative;
             z-index: 2;
         }
@@ -579,6 +579,9 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            position: sticky;
+            top: 120px;
+            align-self: start;
         }
         .crest-frame-outer {
             position: relative;
@@ -665,10 +668,10 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 6px 16px;
+            padding: 6px 18px;
             border-radius: 30px;
             background: rgba(212,175,55,0.12);
-            border: 1px solid rgba(212,175,55,0.35);
+            border: 1px solid rgba(212,175,55,0.4);
             color: var(--gold-light);
             font-size: 0.78rem;
             font-weight: 600;
@@ -698,46 +701,160 @@
             font-weight: 500;
             color: var(--gold);
             letter-spacing: 1px;
-            margin-bottom: 22px;
+            margin-bottom: 24px;
             text-transform: uppercase;
         }
-        .leadership-quote-card {
+        .leadership-manifesto-card {
             position: relative;
-            background: rgba(13,9,0,0.65);
-            border-left: 3px solid var(--gold);
-            border-radius: 0 16px 16px 0;
-            padding: 20px 24px 20px 32px;
-            margin-bottom: 22px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, rgba(42, 21, 8, 0.75) 0%, rgba(13, 9, 0, 0.95) 100%);
+            border-left: 4px solid var(--gold);
+            border-top: 1px solid rgba(212, 175, 55, 0.25);
+            border-right: 1px solid rgba(212, 175, 55, 0.15);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 0 18px 18px 0;
+            padding: 24px 28px 24px 34px;
+            margin-bottom: 26px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 0 25px rgba(212, 175, 55, 0.06);
         }
-        .quote-icon {
+        .manifesto-quote-mark {
             position: absolute;
-            top: 6px;
+            top: 4px;
             left: 10px;
             font-family: 'Bodoni Moda', serif;
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             line-height: 1;
-            color: rgba(212,175,55,0.35);
+            color: rgba(212, 175, 55, 0.4);
             font-style: italic;
             pointer-events: none;
         }
-        .quote-body {
+        .manifesto-text {
             font-family: 'Bodoni Moda', serif;
-            font-size: clamp(1.05rem, 1.4vw, 1.22rem);
+            font-size: clamp(1.1rem, 1.5vw, 1.35rem);
             font-style: italic;
+            font-weight: 500;
             line-height: 1.65;
-            color: #f5eedf;
-            margin: 0;
+            color: #fff6e5;
+            margin: 0 0 10px 0;
+            letter-spacing: 0.3px;
         }
-        .leadership-bio p {
-            font-size: 0.98rem;
-            line-height: 1.85;
-            color: rgba(255,225,185,0.8);
-            margin-bottom: 14px;
+        .manifesto-author {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            color: var(--gold);
+            text-transform: uppercase;
+            text-align: right;
         }
-        .leadership-bio p strong {
+        .leadership-message {
+            margin-bottom: 24px;
+        }
+        .message-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        .message-line {
+            width: 32px;
+            height: 1px;
+            background: var(--gold);
+        }
+        .message-label {
+            font-size: 0.74rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+        }
+        .leadership-message p {
+            font-size: 1.02rem;
+            line-height: 1.95;
+            color: rgba(255, 235, 205, 0.9);
+            margin-bottom: 18px;
+            font-weight: 300;
+            letter-spacing: 0.2px;
+        }
+        .leadership-message p strong {
             color: #ffffff;
             font-weight: 600;
+        }
+        .leadership-message p em {
+            color: var(--gold-light);
+            font-style: italic;
+        }
+        .leadership-message .message-lead {
+            font-size: 1.12rem;
+            line-height: 2;
+            color: #ffffff;
+            border-left: 2px solid rgba(212, 175, 55, 0.45);
+            padding-left: 18px;
+            margin-bottom: 20px;
+        }
+        .leadership-message .message-pledge {
+            background: rgba(212, 175, 55, 0.07);
+            border: 1px dashed rgba(212, 175, 55, 0.35);
+            border-radius: 14px;
+            padding: 18px 22px;
+            color: #fff6e5;
+            margin-top: 22px;
+            margin-bottom: 0;
+        }
+        .executive-signoff-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 22px 0 24px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            margin-bottom: 28px;
+        }
+        .signature-cursive {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 2.6rem;
+            font-style: italic;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            line-height: 1;
+            background: linear-gradient(120deg, #d4af37 0%, #ffffff 45%, #f0cc50 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 6px;
+        }
+        .signoff-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 3px;
+        }
+        .signoff-title {
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+        .executive-seal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 20px;
+            border-radius: 50px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.38);
+            color: var(--gold-light);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .seal-icon {
+            width: 14px;
+            height: 14px;
+            fill: var(--gold);
         }
         .leadership-pillars {
             display: grid;
@@ -836,13 +953,25 @@
                 text-align: center;
             }
             .leadership-crest-side {
-                margin: 0 auto;
+                position: static;
+                align-self: center;
+                margin: 0 auto 20px;
             }
             .leadership-role-pill {
                 margin: 0 auto 12px;
             }
-            .leadership-quote-card {
+            .leadership-manifesto-card {
                 text-align: left;
+            }
+            .leadership-message p {
+                text-align: left;
+            }
+            .message-eyebrow {
+                justify-content: center;
+            }
+            .executive-signoff-wrap {
+                justify-content: center;
+                text-align: center;
             }
             .leadership-actions {
                 justify-content: center;
@@ -882,6 +1011,30 @@
                 font-size: 0.68rem;
                 padding: 6px 14px;
                 letter-spacing: 1.5px;
+            }
+            .leadership-manifesto-card {
+                padding: 20px 18px 20px 24px;
+                border-radius: 0 14px 14px 0;
+            }
+            .manifesto-text {
+                font-size: 1.05rem;
+            }
+            .leadership-message p {
+                font-size: 0.95rem;
+                line-height: 1.8;
+            }
+            .leadership-message .message-lead {
+                font-size: 1.02rem;
+                padding-left: 14px;
+            }
+            .executive-signoff-wrap {
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+                text-align: center;
+            }
+            .signature-cursive {
+                font-size: 2.1rem;
             }
             .leadership-pillars {
                 gap: 10px;
@@ -1502,10 +1655,10 @@
             <div class="leadership-header reveal">
                 <div class="section-eyebrow eyebrow-center">
                     <span class="line"></span>
-                    <span class="label">Visionary Leadership</span>
+                    <span class="label">Managing Director's Address</span>
                     <span class="line"></span>
                 </div>
-                <h2 class="section-heading">The Vision Behind <span class="gold">25 Years</span> of Excellence</h2>
+                <h2 class="section-heading">The Vision Behind <span class="gold">25 Years</span> of Creative Leadership</h2>
             </div>
 
             <div class="leadership-showcase-card reveal">
@@ -1532,35 +1685,63 @@
                     <div class="leadership-content-side">
                         <div class="leadership-role-pill">
                             <span class="pill-dot"></span>
-                            <span>Chairman &amp; Managing Director</span>
+                            <span>Managing Director's Address</span>
                         </div>
 
                         <h3 class="cmd-name">Tushar Gandhi</h3>
-                        <p class="cmd-role-descriptor">Founder, Chairman &amp; Managing Director | Visionary Brand Architect</p>
+                        <p class="cmd-role-descriptor">Founder, Chairman &amp; Managing Director | 25+ Years of Creative Mastery</p>
 
-                        <!-- Luxury Golden Quote -->
-                        <div class="leadership-quote-card">
-                            <div class="quote-icon">“</div>
-                            <blockquote class="quote-body">
-                                Advertising is not merely about visibility — it is the high art of shaping perception, earning lasting trust, and building brand legacies that endure for generations.
+                        <!-- Executive Manifesto Callout -->
+                        <div class="leadership-manifesto-card">
+                            <div class="manifesto-quote-mark">“</div>
+                            <blockquote class="manifesto-text">
+                                We do not create advertising to merely fill empty space or ride fleeting trends. We exist to shape human perception, command market authority, and build timeless brand dynasties that outlast generations.
                             </blockquote>
+                            <div class="manifesto-author">— Tushar Gandhi</div>
                         </div>
 
-                        <!-- Bio Narrative -->
-                        <div class="leadership-bio">
-                            <p>For more than 25 years, <strong>Mr. Tushar Gandhi</strong> has guided Sneha Enterprises with unwavering creative conviction and astute commercial vision. From pioneering innovative mainline advertising campaigns to steering multi-channel digital transformations, his leadership has cemented the agency’s standing as a trusted partner for India's leading enterprises, real estate pioneers, and luxury brands.</p>
-                            <p>Under his direction, Sneha Enterprises operates on a client-first philosophy: fusing bold artistic expression with precise strategic execution to deliver measurable, monumental impact.</p>
+                        <!-- Powerful MD Message -->
+                        <div class="leadership-message">
+                            <div class="message-eyebrow">
+                                <span class="message-line"></span>
+                                <span class="message-label">From The Chairman &amp; MD's Desk</span>
+                            </div>
+                            <p class="message-lead">
+                                "When I founded <strong>Sneha Enterprises in 2001</strong>, Mumbai was on the precipice of an advertising revolution. I established this firm with one non-negotiable principle: <em>never treat a client’s brand as a routine commercial transaction, but as a sacred trust, a strategic ambition, and an enduring legacy.</em>"
+                            </p>
+                            <p>
+                                "Over the past 25 years, platforms have transformed, algorithms have emerged, and consumer attention has become fiercely fragmented. Yet the foundational law of branding remains unyielding: <strong>bold creative audacity, anchored by rigorous commercial strategy, will always dominate the market.</strong>"
+                            </p>
+                            <p>
+                                "At Sneha Enterprises, 360-degree advertising is not a buzzword — it is our battle-hardened operating discipline. Whether orchestrating monumental mainline outdoor media, capturing national authority through high-impact print, producing cinematic television and digital commercials, or architecting performance-driven digital ecosystems, we ensure your brand does not whisper in the noise — <strong>it commands the market.</strong>"
+                            </p>
+                            <p class="message-pledge">
+                                "To the visionary entrepreneurs, corporate stalwarts, and brand custodians who entrust us with their growth: my personal promise to you is absolute. You will never encounter complacent execution or generic formulas. You will command our sharpest strategic minds, our fiercest creative passion, and the full weight of a 25-year legacy engineered for one definitive outcome — <strong>your undisputed market leadership.</strong>"
+                            </p>
+                        </div>
+
+                        <!-- Executive Sign-off -->
+                        <div class="executive-signoff-wrap">
+                            <div class="signoff-left">
+                                <div class="signature-cursive">Tushar Gandhi</div>
+                                <div class="signoff-name">Tushar Gandhi</div>
+                                <div class="signoff-title">Chairman &amp; Managing Director • Sneha Enterprises</div>
+                            </div>
+                            <div class="executive-seal-badge">
+                                <svg class="seal-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                <span>25-YEAR EXECUTIVE PLEDGE</span>
+                            </div>
                         </div>
 
                         <!-- Highlights / Pillars -->
                         <div class="leadership-pillars">
                             <div class="pillar-box">
                                 <div class="pillar-num">25+</div>
-                                <div class="pillar-txt">Years of Visionary Leadership</div>
+                                <div class="pillar-txt">Years of Visionary Governance</div>
                             </div>
                             <div class="pillar-box">
                                 <div class="pillar-num">500+</div>
-                                <div class="pillar-txt">Brand Campaigns Directed</div>
+                                <div class="pillar-txt">Brand Campaigns Commanded</div>
                             </div>
                             <div class="pillar-box">
                                 <div class="pillar-num">360°</div>
