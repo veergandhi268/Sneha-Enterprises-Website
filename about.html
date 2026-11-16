@@ -532,6 +532,8 @@
         }
         .leadership-showcase-card {
             position: relative;
+            max-width: 980px;
+            margin: 0 auto;
             border-radius: 28px;
             background: linear-gradient(145deg, rgba(38,20,7,0.72) 0%, rgba(13,9,0,0.88) 50%, rgba(30,15,6,0.72) 100%);
             border: 1px solid rgba(212,175,55,0.32);
@@ -561,98 +563,9 @@
             pointer-events: none;
             filter: blur(40px);
         }
-        .leadership-grid {
-            display: grid;
-            grid-template-columns: 400px 1fr;
-            gap: clamp(40px, 5vw, 65px);
-            align-items: center;
+        .leadership-content-side {
             position: relative;
             z-index: 2;
-        }
-        .leadership-crest-side {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        .crest-frame-outer {
-            position: relative;
-            width: 370px;
-            height: 370px;
-            max-width: 100%;
-            aspect-ratio: 1 / 1;
-            border-radius: 18px;
-            padding: 10px;
-            background: linear-gradient(135deg, #f0cc50 0%, #a07820 25%, #fff1b0 50%, #8c6014 75%, #f0cc50 100%);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85), 0 0 55px rgba(212, 175, 55, 0.35);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-        }
-        .crest-frame-outer::before {
-            content: '';
-            position: absolute;
-            inset: -5px;
-            border-radius: 22px;
-            border: 1.5px solid rgba(212, 175, 55, 0.4);
-            pointer-events: none;
-        }
-        .crest-frame-outer:hover {
-            transform: scale(1.02);
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9), 0 0 70px rgba(212, 175, 55, 0.5);
-        }
-        .crest-frame-inner {
-            width: 100%;
-            height: 100%;
-            border-radius: 10px;
-            background: #0d0900;
-            border: 2px solid rgba(212, 175, 55, 0.6);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.7);
-        }
-        .director-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 10%;
-            display: block;
-            border-radius: 8px;
-            image-rendering: -webkit-optimize-contrast;
-            transform: translateZ(0);
-            backface-visibility: hidden;
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        .crest-frame-outer:hover .director-photo {
-            transform: scale(1.04) translateZ(0);
-        }
-        .crest-monogram {
-            font-family: 'Bodoni Moda', serif;
-            font-size: 4.8rem;
-            font-weight: 700;
-            font-style: italic;
-            line-height: 1;
-            background: linear-gradient(135deg, #f0cc50 0%, #ffffff 45%, #d4af37 85%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 4px 15px rgba(212,175,55,0.4));
-            margin-bottom: 2px;
-        }
-        .crest-stars {
-            color: var(--gold);
-            font-size: 0.72rem;
-            letter-spacing: 6px;
-            margin-bottom: 4px;
-            opacity: 0.9;
-        }
-        .crest-sub {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 3px;
-            color: rgba(255,225,185,0.75);
-            text-transform: uppercase;
         }
         .leadership-role-pill {
             display: inline-flex;
@@ -668,8 +581,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             box-shadow: 0 4px 20px rgba(212,175,55,0.18);
-            margin-top: 20px;
-            margin-bottom: 0;
+            margin-bottom: 14px;
             transition: all 0.3s ease;
         }
         .leadership-role-pill:hover {
@@ -832,27 +744,11 @@
             .values-grid { grid-template-columns: 1fr 1fr; }
             .hero-title { font-size: 3.5rem; }
             .section-heading { font-size: 2.8rem; }
-            .leadership-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-                text-align: center;
-            }
-            .leadership-crest-side {
-                margin: 0 auto;
-            }
-            .crest-frame-outer {
-                width: 340px;
-                height: 340px;
-                margin: 0 auto;
+            .leadership-showcase-card {
+                padding: 40px 30px;
             }
             .leadership-role-pill {
-                margin: 18px auto 0;
-            }
-            .leadership-quote-card {
-                text-align: left;
-            }
-            .leadership-actions {
-                justify-content: center;
+                margin-bottom: 12px;
             }
             .innovative-services-grid {
                 grid-template-columns: 1fr;
@@ -872,17 +768,8 @@
             .nav-links a { font-size: 0.75rem; }
             .section-pad { padding: 60px 18px; }
             .leadership-showcase-card {
-                padding: 32px 20px;
+                padding: 30px 18px;
                 border-radius: 20px;
-            }
-            .crest-frame-outer {
-                width: 290px;
-                height: 290px;
-                border-radius: 14px;
-                padding: 8px;
-            }
-            .crest-monogram {
-                font-size: 3.8rem;
             }
             .cmd-name {
                 font-size: 2.2rem;
@@ -891,7 +778,7 @@
                 font-size: 0.72rem;
                 padding: 6px 18px;
                 letter-spacing: 1.5px;
-                margin: 14px auto 0;
+                margin-bottom: 10px;
             }
             .leadership-pillars {
                 gap: 10px;
@@ -947,26 +834,16 @@
         @media (max-width: 480px) {
             .section-pad { padding: 50px 14px !important; }
             .leadership-showcase-card {
-                padding: 26px 15px !important;
+                padding: 24px 14px !important;
             }
-            .leadership-pillars {
-                grid-template-columns: 1fr;
-                gap: 8px;
-            }
-            .crest-frame-outer {
-                width: 260px;
-                height: 260px;
-                padding: 6px;
-                border-radius: 12px;
-            }
-            .crest-monogram {
-                font-size: 3.2rem;
+            .cmd-name {
+                font-size: 1.95rem;
             }
             .leadership-role-pill {
                 font-size: 0.68rem;
                 padding: 6px 14px;
                 letter-spacing: 1.2px;
-                margin: 12px auto 0;
+                margin-bottom: 8px;
             }
             .innovative-services-grid .section-heading {
                 font-size: 1.65rem !important;
@@ -1524,24 +1401,14 @@
             <div class="leadership-showcase-card reveal">
                 <div class="card-glow-halo"></div>
 
-                <div class="leadership-grid">
-                    <!-- Left Column: Prestigious Portrait & Role Badge -->
-                    <div class="leadership-crest-side">
-                        <div class="crest-frame-outer" title="Tushar Gandhi - Chairman &amp; Managing Director">
-                            <div class="crest-frame-inner">
-                                <img src="assets/images/tushar_gandhi.jpg" alt="Tushar Gandhi - Chairman &amp; Managing Director" class="director-photo" width="1024" height="951" loading="eager" decoding="async">
-                            </div>
-                        </div>
-                        <div class="leadership-role-pill">
-                            <span class="pill-dot"></span>
-                            <span>Chairman &amp; Managing Director</span>
-                        </div>
+                <div class="leadership-content-side">
+                    <div class="leadership-role-pill">
+                        <span class="pill-dot"></span>
+                        <span>Chairman &amp; Managing Director</span>
                     </div>
 
-                    <!-- Right Column: Leadership Narrative & Distinction -->
-                    <div class="leadership-content-side">
-                        <h3 class="cmd-name">Tushar Gandhi</h3>
-                        <p class="cmd-role-descriptor">Founder, Chairman &amp; Managing Director</p>
+                    <h3 class="cmd-name">Tushar Gandhi</h3>
+                    <p class="cmd-role-descriptor">Founder, Chairman &amp; Managing Director</p>
 
                         <!-- Luxury Golden Quote -->
                         <div class="leadership-quote-card">
@@ -1585,7 +1452,6 @@
                             </a>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </section>
