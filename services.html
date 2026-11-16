@@ -2067,12 +2067,12 @@
                 <div class="stat-label">Years of Excellence</div>
             </div>
             <div class="stat-card reveal reveal-d2">
-                <div class="stat-num" data-count="500">0</div>
+                <div class="stat-num" data-count="1000">0</div>
                 <div class="stat-label">Projects Delivered</div>
             </div>
             <div class="stat-card reveal reveal-d3">
-                <div class="stat-num" data-count="120">0</div>
-                <div class="stat-label">Clients Served</div>
+                <div class="stat-num" data-count="1000">0</div>
+                <div class="stat-label">Satisfied Clients</div>
             </div>
             <div class="stat-card reveal reveal-d4">
                 <div class="stat-num" data-count="4">0</div>
@@ -2483,7 +2483,7 @@
                 if (e.isIntersecting) {
                     const el = e.target;
                     const target = parseInt(el.dataset.count);
-                    const suffix = target >= 500 ? '+' : (target === 25 ? '+' : (target === 120 ? '+' : ''));
+                    const suffix = target >= 25 ? '+' : '';
                     const duration = 1800;
                     const start = performance.now();
                     function tick(now) {
